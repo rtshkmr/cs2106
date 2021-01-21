@@ -1,8 +1,8 @@
 /*************************************
-* Lab 1 Exercise 1
-* Name:
-* Matric No:
-* Lab Group:
+* Lab 1 Exercise 2
+* Name: Fang Junwei, Samuel
+* Matric No: A0199163U
+* Lab Group: B01
 *************************************/
 
 #include <stdio.h>
@@ -21,14 +21,17 @@ node* insertAt(node*, int, int, int);
 void printList(node*);
 void destroyList(node*);
 
-
-
 int main()
 {
     node* myList = NULL;    //Empty List
-    int position, input;
+    int position, newValue, copies;
 
     //Fill in code for input and processing
+    while (scanf("%i %i %i", &position, &newValue, &copies) > 0)
+    {
+        //Add to head
+        myList = insertAt(myList, position, copies, newValue);
+    } 
 
     //Output code coded for you
     printf("My List:\n");
@@ -37,7 +40,6 @@ int main()
     destroyList(myList);
     myList = NULL;
 
-    
     printf("My List After Destroy:\n");
     printList(myList);
  
@@ -47,8 +49,19 @@ int main()
 //Actual Function Implementations
 node* insertAt(node* head, int position, int copies, int newValue)
 {
-    //Fill in your code here
-    return NULL;    //change this!
+    if (position > 0 && head != NULL) {
+        head->next = insertAt(head->next, position - 1, copies, newValue);
+
+        return head;
+    } else {
+        node* newHead = malloc(sizeof(node));
+        newHead->data = newValue;
+        newHead->next = copies > 1 
+            ? insertAt(head, position, copies - 1, newValue) 
+            : head;
+
+        return newHead;
+    }
 }
  
 void printList(node* head)
@@ -66,8 +79,13 @@ void printList(node* head)
 }
 
 void destroyList(node* head)
-{
-     
-    //Fill in your code here
-    //You can use the same implementation as in exercise 1
+{ 
+    while(head) {
+        node* nextHead = head->next;
+
+        free(head);
+        head = NULL;
+
+        head = nextHead;
+    }
 }

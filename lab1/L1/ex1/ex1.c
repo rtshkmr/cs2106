@@ -28,7 +28,8 @@ int main()
     int input;
 
     
-    while (scanf("%i",&input) == 1){
+    while (scanf("%i",&input) == 1)
+    {
         //Add to head
         myList = addToHead(myList, input);
     } 
@@ -52,7 +53,7 @@ int main()
 node* addToHead(node* head, int newData)
 {
     node* newHead;
-    
+
     newHead = malloc(sizeof(node));
     newHead->data = newData;
     newHead->next = head;
@@ -68,7 +69,8 @@ void printList(node* head)
     //This function has been implemented for you
     node* ptr = head;
 
-    while (ptr != NULL)  {    //or you can write while(ptr)
+    while (ptr != NULL)
+    {    //or you can write while(ptr)
         printf("%i ", ptr->data);
         ptr = ptr->next;
     }
@@ -77,7 +79,8 @@ void printList(node* head)
 
 void destroyList(node* head)
 {
-    while(head) {
+    while(head)
+    {
         node* nextHead = head->next;
 
         free(head);
