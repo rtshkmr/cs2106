@@ -52,9 +52,11 @@ int main()
 node* addToHead(node* head, int newData)
 {
     node* newHead;
+    
     newHead = malloc(sizeof(node));
     newHead->data = newData;
     newHead->next = head;
+
     return newHead;
 }
 
