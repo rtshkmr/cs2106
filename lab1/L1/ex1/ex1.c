@@ -1,8 +1,8 @@
 /*************************************
 * Lab 1 Exercise 1
-* Name:
-* Matric No:
-* Lab Group:
+* Name: Fang Junwei, Samuel
+* Matric No: A0199163U
+* Lab Group: B01
 *************************************/
 
 #include <stdio.h>
@@ -30,6 +30,7 @@ int main()
     
     while (scanf("%i",&input) == 1){
         //Add to head
+        myList = addToHead(myList, input);
     } 
 
     //Print out the linked list
@@ -39,7 +40,7 @@ int main()
     destroyList(myList);
     myList = NULL;
 
-    //Print out the linked list after destruction
+    // //Print out the linked list after destruction
     printf("My List After Destroy:\n");
     printList(myList);
     
@@ -50,10 +51,11 @@ int main()
 //Function Implementations
 node* addToHead(node* head, int newData)
 {
-    //Fill in your code here
-
-
-    return NULL;    //change this
+    node* newHead;
+    newHead = malloc(sizeof(node));
+    newHead->data = newData;
+    newHead->next = head;
+    return newHead;
 }
 
 void printList(node* head)
@@ -73,5 +75,12 @@ void printList(node* head)
 
 void destroyList(node* head)
 {
-    //Fill in your code here
+    while(head) {
+        node* nextHead = head->next;
+
+        free(head);
+        head = NULL;
+
+        head = nextHead;
+    }
 }
