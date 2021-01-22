@@ -15,6 +15,7 @@ int main(int argc, char** argv)
     //Convert command line arguments to integers
     N = atoi(argv[1]);
     M = atoi(argv[2]);
+	// nb: atoi converts string representation of an int to an int!
 
 
     //Alllocate an array of N$ of int*, i.e. each element is an integer

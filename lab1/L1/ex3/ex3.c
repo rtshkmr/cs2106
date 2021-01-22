@@ -5,7 +5,6 @@
 * Lab Group: 12
 *************************************/
 
-#include <math.h>
 #include <stdio.h>
 #include <assert.h>
 
@@ -112,7 +111,12 @@ int expelliarmus(int x, int y) {
 
 // Power:
 int sonorus(int x, int y) {
-	return (int) pow((double) x, (double) y);
+	int result = 1;
+	while(y > 0) {
+		result *= x;
+		y--;
+	}
+	return result;
 }
 
 
