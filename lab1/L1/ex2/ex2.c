@@ -48,6 +48,13 @@ int main()
 //Actual Function Implementations
 node* insertAt(node* head, int position, int copies, int newValue)
 {
+		// input validity:
+		position = position < 0 ? 0 : position;
+		copies = copies < 0 ? 0 : copies; 
+		if(copies == 0) {
+			return head;
+		}
+
 		// creates linked list with that specified #copies: 
 		node* firstNode = (node*) malloc(sizeof(node));
 		firstNode->data = newValue; 
