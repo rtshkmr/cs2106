@@ -1,9 +1,16 @@
 /*************************************
- * Lab 1 Exercise 1
+ * Lab 1 Exercise 2
  * Name: Ritesh Kumar
  * Matric No: A0201829H
  * Lab Group: 12
  *************************************/
+
+/*************************************
+* Lab 1 Exercise 2
+* Name: Fang Junwei, Samuel
+* Matric No: A0199163U
+* Lab Group: 01
+*************************************/
 
 #include <stdio.h>
 #include <stdlib.h> //for malloc() and free()
@@ -58,6 +65,7 @@ node* insertAt(node* head, int position, int copies, int newValue)
 		// creates linked list with that specified #copies: 
 		node* firstNode = (node*) malloc(sizeof(node));
 		firstNode->data = newValue; 
+		firstNode->next = NULL;
 		node* lastNode = firstNode;
 		while(copies > 1) {
 				node* nextNodePtr = (node*) malloc(sizeof(node));

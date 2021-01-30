@@ -5,6 +5,13 @@
 * Lab Group: 12
 *************************************/
 
+/*************************************
+* Lab 1 Exercise 3
+* Name: Fang Junwei, Samuel
+* Matric No: A0199163U
+* Lab Group: 01
+*************************************/
+
 #include <stdio.h>
 #include <assert.h>
 
@@ -105,7 +112,6 @@ int expelliarmus(int x, int y) {
 		x /= y;
 	}
 	return x;
-
 }
 
 

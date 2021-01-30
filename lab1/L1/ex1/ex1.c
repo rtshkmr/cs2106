@@ -24,7 +24,7 @@ int main()
 		//The skeleton of the input/output is coded for you
 		//You are free to add code for debug purpose etc
 		//Make sure the ouput matches with the sample given
-		NODE* myList = NULL;    //Empty List
+		node* myList = NULL;    //Empty List
 		int input;
 
 
