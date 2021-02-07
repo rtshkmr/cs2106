@@ -24,9 +24,25 @@ int main()
     //Read the number of child
     scanf("%d", &nChild);
 
-    //Spawn child processes
+    //Array to store child PIDs
+    int childPids[nChild];
 
+    //Spawn child processes
+    for (int i = 0; i < nChild; i++) {
+        int status = fork();
+        if (status == 0) {
+            printf("Child %d[%d]: Hello!\n", i + 1, getpid());
+            return 0;
+        } else {
+            childPids[i] = status;
+        }
+    }
+    
     //Wait on child processes in order
-     
+    for (int i = 0; i < nChild; i++) {
+        waitpid(childPids[i], NULL, 0);
+        printf("Parent: Child %d[%d]\n", i + 1, childPids[i]);
+    }
+
     return 0;
 }
