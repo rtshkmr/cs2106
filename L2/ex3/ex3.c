@@ -16,7 +16,7 @@ compute cluster node (Linux on x86)
 #include <fcntl.h>      //For stat()
 #include <sys/types.h>   
 #include <sys/stat.h>
-//#include <sys/wait.h>   //for waitpid()
+#include <sys/wait.h>   //for waitpid()
 #include <unistd.h>     //for fork(), wait()
 #include <string.h>     //for string comparison etc
 #include <stdlib.h>     //for malloc()
@@ -130,7 +130,7 @@ int main()
     char **cmdLineArgs;
     char path[20] = ".";  //default search path
     char userInput[121];
-    char fullPath[40];
+    char fullPath[40] = "";
     char slash[2] = "/";
 
     int tokenNum;
