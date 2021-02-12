@@ -1,8 +1,8 @@
 /*************************************
 * Lab 2 Exercise 2
-* Name:
-* Student Id: A????????
-* Lab Group: B??
+* Name: Ritesh Kumar
+* Student Id: A0201829H
+* Lab Group: B12
 *************************************
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
@@ -18,7 +18,7 @@ compute cluster node (Linux on x86)
 #include <fcntl.h>      //For stat()
 #include <sys/types.h>   
 #include <sys/stat.h>
-//#include <sys/wait.h>   //for waitpid()
+#include <sys/wait.h>   //for waitpid()
 #include <unistd.h>     //for fork(), wait()
 #include <string.h>     //for string comparison etc
 #include <stdlib.h>     //for malloc()
@@ -94,8 +94,12 @@ int main()
     char **cmdLineArgs;
     char path[20] = ".";  //default search path
     char userInput[121];
+	char *command;
 
     int tokenNum;
+
+
+	char validCommands[5][20] = {"quit", "showpath", "clock", "ls", "setpath"};
 
     //read user input
     printf("YWIMC > ");
@@ -111,14 +115,64 @@ int main()
 
     while ( strcmp( cmdLineArgs[0], "quit") != 0 ){
 
+		command = cmdLineArgs[0];
         //Figure out which command the user want and implement below
+		if (strcmp("showpath", command) == 0) { 
+			printf("%s \n", path);
+		} else if (strcmp("setpath", command) == 0){
+			strcpy(path, cmdLineArgs[1]);
+			printf("XX new path added: %s \n", path);
+		} else { // specific commands: 
 
+			// determine the execpath: 
+			struct stat sb;
+			char *execPath = (char *) malloc(sizeof('c') * 20);
+			strcpy(execPath, path);
+			strcat(execPath, "/");
+			strcat(execPath, command);
+			printf("custom command being called: %s \n", execPath);
+			
+			if(stat(execPath, &sb) != 0) { 
+				printf("invalid cmd\n");
+				printf("\"%s\" not found \n", execPath);
+			} else { // valid exec path, fork and execl:
+				printf("valid cmd\n");
+				int cpid = fork();
+				if(cpid == 0) { // child proc, call execl
+					execl(execPath, command, (char*) NULL);
+					return 0; // this return prevents fork-bombing
+				} else { // parent proc, should wait for cleanup purposes
+					wait(NULL);	
+					printf("Parent has waited and is gonna be done\n");
+				}
+			}
+
+
+		}
+
+	/*
+	switch(tokenNum) {
+				case 1: // single command with no argument:  
+						printf("one cli arg detected: %s\n",command); 
+						if(strcmp("showpath", cmdLineArgs[0]) == 0) {
+							printf("%s \n", path);
+						}
+				case 2: // command with single argument:
+						printf("two cli arg detected: %s %s\n",command, cmdLineArgs[1]); 
+							
+				
+		}
+
+	*/	   
 
         //Prepare for next round input
 
         //Clean up the token array as it is dynamically allocated
         freeTokenArray(cmdLineArgs, tokenNum);
 
+
+
+		// next command:
         printf("YWIMC > ");
         fgets(userInput, 120, stdin);
         cmdLineArgs = split( userInput, " \n", 7, &tokenNum );
@@ -134,3 +188,20 @@ int main()
     return 0;
 
 }
+
+/*=============== ex2. TAKEAWAYS: ====================================
+1. From example files: 
+	A) Allow program to take varargs by doing a case-switch on argc(# of args).
+2. Assigning a new value to a string. Since strings are *char / char[], 
+	we have to replace the existing value by copying something into it. That's
+	why we need to use the strcpy(<dest>, <src>) function.
+3. Param list for execl: need to supply the execpath and the command followed by a
+   bunch of varargs. If there aren't any flags to be passed in, pass in a NULL, 
+   but have to typecast it to char* so pass in (char*) NULL. Had no idea that 
+   NULL could be typecasted.	
+
+ 
+ ====================================================*/
+
+
+
