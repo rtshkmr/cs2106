@@ -86,9 +86,43 @@ void freeTokenArray(char** strArr, int size)
     //      afterwards
 }
 
-bool file_exists (char *filename) {
+bool fileExists (char *filename) {
   struct stat   buffer;   
   return (stat (filename, &buffer) == 0);
+}
+
+void runCommandBackground (char *fullPath, char **cmdLineArgs, int *pid) {
+    if (fileExists(fullPath)) {
+        int status = fork();
+        if (status == 0) {
+            execv(fullPath, cmdLineArgs);
+        } else {
+            *pid = status;
+            printf("\"Child %d in background\"\n", status);
+        }
+    } else {
+        printf("\"%s\" not found\n", fullPath);
+    }
+}
+
+void runCommand (char *fullPath, char **cmdLineArgs, int *childResult) {
+    if (fileExists(fullPath)) {
+        if (fork() == 0) {
+            execv(fullPath, cmdLineArgs);
+        } else {
+            wait(childResult);
+        }
+    } else {
+        printf("\"%s\" not found\n", fullPath);
+    }
+}
+
+void getUserInput(char userInput[121]) {
+    //read user input
+    printf("YWIMC > ");
+
+    //read up to 120 characters from user input
+    fgets(userInput, 120, stdin);
 }
 
 int main()
@@ -101,11 +135,13 @@ int main()
 
     int tokenNum;
 
-    //read user input
-    printf("YWIMC > ");
+    int pids[10] = {0}; 
+    bool waited[10] = {false};
+    int currentPid = 0;
 
-    //read up to 120 characters from user input
-    fgets(userInput, 120, stdin);
+    int childResult = 0;
+
+    getUserInput(userInput);
 
     //split is a helper function to "tokenize" the input
     //see "stringTokenizer.c" program for more sample usage 
@@ -120,19 +156,45 @@ int main()
             printf("%s\n", path);
         } else if ( strcmp( cmdLineArgs[0], "setpath") == 0 ) {
             strcpy(path, cmdLineArgs[1]);
+        } else if ( strcmp( cmdLineArgs[0], "wait") == 0 ) {
+            int pid = atoi(cmdLineArgs[1]);
+            bool pidPresent = false;
+
+            for (int i = 0; i < currentPid; i++) {
+                if (pid == pids[i]) {
+                    pidPresent = true;
+                    waited[i] = true;
+                    break;
+                }
+            }
+
+            if (pidPresent) {
+                waitpid(pid, &childResult, 0);
+            } else {
+                printf("%d is not a valid child pid\n", pid);
+            }
+        } else if ( strcmp( cmdLineArgs[0], "pc") == 0 ) {
+            printf("Unwaited Child Processes:\n");
+            for (int i = 0; i < currentPid; i++) {
+                if (!waited[i]) {
+                    printf("%d\n", pids[i]);
+                }
+            }
+        } else if ( strcmp( cmdLineArgs[0], "result") == 0 ) {
+            printf("%d\n", childResult >> 8);
         } else {
             strcat(fullPath, path);
             strcat(fullPath, slash);
             strcat(fullPath, cmdLineArgs[0]);
 
-            if (file_exists(fullPath)) {
-                if (fork() == 0) {
-                    execl(fullPath, cmdLineArgs[0], NULL);
-                } else {
-                    wait(NULL);
-                }
+            bool runInBackground = strcmp(cmdLineArgs[tokenNum - 1], "&") == 0;
+
+            if ( runInBackground ) {
+                runCommandBackground(fullPath, cmdLineArgs, &pids[currentPid]);
+
+                currentPid++;
             } else {
-                printf("%s not found\n", fullPath);
+                runCommand(fullPath, cmdLineArgs, &childResult);
             }
         }
 
@@ -142,14 +204,13 @@ int main()
         //Clean up the token array as it is dynamically allocated
         freeTokenArray(cmdLineArgs, tokenNum);
 
-        printf("YWIMC > ");
-        fgets(userInput, 120, stdin);
+        getUserInput(userInput);
         cmdLineArgs = split( userInput, " \n", 7, &tokenNum );
     }
 
     printf("Goodbye!\n");
 
-    //Clean up the token array as it is dynamically allocated
+    //Clean up the token arrays as it is dynamically allocated
     freeTokenArray(cmdLineArgs, tokenNum);
 
     return 0;
