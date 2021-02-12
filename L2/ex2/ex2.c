@@ -98,9 +98,6 @@ int main()
 
     int tokenNum;
 
-
-	char validCommands[5][20] = {"quit", "showpath", "clock", "ls", "setpath"};
-
     //read user input
     printf("YWIMC > ");
 
@@ -121,7 +118,6 @@ int main()
 			printf("%s \n", path);
 		} else if (strcmp("setpath", command) == 0){
 			strcpy(path, cmdLineArgs[1]);
-			printf("XX new path added: %s \n", path);
 		} else { // specific commands: 
 
 			// determine the execpath: 
@@ -130,41 +126,22 @@ int main()
 			strcpy(execPath, path);
 			strcat(execPath, "/");
 			strcat(execPath, command);
-			printf("custom command being called: %s \n", execPath);
-			
+		
+		    // run executable as a child proc if possible:	
 			if(stat(execPath, &sb) != 0) { 
-				printf("invalid cmd\n");
 				printf("\"%s\" not found \n", execPath);
 			} else { // valid exec path, fork and execl:
-				printf("valid cmd\n");
 				int cpid = fork();
 				if(cpid == 0) { // child proc, call execl
 					execl(execPath, command, (char*) NULL);
 					return 0; // this return prevents fork-bombing
 				} else { // parent proc, should wait for cleanup purposes
 					wait(NULL);	
-					printf("Parent has waited and is gonna be done\n");
 				}
 			}
 
 
 		}
-
-	/*
-	switch(tokenNum) {
-				case 1: // single command with no argument:  
-						printf("one cli arg detected: %s\n",command); 
-						if(strcmp("showpath", cmdLineArgs[0]) == 0) {
-							printf("%s \n", path);
-						}
-				case 2: // command with single argument:
-						printf("two cli arg detected: %s %s\n",command, cmdLineArgs[1]); 
-							
-				
-		}
-
-	*/	   
-
         //Prepare for next round input
 
         //Clean up the token array as it is dynamically allocated
