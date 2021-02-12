@@ -130,12 +130,16 @@ int main()
 		    // run executable as a child proc if possible:	
 			if(stat(execPath, &sb) != 0) { 
 				printf("\"%s\" not found \n", execPath);
+			    free(execPath);
 			} else { // valid exec path, fork and execl:
 				int cpid = fork();
 				if(cpid == 0) { // child proc, call execl
 					execl(execPath, command, (char*) NULL);
+					free(execPath);
+				    freeTokenArray(cmdLineArgs, tokenNum);
 					return 0; // this return prevents fork-bombing
 				} else { // parent proc, should wait for cleanup purposes
+					free(execPath);
 					wait(NULL);	
 				}
 			}
