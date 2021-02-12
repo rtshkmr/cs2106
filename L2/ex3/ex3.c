@@ -12,6 +12,7 @@ compute cluster node (Linux on x86)
 *************************************/
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <fcntl.h>      //For stat()
 #include <sys/types.h>   
 #include <sys/stat.h>
@@ -85,12 +86,18 @@ void freeTokenArray(char** strArr, int size)
     //      afterwards
 }
 
+bool file_exists (char *filename) {
+  struct stat   buffer;   
+  return (stat (filename, &buffer) == 0);
+}
 
 int main()
 {
     char **cmdLineArgs;
     char path[20] = ".";  //default search path
     char userInput[121];
+    char fullPath[40];
+    char slash[2] = "/";
 
     int tokenNum;
 
@@ -109,9 +116,28 @@ int main()
     while ( strcmp( cmdLineArgs[0], "quit") != 0 ){
 
         //Figure out which command the user want and implement below
+        if ( strcmp( cmdLineArgs[0], "showpath") == 0 ) {
+            printf("%s\n", path);
+        } else if ( strcmp( cmdLineArgs[0], "setpath") == 0 ) {
+            strcpy(path, cmdLineArgs[1]);
+        } else {
+            strcat(fullPath, path);
+            strcat(fullPath, slash);
+            strcat(fullPath, cmdLineArgs[0]);
 
+            if (file_exists(fullPath)) {
+                if (fork() == 0) {
+                    execl(fullPath, cmdLineArgs[0], NULL);
+                } else {
+                    wait(NULL);
+                }
+            } else {
+                printf("%s not found\n", fullPath);
+            }
+        }
 
         //Prepare for next round input
+        strcpy(fullPath, "");
 
         //Clean up the token array as it is dynamically allocated
         freeTokenArray(cmdLineArgs, tokenNum);
@@ -120,13 +146,11 @@ int main()
         fgets(userInput, 120, stdin);
         cmdLineArgs = split( userInput, " \n", 7, &tokenNum );
     }
-    
 
     printf("Goodbye!\n");
 
     //Clean up the token array as it is dynamically allocated
     freeTokenArray(cmdLineArgs, tokenNum);
-
 
     return 0;
 
