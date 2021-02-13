@@ -14,6 +14,7 @@ Warning: Make sure your code works on
 compute cluster node (Linux on x86)
 *************************************/
 
+#include <stdbool.h>    // to handle bool values
 #include <stdio.h>
 #include <fcntl.h>      //For stat()
 #include <sys/types.h>   
@@ -99,8 +100,8 @@ int main()
 
     int tokenNum;
 
+    int	bgJobIdx = 0;
     pid_t backgroundJobs[10] = { -1 }; // init to -1
-	pid_t waitingQueue[10] = {};
 	int waitIdx = 0; // insertion idx for the next job that the parent proc has to wait for
 	pid_t jobs[10][2] = {}; // 2D array w tuples of (pid, boolean(0 for wait, 1 for bg))
 
@@ -145,28 +146,31 @@ int main()
 			if(stat(execPath, &sb) != 0) { 
 				printf("\"%s\" not found \n", execPath);
 			} else { // valid exec path, fork and execl:
-				pid_t cpid = fork();
+				bool isBackgroundProc = (strcmp(cmdLineArgs[tokenNum - 1], "&") == 0);
+			    pid_t cpid = fork();
+
 				if(cpid == 0) { // child proc, call execl
 					execv(execPath, cmdLineArgs);
 					return 0; // this return prevents fork-bombing
 				} else { // parent proc, should wait for cleanup purposes
-					// backgroundJobs[++numBackgroundJobs] = cpid;
-			        // TODO: settle the background procs here later	
-				    
+					if(isBackgroundProc) {
+						printf("this proc should be background proc \n");
+						backgroundJobs[bgJobIdx++] = cpid;
+					}
+				}
 
-					// if the 6th argument is a "&" then it's a bg proc:
-			    }
-				
 				// path taken by parent regardles: 
-			    int terminatedChildPid = waitpid(cpid, &wstatus, 0);	
-				int exitStatus = WEXITSTATUS(wstatus); // WEXITSTATUS here is an inspection of the wstatus
-				previousResult = exitStatus;
-				printf("this is the wstatus: %i and this is the existStatus: %i\n", wstatus, exitStatus);
-				printf("child proc's pid, as seen by the parent is %i\n", terminatedChildPid);
-			}
-			
-			
-			
+				if (!isBackgroundProc) {
+				    int terminatedChildPid = waitpid(cpid, &wstatus, 0);	
+					int exitStatus = WEXITSTATUS(wstatus); // WEXITSTATUS here is an inspection of the wstatus
+					previousResult = exitStatus;
+					printf("this is the wstatus: %i and this is the existStatus: %i\n", wstatus, exitStatus);
+					printf("child proc's pid, as seen by the parent is %i\n", terminatedChildPid);
+
+				} else {
+					printf("Child %i in background\n", cpid);
+				}
+		    }
 			free(execPath); // execPath is dynamically allocated, hence should be freed after completion
 			}
 
