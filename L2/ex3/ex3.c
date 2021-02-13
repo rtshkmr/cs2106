@@ -182,7 +182,6 @@ int main()
 {
     char **cmdLineArgs;
     char searchPath[20] = ".";  //default search path
-    char *returnFunctionExecPath = "./return";
     char userInput[121];
 	char *command;
 	char execPath[20];
@@ -243,29 +242,6 @@ int main()
 			} else { // valid exec path, fork and execl:
 				printf("\"%s\" not found \n", execPath);
 		    }
-	
-/*
-		if(!isValidExecPath(execPath)) { 
-				printf("\"%s\" not found \n", execPath);
-			} else { // valid exec path, fork and execl:
-				bool isBackgroundJob = (strcmp(cmdLineArgs[tokenNum - 1], "&") == 0);
-			    pid_t cpid = fork();
-
-				if(cpid == 0) { // child proc, call execl
-					execv(execPath, cmdLineArgs);
-					return 0; // this return prevents fork-bombing
-				} else { // parent proc, should wait for cleanup purposes
-					if(isBackgroundJob) {
-						registerBackgroundJob(cpid, (pid_t *)backgroundJobs);
-					} else {
-					previousResult = waitForChild(cpid);  
-					}
-				}
-		    }
-		
-   */
-		
-
 
 		}
         //Prepare for next round input
@@ -294,6 +270,7 @@ int main()
 }
 
 /*=============== ex3. TAKEAWAYS: ====================================
+
 1. From example files: 
 	A) Allow program to take varargs by doing a case-switch on argc(# of args).
 2. Assigning a new value to a string. Since strings are *char / char[], 
@@ -314,7 +291,17 @@ int main()
    just have to typecast your n-d array as (pid_t*) when passing it to the function,
    and supply the dimensions appropriately (if they are variables).
  
- ====================================================*/
+
+
+
+ASSUMPTIONS IN CODE: 
+---------------------
+1) PID of 0 will never be assigned to anyone (as per the tracking of procs via 
+   the backgroundJobs arr)
+
+  
+====================================================================*/
+
 
 
 
