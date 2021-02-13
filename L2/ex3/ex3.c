@@ -109,10 +109,6 @@ int getJobIdx(pid_t targetPid, pid_t* backgroundJobs) {
     return -1;
 }
 
-bool isValidPid(pid_t* backgroundJobs, pid_t targetPid) {
-	return true;
-}
-
 bool isValidExecPath(char* execPath) {
 	struct stat sb;
 	return (bool) stat(execPath, &sb) == 0;
