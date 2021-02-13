@@ -91,9 +91,7 @@ void freeTokenArray(char** strArr, int size)
 
 int findEmptySlot(pid_t*  backgroundJobs) {
 	for(int i = 0; i < 10; i++) { // guaranteed array max size is 10
-       // if (backgroundJobs[i][0] == -1) {
 	   int currentPid =  *(backgroundJobs + (i * 2) + 1);
-	   printf("currentPid: %i \n", currentPid);
        if (currentPid == 0) { // assumption: the pid 0 shall never be assigned since it's init(?)
 		  return i;
 	   }
@@ -119,7 +117,7 @@ bool isValidExecPath(char* execPath) {
 	struct stat sb;
 	return (bool) stat(execPath, &sb) == 0;
 }
-bool isValidToWait(pid_t targetPid, int* backgroundJobs) {
+bool isValidToWait(pid_t targetPid, pid_t* backgroundJobs) {
 	bool result = false;
 	for(int i = 0; i < 10; i++) {
 		int currentPid = *(backgroundJobs + (i * 2) + 1);
@@ -130,39 +128,37 @@ bool isValidToWait(pid_t targetPid, int* backgroundJobs) {
 	return result;
 }
 
-void untrackBackgroundJob(int jobIdx, int* backgroundJobs) {
-    *(backgroundJobs + (jobIdx * 2) + 1) = 0;		
-    *(backgroundJobs + (jobIdx * 2) + 2) = 0;		
-}
 
-void markJobAsWaiting(int jobIdx, int* backgroundJobs) {
+void markJobAsWaiting(int jobIdx, pid_t* backgroundJobs) {
     *(backgroundJobs + (jobIdx * 2) + 2) = 1;		
 }
-
-
 
 int waitForChild(pid_t cpid) {
 	int wstatus;
 	int terminatedChildPid = waitpid(cpid, &wstatus, 0);	
 	int exitStatus = WEXITSTATUS(wstatus); // WEXITSTATUS here is an inspection of the wstatus
-	printf("this is the wstatus: %i and this is the existStatus: %i\n", wstatus, exitStatus);
-	printf("child proc's pid, as seen by the parent is %i\n", terminatedChildPid);
 	return exitStatus;
 }
 
-int waitForBackgroundChild(pid_t cpid, int* backgroundJobs) {
+void deregisterBackgroundJob(int jobIdx, pid_t* backgroundJobs) {
+    *(backgroundJobs + (jobIdx * 2) + 1) = 0;		
+    *(backgroundJobs + (jobIdx * 2) + 2) = 0;		
+}
+
+int waitForBackgroundChild(pid_t cpid, pid_t* backgroundJobs) {
 	int jobIdx = getJobIdx(cpid, backgroundJobs); 	
-	markJobAsWaiting(jobIdx, (int*) backgroundJobs);
+	markJobAsWaiting(jobIdx, (pid_t*) backgroundJobs);
     int returnValue = waitForChild(cpid);
-	untrackBackgroundJob(jobIdx, (int*) backgroundJobs);
+	deregisterBackgroundJob(jobIdx, (pid_t*) backgroundJobs);
 	return returnValue;
 }
-void registerBackgroundProc(pid_t pid, pid_t* backgroundJobs) {
+
+void registerBackgroundJob(pid_t pid, pid_t* backgroundJobs) {
 		int idx = findEmptySlot(backgroundJobs);
 		// update the table with pid set and wait status set to 0:
 		*(backgroundJobs + (idx * 2) + 1) = pid;
 		*(backgroundJobs + (idx * 2) + 0) = 0;
-		printf("registered background proc: %i at idx %i\n", pid, idx);
+		printf("Child %i in background\n", pid);
 }
 
 void updateExecPath(char* command, char* execPath, char* searchPath) {
@@ -171,10 +167,21 @@ void updateExecPath(char* command, char* execPath, char* searchPath) {
 	strcat(execPath, command);
 }
 
+void printChildren(pid_t* backgroundJobs) {
+	printf("Unwaited Child Processes:\n");
+	for(int i = 0; i < 10; i++) {
+		int pid = *(backgroundJobs + (i * 2) + 1);
+		int waitTag = *(backgroundJobs + (i * 2) + 2);
+		if(pid != 0 && waitTag == 0) { // unwaited bg procs
+			printf("%i\n", pid);
+		}
+	}
+}
+
 int main()
 {
     char **cmdLineArgs;
-    char path[20] = ".";  //default search path
+    char searchPath[20] = ".";  //default search path
     char *returnFunctionExecPath = "./return";
     char userInput[121];
 	char *command;
@@ -182,13 +189,7 @@ int main()
 
     int tokenNum;
 
-    int	bgJobIdx = 0;
-    pid_t backgroundJobs[10][2] = { }; // tuples of (pid, boolean(0 for not waiting, 1 ))
-	int waitIdx = 0; // insertion idx for the next job that the parent proc has to wait for
-
-
-
-	int numBackgroundJobs = 0; // default
+    pid_t backgroundJobs[10][2] = { }; // tuples of (pid, boolean(0 for not waiting, 1 for waiting ))
 	int previousResult = 0;
 
     //read user input
@@ -205,51 +206,65 @@ int main()
 
     while ( strcmp( cmdLineArgs[0], "quit") != 0 ){
 		command = cmdLineArgs[0];
-		printf("command received: %s\n", command);
         //Figure out which command the user wants and implement below
 		if (strcmp("showpath", command) == 0 && tokenNum == 1) { 
-			printf("%s \n", path);
+			printf("%s \n", searchPath);
 		} else if (strcmp("setpath", command) == 0 && tokenNum == 2){
-			strcpy(path, cmdLineArgs[1]);
+			strcpy(searchPath, cmdLineArgs[1]);
 		} else if (strcmp("wait", command) == 0 && tokenNum == 2 ){
 			int targetPid = atoi(cmdLineArgs[1]);
-			bool isValidChildPid = isValidToWait(targetPid, (int*) backgroundJobs);
+			bool isValidChildPid = isValidToWait(targetPid, (pid_t*) backgroundJobs);
 			if(isValidChildPid) {
-				previousResult = waitForBackgroundChild(targetPid, (int*) backgroundJobs);
+				previousResult = waitForBackgroundChild(targetPid, (pid_t*) backgroundJobs);
 			} else {
 			    printf("%i not a valid child pid\n", targetPid);	
 			}
 		} else if (strcmp("result", command) == 0){
 				printf("%i\n", previousResult);
+	    } else if (strcmp("pc", command) == 0){
+				printChildren((pid_t*) backgroundJobs);	
 	    } else { // specific commands: 
-			updateExecPath(command, execPath, path);
-			int wstatus;
-		
-		    // run executable as a child proc if possible:	
-			if(!isValidExecPath(execPath)) { 
+			updateExecPath(command, execPath, searchPath);
+
+			if(isValidExecPath(execPath)) { 
+				bool isBackgroundJob = (strcmp(cmdLineArgs[tokenNum - 1], "&") == 0);
+			    pid_t cpid = fork();
+
+				if(cpid == 0) { // child proc, call execl
+					execv(execPath, cmdLineArgs);
+					return 0; // this return prevents fork-bombing
+				} else { // parent proc, should wait for child
+					if(isBackgroundJob) {
+						registerBackgroundJob(cpid, (pid_t *)backgroundJobs);
+					} else {
+					previousResult = waitForChild(cpid);  
+					}
+				}
+			} else { // valid exec path, fork and execl:
+				printf("\"%s\" not found \n", execPath);
+		    }
+	
+/*
+		if(!isValidExecPath(execPath)) { 
 				printf("\"%s\" not found \n", execPath);
 			} else { // valid exec path, fork and execl:
-				bool isBackgroundProc = (strcmp(cmdLineArgs[tokenNum - 1], "&") == 0);
+				bool isBackgroundJob = (strcmp(cmdLineArgs[tokenNum - 1], "&") == 0);
 			    pid_t cpid = fork();
 
 				if(cpid == 0) { // child proc, call execl
 					execv(execPath, cmdLineArgs);
 					return 0; // this return prevents fork-bombing
 				} else { // parent proc, should wait for cleanup purposes
-					if(isBackgroundProc) {
-						registerBackgroundProc(cpid, (pid_t *)backgroundJobs);
+					if(isBackgroundJob) {
+						registerBackgroundJob(cpid, (pid_t *)backgroundJobs);
+					} else {
+					previousResult = waitForChild(cpid);  
 					}
 				}
-
-				// path taken by parent regardles: 
-				if (isBackgroundProc) {
-					printf("Child %i in background\n", cpid);
-				} else {
-					previousResult = waitForChild(cpid);  
-				}
 		    }
-			// free(execPath); // execPath is dynamically allocated, hence should be freed after completion
-			
+		
+   */
+		
 
 
 		}
@@ -257,7 +272,7 @@ int main()
 
         //Clean up the token array as it is dynamically allocated
         freeTokenArray(cmdLineArgs, tokenNum);
-		strcpy(execPath, "");
+		strcpy(execPath, ""); // resets execpath
 
 
 
@@ -278,7 +293,7 @@ int main()
 
 }
 
-/*=============== ex2. TAKEAWAYS: ====================================
+/*=============== ex3. TAKEAWAYS: ====================================
 1. From example files: 
 	A) Allow program to take varargs by doing a case-switch on argc(# of args).
 2. Assigning a new value to a string. Since strings are *char / char[], 
@@ -296,7 +311,7 @@ int main()
    array as backgroundJobs[10][2] then misunderstood and thought that would make it 
    pass by copy, so ended up using pointer arithmetic. Realised afterwards that it 
    would have been correct in the original way anyway. With pointer arithmetic, 
-   just have to typecast your n-d array as (int*) when passing it to the function,
+   just have to typecast your n-d array as (pid_t*) when passing it to the function,
    and supply the dimensions appropriately (if they are variables).
  
  ====================================================*/
