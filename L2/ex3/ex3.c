@@ -1,11 +1,14 @@
 /*************************************
 * Lab 2 Exercise 3
-* Name:
-* Student Id: A????????
-* Lab Group: B??
+* Name: Ritesh Kumar
+* Student Id: A0201829H
+* Lab Group: B12
 *************************************
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
+Note2: Exercise 3 is a superset of exercise 2
+Please copy over your code to ex3.c and continue
+Submit ONLY ex3.c (even if you cannot finish ex3)
 --------------------------------------
 Warning: Make sure your code works on
 compute cluster node (Linux on x86)
@@ -15,7 +18,7 @@ compute cluster node (Linux on x86)
 #include <fcntl.h>      //For stat()
 #include <sys/types.h>   
 #include <sys/stat.h>
-//#include <sys/wait.h>   //for waitpid()
+#include <sys/wait.h>   //for waitpid()
 #include <unistd.h>     //for fork(), wait()
 #include <string.h>     //for string comparison etc
 #include <stdlib.h>     //for malloc()
@@ -90,9 +93,21 @@ int main()
 {
     char **cmdLineArgs;
     char path[20] = ".";  //default search path
+    char *returnFunctionExecPath = "./return";
     char userInput[121];
+	char *command;
 
     int tokenNum;
+
+    pid_t backgroundJobs[10] = { -1 }; // init to -1
+	pid_t waitingQueue[10] = {};
+	int waitIdx = 0; // insertion idx for the next job that the parent proc has to wait for
+	pid_t jobs[10][2] = {}; // 2D array w tuples of (pid, boolean(0 for wait, 1 for bg))
+
+
+
+	int numBackgroundJobs = 0; // default
+	int previousResult = 0;
 
     //read user input
     printf("YWIMC > ");
@@ -107,15 +122,64 @@ int main()
     //At this point you have the user input split neatly into token in cmdLineArg[]
 
     while ( strcmp( cmdLineArgs[0], "quit") != 0 ){
-
+		command = cmdLineArgs[0];
         //Figure out which command the user want and implement below
+		if (strcmp("showpath", command) == 0) { 
+			printf("%s \n", path);
+		} else if (strcmp("setpath", command) == 0){
+			strcpy(path, cmdLineArgs[1]);
+		} else { // specific commands: 
+
+			if (strcmp("result", command) == 0){
+				printf("%i\n", previousResult);
+			} else { 
+			// determine the execpath: 
+			struct stat sb;
+			char *execPath = (char *) malloc(sizeof('c') * 20);
+			strcpy(execPath, path);
+			strcat(execPath, "/");
+			strcat(execPath, command);
+			int wstatus;
+		
+		    // run executable as a child proc if possible:	
+			if(stat(execPath, &sb) != 0) { 
+				printf("\"%s\" not found \n", execPath);
+			} else { // valid exec path, fork and execl:
+				pid_t cpid = fork();
+				if(cpid == 0) { // child proc, call execl
+					execv(execPath, cmdLineArgs);
+					return 0; // this return prevents fork-bombing
+				} else { // parent proc, should wait for cleanup purposes
+					// backgroundJobs[++numBackgroundJobs] = cpid;
+			        // TODO: settle the background procs here later	
+				    
+
+					// if the 6th argument is a "&" then it's a bg proc:
+			    }
+				
+				// path taken by parent regardles: 
+			    int terminatedChildPid = waitpid(cpid, &wstatus, 0);	
+				int exitStatus = WEXITSTATUS(wstatus); // WEXITSTATUS here is an inspection of the wstatus
+				previousResult = exitStatus;
+				printf("this is the wstatus: %i and this is the existStatus: %i\n", wstatus, exitStatus);
+				printf("child proc's pid, as seen by the parent is %i\n", terminatedChildPid);
+			}
+			
+			
+			
+			free(execPath); // execPath is dynamically allocated, hence should be freed after completion
+			}
 
 
+		}
         //Prepare for next round input
 
         //Clean up the token array as it is dynamically allocated
         freeTokenArray(cmdLineArgs, tokenNum);
 
+
+
+		// next command:
         printf("YWIMC > ");
         fgets(userInput, 120, stdin);
         cmdLineArgs = split( userInput, " \n", 7, &tokenNum );
@@ -131,3 +195,23 @@ int main()
     return 0;
 
 }
+
+/*=============== ex2. TAKEAWAYS: ====================================
+1. From example files: 
+	A) Allow program to take varargs by doing a case-switch on argc(# of args).
+2. Assigning a new value to a string. Since strings are *char / char[], 
+	we have to replace the existing value by copying something into it. That's
+	why we need to use the strcpy(<dest>, <src>) function.
+3. Param list for execl: need to supply the execpath and the command followed by a
+   bunch of varargs. If there aren't any flags to be passed in, pass in a NULL, 
+   but have to typecast it to char* so pass in (char*) NULL. Had no idea that 
+   NULL could be typecasted.	
+
+4. we can inspect the return of the child proc as (e.g. after doing a waitpid()) 
+   using options like WEXITSTATUS.
+
+ 
+ ====================================================*/
+
+
+
