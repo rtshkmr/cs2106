@@ -117,10 +117,12 @@ bool isValidToWait(pid_t targetPid, pid_t* backgroundJobs) {
     bool result = false;
     for(int i = 0; i < 10; i++) {
         int currentPid = *(backgroundJobs + (i * 2) + 1);
-        int waitTag = 	*(backgroundJobs + (i * 2) + 2);
-        result = (currentPid == targetPid) && (waitTag == 0);
-        break;
-    }	
+        if (currentPid == targetPid) {
+            int waitTag = 	*(backgroundJobs + (i * 2) + 2);
+            result = (currentPid == targetPid) && (waitTag == 0);
+            break;
+        }
+    }
     return result;
 }
 
@@ -131,6 +133,7 @@ void markJobAsWaiting(int jobIdx, pid_t* backgroundJobs) {
 
 int waitForChild(pid_t cpid) {
     int wstatus;
+    int terminatedChildPid = waitpid(cpid, &wstatus, 0);
     int exitStatus = WEXITSTATUS(wstatus); // WEXITSTATUS here is an inspection of the wstatus
     return exitStatus;
 }
@@ -220,7 +223,7 @@ int main()
         } else { // specific commands: 
             updateExecPath(command, execPath, searchPath);
 
-            if(isValidExecPath(execPath)) { 
+            if(isValidExecPath(execPath)) {
                 bool isBackgroundJob = (strcmp(cmdLineArgs[tokenNum - 1], "&") == 0);
                 pid_t cpid = fork();
 
@@ -300,3 +303,10 @@ int main()
 
 
 
+/*
+ * TODO:
+ * 1. fix the for loop for the target pid
+ * 2. add back in the line with the wstatus stuff
+ *
+ *
+ */
