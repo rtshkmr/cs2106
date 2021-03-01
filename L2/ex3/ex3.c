@@ -1,8 +1,14 @@
 /*************************************
 * Lab 2 Exercise 3
-* Name:
-* Student Id: A????????
-* Lab Group: B??
+* Name: Ritesh Kumar
+* Student Id: A0201829H
+* Lab Group: B12
+*************************************
+*************************************
+* Lab 2 Exercise 3
+* Name: Fang Junwei, Samuel
+* Student Id: A0199163U
+* Lab Group: B01
 *************************************
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
@@ -93,12 +99,12 @@ bool fileExists (char *filename) {
 
 void runCommandBackground (char *fullPath, char **cmdLineArgs, int *pid) {
     if (fileExists(fullPath)) {
-        int status = fork();
-        if (status == 0) {
+        int cpid = fork();
+        if (cpid == 0) {
             execv(fullPath, cmdLineArgs);
         } else {
-            *pid = status;
-            printf("\"Child %d in background\"\n", status);
+            *pid = cpid;
+            printf("\"Child %d in background\"\n", cpid);
         }
     } else {
         printf("\"%s\" not found\n", fullPath);
