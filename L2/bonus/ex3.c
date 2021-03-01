@@ -18,6 +18,7 @@ compute cluster node (Linux on x86)
 *************************************/
 
 #include <stdio.h>
+#include <signal.h>
 #include <stdbool.h>
 #include <fcntl.h>      //For stat()
 #include <sys/types.h>   
@@ -104,6 +105,7 @@ void runCommandBackground (char *fullPath, char **cmdLineArgs, int *pid)
     if (fileExists(fullPath)) {
         int cpid = fork();
         if (cpid == 0) {
+            setpgid(0, 0);
             execv(fullPath, cmdLineArgs);
         } else {
             *pid = cpid;
@@ -119,6 +121,7 @@ void runCommand (char *fullPath, char **cmdLineArgs, int *childResult)
     if (fileExists(fullPath)) {
         int cpid = fork();
         if (cpid == 0) {
+            setpgid(0, 0);
             execv(fullPath, cmdLineArgs);
         } else {
             foregroundPID = cpid;
@@ -145,7 +148,7 @@ void myOwnHandler(int signo)
         if (foregroundPID == 0)  {
             printf("Nothing to kill.\n");
         } else {
-//            kill(foregroundPID, SIGINT);
+           kill(foregroundPID, SIGINT);
         }
     }
 }
