@@ -44,7 +44,7 @@ int main()
         printf("Parent: Child %d[%d] done.\n", i + 1, childPids[i]);
     }
     
-    printf("Parent: Exiting.");
+    printf("Parent: Exiting.\n");
 
     return 0;
 }
