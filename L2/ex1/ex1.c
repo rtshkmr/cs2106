@@ -43,6 +43,8 @@ int main()
         waitpid(childPids[i], NULL, 0);
         printf("Parent: Child %d[%d] done.\n", i + 1, childPids[i]);
     }
+    
+    printf("Parent: Exiting.");
 
     return 0;
 }
