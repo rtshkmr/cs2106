@@ -41,7 +41,7 @@ int main()
     //Wait on child processes in order
     for (int i = 0; i < nChild; i++) {
         waitpid(childPids[i], NULL, 0);
-        printf("Parent: Child %d[%d]\n", i + 1, childPids[i]);
+        printf("Parent: Child %d[%d] done.\n", i + 1, childPids[i]);
     }
 
     return 0;
