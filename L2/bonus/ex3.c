@@ -27,6 +27,7 @@ compute cluster node (Linux on x86)
 #include <string.h>     //for string comparison etc
 #include <stdlib.h>     //for malloc()
 
+int foregroundPID = 0;
 
 char** split( char* input, char* delimiter, int maxTokenNum, int* readTokenNum )
 //Assumptions:
@@ -92,12 +93,14 @@ void freeTokenArray(char** strArr, int size)
     //      afterwards
 }
 
-bool fileExists (char *filename) {
+bool fileExists (char *filename) 
+{
   struct stat   buffer;   
   return (stat (filename, &buffer) == 0);
 }
 
-void runCommandBackground (char *fullPath, char **cmdLineArgs, int *pid) {
+void runCommandBackground (char *fullPath, char **cmdLineArgs, int *pid) 
+{
     if (fileExists(fullPath)) {
         int cpid = fork();
         if (cpid == 0) {
@@ -111,24 +114,40 @@ void runCommandBackground (char *fullPath, char **cmdLineArgs, int *pid) {
     }
 }
 
-void runCommand (char *fullPath, char **cmdLineArgs, int *childResult) {
+void runCommand (char *fullPath, char **cmdLineArgs, int *childResult) 
+{
     if (fileExists(fullPath)) {
-        if (fork() == 0) {
+        int cpid = fork();
+        if (cpid == 0) {
             execv(fullPath, cmdLineArgs);
         } else {
+            foregroundPID = cpid;
             wait(childResult);
+            foregroundPID = 0;
         }
     } else {
         printf("\"%s\" not found\n", fullPath);
     }
 }
 
-void getUserInput(char userInput[121]) {
+void getUserInput(char userInput[121]) 
+{
     //read user input
     printf("YWIMC > ");
 
     //read up to 120 characters from user input
     fgets(userInput, 120, stdin);
+}
+
+void myOwnHandler(int signo)
+{
+    if (signo == SIGINT){
+        if (foregroundPID == 0)  {
+            printf("Nothing to kill.\n");
+        } else {
+//            kill(foregroundPID, SIGINT);
+        }
+    }
 }
 
 int main()
@@ -146,6 +165,12 @@ int main()
     int currentPid = 0;
 
     int childResult = 0;
+    
+    // Set up signal handler
+    if (signal(SIGINT, myOwnHandler) == SIG_ERR){
+        printf("Failed to register handler\n");
+        exit(-1);
+    }
 
     getUserInput(userInput);
 
@@ -154,7 +179,7 @@ int main()
     cmdLineArgs = split( userInput, " \n", 7, &tokenNum );
 
     //At this point you have the user input split neatly into token in cmdLineArg[]
-
+    
     while ( strcmp( cmdLineArgs[0], "quit") != 0 ){
 
         //Figure out which command the user want and implement below
@@ -175,7 +200,9 @@ int main()
             }
 
             if (pidPresent) {
+                foregroundPID = pid;
                 waitpid(pid, &childResult, 0);
+                foregroundPID = 0;
             } else {
                 printf("%d is not a valid child pid\n", pid);
             }
