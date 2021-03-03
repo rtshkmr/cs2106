@@ -182,7 +182,7 @@ int main()
     char searchPath[20] = ".";  //default search path
     char userInput[121];
     char *command;
-    char execPath[20];
+    char execPath[40];
 
     int tokenNum;
 
@@ -204,11 +204,11 @@ int main()
     while ( strcmp( cmdLineArgs[0], "quit") != 0 ){
         command = cmdLineArgs[0];
         //Figure out which command the user wants and implement below
-        if (strcmp("showpath", command) == 0 && tokenNum == 1) { 
+        if (strcmp("showpath", command) == 0) { 
             printf("%s \n", searchPath);
-        } else if (strcmp("setpath", command) == 0 && tokenNum == 2){
+        } else if (strcmp("setpath", command) == 0){
             strcpy(searchPath, cmdLineArgs[1]);
-        } else if (strcmp("wait", command) == 0 && tokenNum == 2 ){
+        } else if (strcmp("wait", command) == 0){
             int targetPid = atoi(cmdLineArgs[1]);
             bool isValidChildPid = isValidToWait(targetPid, (pid_t*) backgroundJobs);
             if(isValidChildPid) {
