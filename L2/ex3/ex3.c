@@ -1,23 +1,24 @@
 /*************************************
-* Lab 2 Exercise 3
-* Name: Ritesh Kumar
-* Student Id: A0201829H
-* Lab Group: B12
-*************************************
-*************************************
-* Lab 2 Exercise 3
-* Name: Fang Junwei, Samuel
-* Student Id: A0199163U
-* Lab Group: B01
-*************************************
+ * Lab 2 Exercise 3
+ * Name: Ritesh Kumar
+ * Student Id: A0201829H
+ * Lab Group: B12
+ *************************************
+ *************************************
+ * Lab 2 Exercise 3
+ * Name: Fang Junwei, Samuel
+ * Student Id: A0199163U
+ * Lab Group: B01
+ *************************************
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
 --------------------------------------
 Warning: Make sure your code works on
 compute cluster node (Linux on x86)
-*************************************/
+ *************************************/
 
 #include <stdio.h>
+#include <signal.h>
 #include <stdbool.h>
 #include <fcntl.h>      //For stat()
 #include <sys/types.h>   
@@ -27,17 +28,18 @@ compute cluster node (Linux on x86)
 #include <string.h>     //for string comparison etc
 #include <stdlib.h>     //for malloc()
 
+int foregroundPID = 0;
 
 char** split( char* input, char* delimiter, int maxTokenNum, int* readTokenNum )
-//Assumptions:
-//  - the input line is a string (i.e. with NULL character at the end)
-//  - the delimiter is a string of possible delimiters, each delimiter is single chracter
-//Behavior:
-//  - Split up to and include maxTokenNum from the input string
-//Return: Tokenized substrings as array of strings
-//        readTokenNum stores the total number of tokens
-//Note:
-//  - Must use the freeTokenArray to free memory after use!
+    //Assumptions:
+    //  - the input line is a string (i.e. with NULL character at the end)
+    //  - the delimiter is a string of possible delimiters, each delimiter is single chracter
+    //Behavior:
+    //  - Split up to and include maxTokenNum from the input string
+    //Return: Tokenized substrings as array of strings
+    //        readTokenNum stores the total number of tokens
+    //Note:
+    //  - Must use the freeTokenArray to free memory after use!
 {
     char** tokenStrArr;
     char* tStart;   //start of token
@@ -92,43 +94,63 @@ void freeTokenArray(char** strArr, int size)
     //      afterwards
 }
 
-bool fileExists (char *filename) {
-  struct stat   buffer;   
-  return (stat (filename, &buffer) == 0);
+bool fileExists (char *filename) 
+{
+    struct stat   buffer;   
+    return (stat (filename, &buffer) == 0);
 }
 
-void runCommandBackground (char *fullPath, char **cmdLineArgs, int *pid) {
+void runCommandBackground (char *fullPath, char **cmdLineArgs, int *pid) 
+{
     if (fileExists(fullPath)) {
         int cpid = fork();
         if (cpid == 0) {
+            setpgid(0, 0);
             execv(fullPath, cmdLineArgs);
         } else {
             *pid = cpid;
-            printf("\"Child %d in background\"\n", cpid);
+            printf("Child %d in background\n", cpid);
         }
     } else {
         printf("\"%s\" not found\n", fullPath);
     }
 }
 
-void runCommand (char *fullPath, char **cmdLineArgs, int *childResult) {
+void runCommand (char *fullPath, char **cmdLineArgs, int *childResult) 
+{
     if (fileExists(fullPath)) {
-        if (fork() == 0) {
+        int cpid = fork();
+        if (cpid == 0) {
+            setpgid(0, 0);
             execv(fullPath, cmdLineArgs);
         } else {
+            foregroundPID = cpid;
             wait(childResult);
+            foregroundPID = 0;
         }
     } else {
         printf("\"%s\" not found\n", fullPath);
     }
 }
 
-void getUserInput(char userInput[121]) {
+void getUserInput(char userInput[121]) 
+{
     //read user input
     printf("YWIMC > ");
 
     //read up to 120 characters from user input
     fgets(userInput, 120, stdin);
+}
+
+void myOwnHandler(int signo)
+{
+    if (signo == SIGINT){
+        if (foregroundPID == 0)  {
+            printf("Nothing to kill.\n");
+        } else {
+            kill(foregroundPID, SIGINT);
+        }
+    }
 }
 
 int main()
@@ -146,6 +168,12 @@ int main()
     int currentPid = 0;
 
     int childResult = 0;
+
+    // Set up signal handler
+    if (signal(SIGINT, myOwnHandler) == SIG_ERR){
+        printf("Failed to register handler\n");
+        exit(-1);
+    }
 
     getUserInput(userInput);
 
@@ -175,7 +203,9 @@ int main()
             }
 
             if (pidPresent) {
+                foregroundPID = pid;
                 waitpid(pid, &childResult, 0);
+                foregroundPID = 0;
             } else {
                 printf("%d is not a valid child pid\n", pid);
             }
