@@ -54,7 +54,6 @@ void barrier_wait ( barrier_t *barrier )
         sem_post(barrier->block);
     } else {
         sem_wait(barrier->block);
-        printf("released %d\n", barrier->count);
         sem_post(barrier->block);
     }
 }
