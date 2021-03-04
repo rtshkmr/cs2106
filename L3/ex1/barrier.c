@@ -35,12 +35,12 @@ void barrier_init ( barrier_t *barrier, int count )
     // Initialise mutex
     barrier->mutex = malloc(sizeof(sem_t));
     ensure_successful_malloc( barrier->mutex );
-    sem_init( barrier->mutex, 1, 1 );
+    sem_init( barrier->mutex, 0, 1 );
 
     // Initialise block
     barrier->block = malloc(sizeof(sem_t));
     ensure_successful_malloc( barrier->block );
-    sem_init( barrier->block, 0, 1 );
+    sem_init( barrier->block, 0, 0 );
 }
 
 void barrier_wait ( barrier_t *barrier ) 
@@ -54,9 +54,9 @@ void barrier_wait ( barrier_t *barrier )
         sem_post(barrier->block);
     } else {
         sem_wait(barrier->block);
+        printf("released %d\n", barrier->count);
         sem_post(barrier->block);
     }
-
 }
 
 // Perform cleanup here if you need to
