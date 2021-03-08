@@ -29,7 +29,6 @@ for the 2nd member if  you are on a team
 // Initialise barrier here
 void barrier_init ( barrier_t *barrier, int count ) 
 {
-    //TODO: Implement the function
     barrier->count = count;
 
     // Initialise mutex
@@ -37,33 +36,31 @@ void barrier_init ( barrier_t *barrier, int count )
     ensure_successful_malloc( barrier->mutex );
     sem_init( barrier->mutex, 0, 1 );
 
-    // Initialise block
-    barrier->block = malloc(sizeof(sem_t));
-    ensure_successful_malloc( barrier->block );
-    sem_init( barrier->block, 0, 0 );
+    // Initialise waitQ
+    barrier->waitQ = malloc(sizeof(sem_t));
+    ensure_successful_malloc( barrier->waitQ );
+    sem_init( barrier->waitQ, 0, 0 );
 }
 
 void barrier_wait ( barrier_t *barrier ) 
 {
-    //TODO: Implement the function
     sem_wait(barrier->mutex);
     barrier->count--;
     sem_post(barrier->mutex);
 
     if (barrier->count == 0) {
-        sem_post(barrier->block);
+        sem_post(barrier->waitQ);
     } else {
-        sem_wait(barrier->block);
-        sem_post(barrier->block);
+        sem_wait(barrier->waitQ);
+        sem_post(barrier->waitQ);
     }
 }
 
 // Perform cleanup here if you need to
 void barrier_destroy ( barrier_t *barrier ) 
 {
-    //TODO: Implement the function
     sem_destroy( barrier->mutex );
     free( barrier->mutex );
-    sem_destroy( barrier->block );
-    free( barrier->block );
+    sem_destroy( barrier->waitQ );
+    free( barrier->waitQ );
 }
