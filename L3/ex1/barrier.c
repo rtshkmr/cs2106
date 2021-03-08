@@ -1,9 +1,9 @@
 /*************************************
-* Lab 3 Exercise 1
-* Name: Ritesh Kumar
-* Student Id: A0201829H 
-* Lab Group: B12
-*************************************
+ * Lab 3 Exercise 1
+ * Name: Ritesh Kumar
+ * Student Id: A0201829H 
+ * Lab Group: B12
+ *************************************
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
 */
@@ -27,10 +27,10 @@ for the 2nd member if  you are on a team
 
 
 #define ensure_successful_malloc(ptr)                           \
-  if (ptr == NULL) {                                            \
-    perror("Memory allocation unsuccessful for" #ptr "\n");     \
-    exit(1);                                                    \
-  }
+    if (ptr == NULL) {                                            \
+        perror("Memory allocation unsuccessful for" #ptr "\n");     \
+        exit(1);                                                    \
+    }
 
 // Initialise barrier here
 void barrier_init ( barrier_t *barrier, int count ) 
@@ -56,12 +56,23 @@ void barrier_wait ( barrier_t *barrier )
     barrier->count--;
     sem_post(barrier -> mutex);
 
-    if(barrier->count > 0) { // last person hasn't arrived, still need to wait
-        sem_wait(barrier->waitQ);
-        sem_post(barrier->waitQ);
-    } else { // last one does wait 
+
+    if (barrier->count == 0) {
         sem_post(barrier->waitQ);
     }
+
+    sem_wait(barrier->waitQ);
+    sem_post(barrier->waitQ);
+
+
+    /***** alternative implementation from tutorial 5 **************
+       if(barrier->count > 0) { // last person hasn't arrived, still need to wait
+       sem_wait(barrier->waitQ);
+       sem_post(barrier->waitQ);
+       } else { // last one does wait 
+       sem_post(barrier->waitQ);
+       }
+    ******************************************************************/
 }
 
 // Perform cleanup here if you need to
