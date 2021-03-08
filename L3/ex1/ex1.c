@@ -55,6 +55,7 @@ int main ( int argc, char *argv[] )
 
   int i;
   for (i = 0; i < total_threads; i++) {
+    // thread_tasks[i] returns a pointer, that's why can use dot operator here
     thread_tasks[i].thread_id = i;
     thread_tasks[i].barrier = barrier;
     thread_tasks[i].sleep_time = (rand() % 500) * 1000;
@@ -110,3 +111,11 @@ void* run_thread( void* task )
 
   pthread_exit(0);
 }
+
+
+
+/*
+ * Takeaways:
+ * 1. only  semaphore init by sem_init should be destroyed using sem_destroy
+ *
+ */

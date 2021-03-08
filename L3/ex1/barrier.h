@@ -1,8 +1,8 @@
 /*************************************
 * Lab 3 Exercise 1
 * Name:
-* Student Id: A????????
-* Lab Group: B??
+* Student Id: A0201829H
+* Lab Group: B12
 *************************************
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
@@ -16,10 +16,14 @@ for the 2nd member if  you are on a team
  */
 #ifndef __CS2106_BARRIER_H_
 #define __CS2106_BARRIER_H_
+#include <semaphore.h>
 
 typedef struct barrier {
   int count;
   //TODO: add additional fields here
+  // semaphore pointers are kept local to the barrier since  the barrier is one-time use
+  sem_t *waitQ;
+  sem_t *mutex;
 } barrier_t;
 
 void barrier_init ( barrier_t *barrier, int count );
