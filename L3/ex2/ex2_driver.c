@@ -20,7 +20,7 @@ int READ_COUNT;
 
 int value = 0;
 int max_concurrent_readers = 0;
-pthread_mutex_t max_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t max_mutex = PTHREAD_MUTEX_INITIALIZER; // max_concurrent_readers is a shared variable, so need to lock it
 
 rw_lock* read_write_lock;
 
@@ -54,7 +54,7 @@ int main(int argc, char** argv)
     int i, return_code;
     int bad_threads = 0;
     void* thread_return;
-    int *pi;
+    int *pi; // this will be passed as an arg when doing a pthread_create
 
     for (i = 0; i < WRITERS; i++) {
         thread_id = i + 1;
