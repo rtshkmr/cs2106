@@ -21,9 +21,10 @@ Copy over the solution and modify as needed.
 
 #include <pthread.h> // To import the pthread_mutex_t type.
 
-//TODO: You can modify the structure
 typedef struct {
+  pthread_mutex_t turnstile;
   pthread_mutex_t mutex;
+  pthread_mutex_t writerLock;
   int reader_count;
   int writer_count;
 } rw_lock;
