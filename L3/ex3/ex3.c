@@ -20,7 +20,7 @@ Copy over the solution and modify as needed.
 
 void initialise(rw_lock* lock)
 {
-  pthread_mutex_init(%(lock->turnstile), NULL);
+  pthread_mutex_init(&(lock->turnstile), NULL);
   pthread_mutex_init(&(lock->mutex), NULL);
   pthread_mutex_init(&(lock->writerLock), NULL);
   lock->reader_count = 0;
@@ -29,6 +29,7 @@ void initialise(rw_lock* lock)
 
 void writer_acquire(rw_lock* lock)
 {
+  pthread_mutex_lock(&(lock->turnstile));
   pthread_mutex_lock(&(lock->writerLock));
   lock->writer_count++;
 }
@@ -36,11 +37,14 @@ void writer_acquire(rw_lock* lock)
 void writer_release(rw_lock* lock)
 {
   lock->writer_count--;
+  pthread_mutex_unlock(&(lock->turnstile));
   pthread_mutex_unlock(&(lock->writerLock));
 }
 
 void reader_acquire(rw_lock* lock)
 {
+  pthread_mutex_lock(&(lock->turnstile));
+  pthread_mutex_unlock(&(lock->turnstile));
   pthread_mutex_lock(&(lock->mutex));
   if (lock->reader_count == 0) {
       pthread_mutex_lock(&(lock->writerLock));
