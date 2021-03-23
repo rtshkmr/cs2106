@@ -15,8 +15,8 @@ for the 2nd member if  you are on a team
 
 //TODO: You can modify the structure
 typedef struct {
-  pthread_mutex_t mutex;
-  pthread_mutex_t roomEmpty;
+  pthread_mutex_t mutex; // controls changing of reader_count
+  pthread_mutex_t roomEmpty; // controls entry into room
   int reader_count;
   int writer_count;
 } rw_lock;

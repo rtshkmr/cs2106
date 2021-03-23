@@ -20,7 +20,7 @@ int READ_COUNT;
 
 int value = 0;
 int max_concurrent_readers = 0;
-pthread_mutex_t max_mutex = PTHREAD_MUTEX_INITIALIZER; // max_concurrent_readers is a shared variable, so need to lock it
+pthread_mutex_t max_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 rw_lock* read_write_lock;
 
