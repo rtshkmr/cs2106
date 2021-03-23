@@ -19,15 +19,19 @@ for the 2nd member if  you are on a team
 extern int num_of_cars;
 extern int num_of_segments;
 
-segment_struct *segments;
+sem_t *segment_locks; //Array of semaphores, one for each segment
+sem_t loop_lock;
+
 
 void initialise()
 {
     //TODO: Your code here
-
+    
+    segment_locks = malloc(sizeof(sem_t) * num_of_segments);
     for (int i = 0; i < num_of_segments; i++) {
-        sem_init(&segments[i].cars_in_seg_mutex, 0, 1);
+        sem_init(&segment_locks[i], 0, 1);
     }
+    sem_init(&loop_lock, 0, num_of_segments - 1); // -1 to prevent scenario when cars cannot move as all segments are filled
 
 }
 
@@ -35,8 +39,10 @@ void cleanup()
 {
     //TODO: Your code here
     for (int i = 0; i < num_of_segments; i++) {
-        sem_destroy(&(segments[i].cars_in_seg_mutex));
+        sem_destroy(&segment_locks[i]);
     }
+    sem_destroy(&loop_lock);
+    free(segment_locks);
 }
 
 void* car(void* car)
@@ -50,22 +56,24 @@ void* car(void* car)
     //   3. finally call exit_roundabout (...)
     car_struct* carObj = (car_struct*) car;
     
-    int curr_seg = carObj->current_seg;
+    int exit_seg = carObj->exit_seg;
 
-    sem_wait(&segments[carObj->current_seg].cars_in_seg_mutex);
+    // Enter Roundabout
+    sem_wait(&loop_lock);
+    sem_wait(&segment_locks[carObj->entry_seg]);
     enter_roundabout(car);
-
-
-    while (carObj->exit_seg != carObj->current_seg) {
-        curr_seg = carObj->current_seg;
-        sem_post(&segments[(curr_seg + 1) % num_of_segments].cars_in_seg_mutex); 
+    
+    // Move to next segment
+    while (exit_seg != carObj->current_seg) {
+        int current_seg = carObj->current_seg;
+        sem_wait(&segment_locks[(current_seg + 1) % num_of_segments]); 
         move_to_next_segment(car);
-        sem_post(&segments[curr_seg].cars_in_seg_mutex);
+        sem_post(&segment_locks[current_seg]);
     }
-    
-    curr_seg = carObj->current_seg; 
+   
+    // Exit_roundabout
     exit_roundabout(car);
-    sem_post(&segments[curr_seg].cars_in_seg_mutex);
-    
+    sem_post(&segment_locks[exit_seg]);
+    sem_post(&loop_lock);
     pthread_exit(NULL);
 }
