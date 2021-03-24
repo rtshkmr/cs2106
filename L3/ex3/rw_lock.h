@@ -1,29 +1,24 @@
 /*************************************
-* Lab 3 Exercise 3
-* Name:
-* Student Id: A????????
-* Lab Group: B??
+* Lab 3 Exercise 2
+* Name: Ritesh Kumar    
+* Student Id: A0201829H
+* Lab Group: B12
 *************************************
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
 */
 
-/************************************
-
-You should use ex2 solution as the starting point.
-
-Copy over the solution and modify as needed.
-************************************/
-
-
-#ifndef __CS2106_RWLOCKV2_H_
-#define __CS2106_RWLOCKV2_H_
+#ifndef __CS2106_RWLOCKV1_H_
+#define __CS2106_RWLOCKV1_H_
 
 #include <pthread.h> // To import the pthread_mutex_t type.
 
 //TODO: You can modify the structure
 typedef struct {
-  pthread_mutex_t mutex;
+  
+  pthread_mutex_t in; // indicates interest for room entrance 
+  pthread_mutex_t mutex; // controls changing of reader_count
+  pthread_mutex_t writer; // controls entry into room
   int reader_count;
   int writer_count;
 } rw_lock;
