@@ -3,6 +3,11 @@
 * Name: Ritesh Kumar    
 * Student Id: A0201829H
 * Lab Group: B12
+*
+*
+* Name: Fang Junwei, Samuel
+* Student Id: A0199163U
+* Lab Group: B01
 *************************************
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
@@ -13,7 +18,6 @@ for the 2nd member if  you are on a team
 
 #include <pthread.h> // To import the pthread_mutex_t type.
 
-//TODO: You can modify the structure
 typedef struct {
   pthread_mutex_t mutex; // controls changing of reader_count
   pthread_mutex_t roomEmpty; // controls entry into room

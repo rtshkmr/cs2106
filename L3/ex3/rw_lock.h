@@ -3,10 +3,16 @@
 * Name: Ritesh Kumar    
 * Student Id: A0201829H
 * Lab Group: B12
+*
+*
+* Name: Fang Junwei, Samuel
+* Student Id: A0199163U
+* Lab Group: B01
 *************************************
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
 */
+
 
 #ifndef __CS2106_RWLOCKV1_H_
 #define __CS2106_RWLOCKV1_H_

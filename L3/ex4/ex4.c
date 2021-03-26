@@ -1,9 +1,16 @@
 /*************************************
 * Lab 3 Exercise 4
-* Name:
-* Student Id: A????????
-* Lab Group: B??
+* Name: Ritesh Kumar
+* Student Id: A0201829H
+* Lab Group: B12
 *************************************
+/*************************************
+* Lab 3 Exercise 4
+* Name: Fang Junwei, Samuel
+* Student Id: A0199163U
+* Lab Group: B01
+*************************************
+
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
 */
@@ -25,8 +32,8 @@ sem_t roundabout_lock; // to prevent max number of segments from "trying" at the
 
 void initialise()
 {
-    //int roundabout_init = num_of_segments / 2; 
-    int roundabout_init = num_of_segments - 1; // note: any number between n / 2 and n - 1 inclusive would work as an init value. The testing doesn't seem to make a difference in terms of concurrency
+    // note: any number between n / 2 and n - 1 inclusive would work as an init value. The testing doesn't seem to make a difference in terms of concurrency
+    int roundabout_init = num_of_segments / 2;  // this should prevent too many cars being unnecessarily inside.
     //TODO: Your code here
     // allocate space for the array of semaphores: 
     segment_locks = malloc(sizeof(sem_t) * num_of_segments);
@@ -47,8 +54,6 @@ void cleanup()
 
 void* car(void* car)
 {
-    //TODO: Your code here, see the general steps below
-
     //This function modeles a thread 
     //A car: 
     //   1. should call enter_roundabout (...)
@@ -65,7 +70,6 @@ void* car(void* car)
     sem_wait(&segment_locks[myEntry]); 
     // once here, it's guarateed that no one else is in the segment.
     enter_roundabout(carPtr); 
-
 
     while(myExit != carPtr->current_seg) {
         // movement from one segment to next: 
