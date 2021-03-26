@@ -85,7 +85,7 @@ int main(int argc, char** argv)
     pthread_t car_threads[num_of_cars];
 
     for (i = 0; i < num_of_cars; i++) {
-        pthread_create(&car_threads[i], NULL, car, (void*)&cars[i]);
+        pthread_create(&car_threads[i], NULL, car, (void*)&cars[i]); // the proc to run is the car method within the car object (the car obj is the item within the cars array)
     }
 
     for (i = 0; i < num_of_cars; i++) {
