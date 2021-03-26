@@ -1,5 +1,5 @@
 /*************************************
-* Lab 3 Exercise 2
+* Lab 3 Exercise 3
 * Name: Ritesh Kumar    
 * Student Id: A0201829H
 * Lab Group: B12
