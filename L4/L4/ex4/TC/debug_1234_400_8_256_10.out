@@ -1,0 +1,236 @@
+Seed 1234, heap size 400, MinPartSize 8, MaxPartSize 256, #Req 10
+S: minIdx[3] maxIdx[8]
+Adding partition[+    0] at Level [8]
+	Buddy [+    0] not found or cant merge!
+Adding partition[+  256] at Level [7]
+	Buddy [+  384] not found or cant merge!
+Adding partition[+  384] at Level [4]
+	Buddy [+  400] not found or cant merge!
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: [+    0] 
+A[7]: [+  256] 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+A: 64 integers
+   0 | Addr 0x5597812b8000 | nInt 64
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: 
+A[7]: [+  256] 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+A: 55 integers
+   0 | Addr 0x5597812b8000 | nInt 64
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: 
+A[7]: [+  256] 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+F: 0x5597812b8000 [S=1, R=0]
+Adding partition[+    0] at Level [8]
+	Buddy [+-361996032] not found or cant merge!
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: [+    0] 
+A[7]: [+  256] 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+A: 35 integers
+   0 | Addr 0x5597812b8000 | nInt 35
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: 
+A[7]: [+  256] 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+F: 0x5597812b8000 [S=1, R=0]
+Adding partition[+    0] at Level [8]
+	Buddy [+-361996032] not found or cant merge!
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: [+    0] 
+A[7]: [+  256] 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+A: 25 integers
+   0 | Addr 0x5597812b8100 | nInt 25
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: [+    0] 
+A[7]: 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+A: 56 integers
+   0 | Addr 0x5597812b8100 | nInt 25
+   1 | Addr 0x5597812b8000 | nInt 56
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: 
+A[7]: 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+A: 28 integers
+   0 | Addr 0x5597812b8100 | nInt 25
+   1 | Addr 0x5597812b8000 | nInt 56
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: 
+A[7]: 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+F: 0x5597812b8100 [S=2, R=0]
+Adding partition[+  256] at Level [7]
+	Buddy [+  384] not found or cant merge!
+   0 | Addr 0x5597812b8000 | nInt 56
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: 
+A[7]: [+  256] 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+F: 0x5597812b8000 [S=1, R=0]
+Adding partition[+    0] at Level [8]
+	Buddy [+  384] not found or cant merge!
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: [+    0] 
+A[7]: [+  256] 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+*Tester Done. Cleaning up!
+[+    0] |      56      56      56      56
+[+    4] |      56      56      56      56
+[+    8] |      56      56      56      56
+[+   12] |      56      56      56      56
+[+   16] |      56      56      56      56
+[+   20] |      56      56      56      56
+[+   24] |      56      56      56      56
+[+   28] |      56      56      56      56
+[+   32] |      56      56      56      56
+[+   36] |      56      56      56      56
+[+   40] |      56      56      56      56
+[+   44] |      56      56      56      56
+[+   48] |      56      56      56      56
+[+   52] |      56      56      56      56
+[+   56] |      64      64      64      64
+[+   60] |      64      64      64      64
+[+   64] |      25      25      25      25
+[+   68] |      25      25      25      25
+[+   72] |      25      25      25      25
+[+   76] |      25      25      25      25
+[+   80] |      25      25      25      25
+[+   84] |      25      25      25      25
+[+   88] |      25       0       0       0
+[+   92] |       0       0       0       0
+[+   96] |       0       0       0       0
+
+Heap Meta Info:
+===============
+Total Size = 400 bytes
+Start Address = 0x5597812b8000
+A[8]: [+    0] 
+A[7]: [+  256] 
+A[6]: 
+A[5]: 
+A[4]: [+  384] 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+Heap Usage Statistics:
+======================
+Total Space: 400 bytes
+Total Free Partitions: 3
+Total Free Size: 400 bytes
+Total Internal Fragmentation: 0 bytes

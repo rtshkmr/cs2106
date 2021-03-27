@@ -1,0 +1,331 @@
+Heap size 1024, #Req 15
+Adding partition[+    0] at Level [10]
+	Buddy [+ 1024] not found!
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x556704b82000
+A[10]: [+    0] 
+A[9]: 
+A[8]: 
+A[7]: 
+A[6]: 
+A[5]: 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 1 integers = 4 bytes
+Adding partition[+  512] at Level [9]
+	Buddy [+    0] not found!
+Adding partition[+  256] at Level [8]
+	Buddy [+    0] not found!
+Adding partition[+  128] at Level [7]
+	Buddy [+    0] not found!
+Adding partition[+   64] at Level [6]
+	Buddy [+    0] not found!
+Adding partition[+   32] at Level [5]
+	Buddy [+    0] not found!
+Adding partition[+   16] at Level [4]
+	Buddy [+    0] not found!
+Adding partition[+    8] at Level [3]
+	Buddy [+    0] not found!
+Adding partition[+    4] at Level [2]
+	Buddy [+    0] not found!
+A: Allocated at [0x556704b82000], request idx [0]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x556704b82000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: [+   16] 
+A[3]: [+    8] 
+A[2]: [+    4] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 4 integers = 16 bytes
+A: Allocated at [0x556704b82010], request idx [1]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x556704b82000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: 
+A[3]: [+    8] 
+A[2]: [+    4] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 1 integers = 4 bytes
+A: Allocated at [0x556704b82004], request idx [2]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x556704b82000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: 
+A[3]: [+    8] 
+A[2]: 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 1 integers = 4 bytes
+Adding partition[+   12] at Level [2]
+	Buddy [+    8] not found!
+A: Allocated at [0x556704b82008], request idx [3]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x556704b82000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: 
+A[3]: 
+A[2]: [+   12] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x556704b82000 | nInt 1
+   1 | Addr 0x556704b82010 | nInt 4
+   2 | Addr 0x556704b82004 | nInt 1
+   3 | Addr 0x556704b82008 | nInt 1
+Free partition <idx> = F: 0x556704b82000 [S=4]
+Adding partition[+    0] at Level [2]
+	Buddy [+    4] not found!
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x556704b82000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: 
+A[3]: 
+A[2]: [+    0] [+   12] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x556704b82010 | nInt 4
+   1 | Addr 0x556704b82004 | nInt 1
+   2 | Addr 0x556704b82008 | nInt 1
+Free partition <idx> = F: 0x556704b82004 [S=4]
+Adding partition[+    4] at Level [2]
+	Buddy [+    0] found!
+Adding partition[+    0] at Level [3]
+	Buddy [+    8] not found!
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x556704b82000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: 
+A[3]: [+    0] 
+A[2]: [+   12] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x556704b82010 | nInt 4
+   1 | Addr 0x556704b82008 | nInt 1
+Free partition <idx> = F: 0x556704b82010 [S=16]
+Adding partition[+   16] at Level [4]
+	Buddy [+    0] not found!
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x556704b82000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: [+   16] 
+A[3]: [+    0] 
+A[2]: [+   12] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x556704b82008 | nInt 1
+Free partition <idx> = F: 0x556704b82008 [S=4]
+Adding partition[+    8] at Level [2]
+	Buddy [+   12] found!
+Adding partition[+    8] at Level [3]
+	Buddy [+    0] found!
+Adding partition[+    0] at Level [4]
+	Buddy [+   16] found!
+Adding partition[+    0] at Level [5]
+	Buddy [+   32] found!
+Adding partition[+    0] at Level [6]
+	Buddy [+   64] found!
+Adding partition[+    0] at Level [7]
+	Buddy [+  128] found!
+Adding partition[+    0] at Level [8]
+	Buddy [+  256] found!
+Adding partition[+    0] at Level [9]
+	Buddy [+  512] found!
+Adding partition[+    0] at Level [10]
+	Buddy [+ 1024] not found!
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x556704b82000
+A[10]: [+    0] 
+A[9]: 
+A[8]: 
+A[7]: 
+A[6]: 
+A[5]: 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => *Testing Done. Cleaning up!
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x556704b82000
+A[10]: [+    0] 
+A[9]: 
+A[8]: 
+A[7]: 
+A[6]: 
+A[5]: 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+Heap Usage Statistics:
+======================
+Total Space: 1024 bytes
+Total Free Partitions: 1
+Total Free Size: 1024 bytes
+Total Internal Fragmentation: 0 bytes

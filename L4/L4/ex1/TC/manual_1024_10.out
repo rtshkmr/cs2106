@@ -1,0 +1,132 @@
+Heap size 1024, #Req 10
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 10 integers = 40 bytes
+A: Allocated at [0x5626d25d5000], request idx [0]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x5626d25d5028], request idx [1]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 30 integers = 120 bytes
+A: Allocated at [0x5626d25d5078], request idx [2]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 40 integers = 160 bytes
+A: Allocated at [0x5626d25d50f0], request idx [3]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 50 integers = 200 bytes
+A: Allocated at [0x5626d25d5190], request idx [4]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 60 integers = 240 bytes
+A: Allocated at [0x5626d25d5258], request idx [5]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 70 integers = 280 bytes
+A: FAILED
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 80 integers = 320 bytes
+A: FAILED
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x5626d25d5000 | nInt 10
+   1 | Addr 0x5626d25d5028 | nInt 20
+   2 | Addr 0x5626d25d5078 | nInt 30
+   3 | Addr 0x5626d25d50f0 | nInt 40
+   4 | Addr 0x5626d25d5190 | nInt 50
+   5 | Addr 0x5626d25d5258 | nInt 60
+Free partition <idx> = F: 0x5626d25d5078 [S=120]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x5626d25d5000 | nInt 10
+   1 | Addr 0x5626d25d5028 | nInt 20
+   2 | Addr 0x5626d25d50f0 | nInt 40
+   3 | Addr 0x5626d25d5190 | nInt 50
+   4 | Addr 0x5626d25d5258 | nInt 60
+Free partition <idx> = F: 0x5626d25d5258 [S=240]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x5626d25d5000 | nInt 10
+   1 | Addr 0x5626d25d5028 | nInt 20
+   2 | Addr 0x5626d25d50f0 | nInt 40
+   3 | Addr 0x5626d25d5190 | nInt 50
+Free partition <idx> = F: (nil) [S=0]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x5626d25d5000 | nInt 10
+   1 | Addr 0x5626d25d5028 | nInt 20
+   2 | Addr 0x5626d25d50f0 | nInt 40
+   3 | Addr 0x5626d25d5190 | nInt 50
+Free partition <idx> = F: (nil) [S=0]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => *Testing Done. Cleaning up!
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5626d25d5000
+Partition list:
+[+    0 |    40 bytes | 1]
+[+   40 |    80 bytes | 1]
+[+  120 |   120 bytes | 0]
+[+  240 |   160 bytes | 1]
+[+  400 |   200 bytes | 1]
+[+  600 |   240 bytes | 0]
+[+  840 |   184 bytes | 0]
+
+
+Heap Usage Statistics:
+======================
+Total Space: 1024 bytes
+Total Occupied Partitions: 4
+	Total Occupied Size: 480 bytes
+Total Number of Holes: 3
+	Total Hole Size: 544 bytes
