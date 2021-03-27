@@ -1,0 +1,245 @@
+Seed 1234, heap size 1024, #Req 10
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |  1024 bytes | 0]
+
+A: 64 integers
+   0 | Addr 0x5557cf616000 | nInt 64
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   256 bytes | 1]
+[+  256 |   768 bytes | 0]
+
+A: 55 integers
+   0 | Addr 0x5557cf616000 | nInt 64
+   1 | Addr 0x5557cf616100 | nInt 55
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   256 bytes | 1]
+[+  256 |   220 bytes | 1]
+[+  476 |   548 bytes | 0]
+
+F: 0x5557cf616000 [S=2, R=0]
+   0 | Addr 0x5557cf616100 | nInt 55
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   256 bytes | 0]
+[+  256 |   220 bytes | 1]
+[+  476 |   548 bytes | 0]
+
+A: 35 integers
+   0 | Addr 0x5557cf616100 | nInt 55
+   1 | Addr 0x5557cf616000 | nInt 35
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   140 bytes | 1]
+[+  140 |   116 bytes | 0]
+[+  256 |   220 bytes | 1]
+[+  476 |   548 bytes | 0]
+
+F: 0x5557cf616100 [S=2, R=0]
+   0 | Addr 0x5557cf616000 | nInt 35
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   140 bytes | 1]
+[+  140 |   116 bytes | 0]
+[+  256 |   220 bytes | 0]
+[+  476 |   548 bytes | 0]
+
+A: 25 integers
+   0 | Addr 0x5557cf616000 | nInt 35
+   1 | Addr 0x5557cf61608c | nInt 25
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   140 bytes | 1]
+[+  140 |   100 bytes | 1]
+[+  240 |    16 bytes | 0]
+[+  256 |   220 bytes | 0]
+[+  476 |   548 bytes | 0]
+
+A: 56 integers
+   0 | Addr 0x5557cf616000 | nInt 35
+   1 | Addr 0x5557cf61608c | nInt 25
+   2 | Addr 0x5557cf6161dc | nInt 56
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   140 bytes | 1]
+[+  140 |   100 bytes | 1]
+[+  240 |    16 bytes | 0]
+[+  256 |   220 bytes | 0]
+[+  476 |   224 bytes | 1]
+[+  700 |   324 bytes | 0]
+
+A: 28 integers
+   0 | Addr 0x5557cf616000 | nInt 35
+   1 | Addr 0x5557cf61608c | nInt 25
+   2 | Addr 0x5557cf6161dc | nInt 56
+   3 | Addr 0x5557cf616100 | nInt 28
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   140 bytes | 1]
+[+  140 |   100 bytes | 1]
+[+  240 |    16 bytes | 0]
+[+  256 |   112 bytes | 1]
+[+  368 |   108 bytes | 0]
+[+  476 |   224 bytes | 1]
+[+  700 |   324 bytes | 0]
+
+F: 0x5557cf6161dc [S=4, R=2]
+   0 | Addr 0x5557cf616000 | nInt 35
+   1 | Addr 0x5557cf61608c | nInt 25
+   2 | Addr 0x5557cf616100 | nInt 28
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   140 bytes | 1]
+[+  140 |   100 bytes | 1]
+[+  240 |    16 bytes | 0]
+[+  256 |   112 bytes | 1]
+[+  368 |   108 bytes | 0]
+[+  476 |   224 bytes | 0]
+[+  700 |   324 bytes | 0]
+
+F: 0x5557cf61608c [S=3, R=1]
+   0 | Addr 0x5557cf616000 | nInt 35
+   1 | Addr 0x5557cf616100 | nInt 28
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   140 bytes | 1]
+[+  140 |   100 bytes | 0]
+[+  240 |    16 bytes | 0]
+[+  256 |   112 bytes | 1]
+[+  368 |   108 bytes | 0]
+[+  476 |   224 bytes | 0]
+[+  700 |   324 bytes | 0]
+
+*Tester Done. Cleaning up!
+[+    0] |      35      35      35      35
+[+    4] |      35      35      35      35
+[+    8] |      35      35      35      35
+[+   12] |      35      35      35      35
+[+   16] |      35      35      35      35
+[+   20] |      35      35      35      35
+[+   24] |      35      35      35      35
+[+   28] |      35      35      35      35
+[+   32] |      35      35      35      25
+[+   36] |      25      25      25      25
+[+   40] |      25      25      25      25
+[+   44] |      25      25      25      25
+[+   48] |      25      25      25      25
+[+   52] |      25      25      25      25
+[+   56] |      25      25      25      25
+[+   60] |      64      64      64      64
+[+   64] |      28      28      28      28
+[+   68] |      28      28      28      28
+[+   72] |      28      28      28      28
+[+   76] |      28      28      28      28
+[+   80] |      28      28      28      28
+[+   84] |      28      28      28      28
+[+   88] |      28      28      28      28
+[+   92] |      55      55      55      55
+[+   96] |      55      55      55      55
+[+  100] |      55      55      55      55
+[+  104] |      55      55      55      55
+[+  108] |      55      55      55      55
+[+  112] |      55      55      55      55
+[+  116] |      55      55      55      56
+[+  120] |      56      56      56      56
+[+  124] |      56      56      56      56
+[+  128] |      56      56      56      56
+[+  132] |      56      56      56      56
+[+  136] |      56      56      56      56
+[+  140] |      56      56      56      56
+[+  144] |      56      56      56      56
+[+  148] |      56      56      56      56
+[+  152] |      56      56      56      56
+[+  156] |      56      56      56      56
+[+  160] |      56      56      56      56
+[+  164] |      56      56      56      56
+[+  168] |      56      56      56      56
+[+  172] |      56      56      56       0
+[+  176] |       0       0       0       0
+[+  180] |       0       0       0       0
+[+  184] |       0       0       0       0
+[+  188] |       0       0       0       0
+[+  192] |       0       0       0       0
+[+  196] |       0       0       0       0
+[+  200] |       0       0       0       0
+[+  204] |       0       0       0       0
+[+  208] |       0       0       0       0
+[+  212] |       0       0       0       0
+[+  216] |       0       0       0       0
+[+  220] |       0       0       0       0
+[+  224] |       0       0       0       0
+[+  228] |       0       0       0       0
+[+  232] |       0       0       0       0
+[+  236] |       0       0       0       0
+[+  240] |       0       0       0       0
+[+  244] |       0       0       0       0
+[+  248] |       0       0       0       0
+[+  252] |       0       0       0       0
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5557cf616000
+Partition list:
+[+    0 |   140 bytes | 1]
+[+  140 |   100 bytes | 0]
+[+  240 |    16 bytes | 0]
+[+  256 |   112 bytes | 1]
+[+  368 |   108 bytes | 0]
+[+  476 |   224 bytes | 0]
+[+  700 |   324 bytes | 0]
+
+
+Heap Usage Statistics:
+======================
+Total Space: 1024 bytes
+Total Occupied Partitions: 2
+	Total Occupied Size: 252 bytes
+Total Number of Holes: 5
+	Total Hole Size: 772 bytes

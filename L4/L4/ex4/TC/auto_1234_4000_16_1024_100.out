@@ -1,0 +1,23 @@
+
+Heap Meta Info:
+===============
+Total Size = 4000 bytes
+Start Address = 0x5620de8ed000
+A[10]: 
+A[9]: [+ 1536] [+ 3072] 
+A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 
+A[7]: [+  128] [+  640] 
+A[6]: [+   64] [+  512] 
+A[5]: [+ 3968] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+Heap Usage Statistics:
+======================
+Total Space: 4000 bytes
+Total Free Partitions: 11
+Total Free Size: 2464 bytes
+Total Internal Fragmentation: 500 bytes

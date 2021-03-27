@@ -1,0 +1,143 @@
+Heap size 1200, MinPartSize 32, MaxPartSize 512, Action Partitions 5
+S: minIdx[5] maxIdx[9]
+Adding partition[+    0] at Level [9]
+	Buddy [+    0] not found or cant merge!
+Adding partition[+  512] at Level [9]
+	Buddy [+    0] not found or cant merge!
+Adding partition[+ 1024] at Level [7]
+	Buddy [+ 1152] not found or cant merge!
+Adding partition[+ 1152] at Level [5]
+	Buddy [+ 1184] not found or cant merge!
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x5588b35b6000
+A[9]: [+    0] [+  512] 
+A[8]: 
+A[7]: [+ 1024] 
+A[6]: 
+A[5]: [+ 1152] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 1 integers = 4 bytes
+A: Allocated at [0x5588b35b6480], request idx [0]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x5588b35b6000
+A[9]: [+    0] [+  512] 
+A[8]: 
+A[7]: [+ 1024] 
+A[6]: 
+A[5]: 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 1 integers = 4 bytes
+Adding partition[+ 1088] at Level [6]
+	Buddy [+ 1024] not found or cant merge!
+Adding partition[+ 1056] at Level [5]
+	Buddy [+ 1024] not found or cant merge!
+A: Allocated at [0x5588b35b6400], request idx [1]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x5588b35b6000
+A[9]: [+    0] [+  512] 
+A[8]: 
+A[7]: 
+A[6]: [+ 1088] 
+A[5]: [+ 1056] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 130 integers = 520 bytes
+A: FAILED
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x5588b35b6000
+A[9]: [+    0] [+  512] 
+A[8]: 
+A[7]: 
+A[6]: [+ 1088] 
+A[5]: [+ 1056] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => *Testing Done. Cleaning up!
+
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x5588b35b6000
+A[9]: [+    0] [+  512] 
+A[8]: 
+A[7]: 
+A[6]: [+ 1088] 
+A[5]: [+ 1056] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+Heap Usage Statistics:
+======================
+Total Space: 1184 bytes
+Total Free Partitions: 4
+Total Free Size: 1120 bytes
+Total Internal Fragmentation: 56 bytes

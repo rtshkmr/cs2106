@@ -1,0 +1,76 @@
+Heap size 1024, #Req 5
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 10 integers = 40 bytes
+A: Allocated at [0x5622af55d000], request idx [0]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x5622af55d028], request idx [1]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 30 integers = 120 bytes
+A: Allocated at [0x5622af55d078], request idx [2]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 40 integers = 160 bytes
+A: Allocated at [0x5622af55d0f0], request idx [3]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x5622af55d000 | nInt 10
+   1 | Addr 0x5622af55d028 | nInt 20
+   2 | Addr 0x5622af55d078 | nInt 30
+   3 | Addr 0x5622af55d0f0 | nInt 40
+Free partition <idx> = F: 0x5622af55d078 [S=120]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x5622af55d000 | nInt 10
+   1 | Addr 0x5622af55d028 | nInt 20
+   2 | Addr 0x5622af55d0f0 | nInt 40
+Free partition <idx> = F: 0x5622af55d0f0 [S=160]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => *Testing Done. Cleaning up!
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x5622af55d000
+Partition list:
+[+    0 |    40 bytes | 1]
+[+   40 |    80 bytes | 1]
+[+  120 |   120 bytes | 0]
+[+  240 |   160 bytes | 1]
+[+  400 |   624 bytes | 0]
+
+
+Heap Usage Statistics:
+======================
+Total Space: 1024 bytes
+Total Occupied Partitions: 3
+	Total Occupied Size: 280 bytes
+Total Number of Holes: 2
+	Total Hole Size: 744 bytes
