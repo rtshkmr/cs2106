@@ -225,10 +225,23 @@ int setupHeap(int initialSize)
     //TODO: Task 1. Setup the rest of the bookkeeping info:
     //       hmi.A <= an array of partition linked list
     //       hmi.maxIdx <= the largest index for hmi.A[]
-    //       
-    hmi.A = NULL;   //change this!
-    hmi.maxIdx = 0; //change this!
-
+    
+    // Figure out the num of levels via continuous Log2:
+    int numLevels = 0;
+    while(initialSize != 0) {
+        numLevels++;
+        initialSize = initialSize >> 1; // right shift 1 bit
+    }
+    // allocate space for numLevels levels of partInfo arrays
+    hmi.A = (partInfo**) malloc(sizeof(partInfo*) * numLevels);   //change this!
+    partInfo* initialFreePartition = (partInfo*) malloc(sizeof(partInfo));
+    initialFreePartition->offset = 0;
+    initialFreePartition->nextPart = (partInfo*) NULL;
+    hmi.maxIdx = numLevels - 1; //change this!
+    hmi.A[numLevels - 1] = initialFreePartition; // highestIdx will be allocated first 
+    for(int i = 0; i < numLevels - 1; i++) {
+        hmi.A[i] = (partInfo*) NULL;
+    }
     return 1;
 }
 
