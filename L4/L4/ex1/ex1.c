@@ -100,6 +100,19 @@ void printHeapStatistic()
  *********************************************************/
 {
     //TODO: Calculate and report the various statistics
+    
+    int numOccupiedParts = 0 , occupiedSize = 0, numFreeParts = 0, holeSize = 0;
+    // loop thru all the partitions, and keep stock 
+    for(partInfo *current = hmi.pListHead; current != NULL; current = current->nextPart) {
+        if(current->status == OCCUPIED) {
+            numOccupiedParts++;
+            occupiedSize+=current->size;
+        } else { // labelled as FREE
+            numFreeParts++;
+            holeSize+=current->size;
+        }
+    }
+
 
     printf("\nHeap Usage Statistics:\n");
     printf("======================\n");
@@ -108,11 +121,11 @@ void printHeapStatistic()
 
    //Remember to preserve the message format!
 
-    printf("Total Occupied Partitions: %d\n", 0);
-    printf("\tTotal Occupied Size: %d bytes\n", 0);
+    printf("Total Occupied Partitions: %d\n", numOccupiedParts);
+    printf("\tTotal Occupied Size: %d bytes\n", occupiedSize);
 
-    printf("Total Number of Holes: %d\n", 0);
-    printf("\tTotal Hole Size: %d bytes\n", 0);
+    printf("Total Number of Holes: %d\n", numFreeParts);
+    printf("\tTotal Hole Size: %d bytes\n", holeSize);
 }
 
 int setupHeap(int initialSize)
@@ -189,8 +202,8 @@ void* mymalloc(int size)
     //First-fit algorithm
 	while ( current != NULL && 
 			(current->status == OCCUPIED || current->size < size) ){
-
-		current = current->nextPart;
+        // look at next part if current part is occupied or too small
+		current = current->nextPart; 
 	}
 
     if (current == NULL){	//heap full
