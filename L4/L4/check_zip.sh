@@ -39,11 +39,12 @@ function run_tests {
 }
 
 function transfer_files {
-    files=(
-        "*driver.c"
-        "Makefile"
-        "traffic_synchronizer.h"
-    )
+    local ex2=("makefile" "mmalloc.h" "mmalloc_*.c") 
+    local ex3=("makefile" "mmalloc_*.c") 
+    local ex4=("makefile" "mmalloc_*.c") 
+    local ex5=("makefile" "mmalloc.h" "mmalloc_*.c") 
+
+    declare -n files="$3"
 
     for file in "${files[@]}"; do
         cp $1/$2/$3/$file $3 &> /dev/null
@@ -81,14 +82,15 @@ echo "Transferring necessary skeleton files"
 sk="skeleton"
 mkdir $sk
 cd $sk
-wget "https://www.comp.nus.edu.sg/~sooyj/cs2106_2021s2/lab3.tar.gz" 2> /dev/null
-tar -zxvf lab3.tar.gz > /dev/null
+wget "https://www.comp.nus.edu.sg/~sooyj/cs2106_2021s2/lab4.tar.gz" 2> /dev/null
+tar -zxvf lab4.tar.gz > /dev/null
 cd ../
 
-exercises=(ex2 ex3 ex4)
-ex2=("ex2/ex2.c" "ex2/rw_lock.h")
-ex3=("ex3/ex3.c" "ex3/rw_lock.h")
-ex4=("ex4/ex4.c")
+exercises=(ex2 ex3 ex4 ex5)
+ex2=("ex2/ex2.c") 
+ex3=("ex3/ex3.c" "ex3/mmalloc.h")
+ex4=("ex4/ex4.c" "ex4/mmalloc.h")
+ex5=("ex5/ex5.c")
 for ex in "${exercises[@]}"; do
     declare -n files=$ex
     if [ ! -d $ex ]
@@ -103,7 +105,7 @@ for ex in "${exercises[@]}"; do
         continue
     fi
 
-    transfer_files $sk "L3" $ex 
+    transfer_files $sk "L4" $ex 
     if check_compile $ex
     then
         echo "$ex: Failed - does not compile"
@@ -114,4 +116,4 @@ for ex in "${exercises[@]}"; do
 done
 
 cd ../
-#rm -rf $tmp_folder
+rm -rf $tmp_folder
