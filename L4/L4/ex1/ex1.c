@@ -101,6 +101,24 @@ void printHeapStatistic()
 {
     //TODO: Calculate and report the various statistics
 
+	partInfo *current = hmi.pListHead;
+    int occupied = 0;
+    int occupiedSize = 0;
+    int holes = 0;
+    int holeSize = 0;
+
+	while ( current != NULL ) {
+        if (current->status == OCCUPIED) {
+            occupied++;
+            occupiedSize += current->size;
+        } else {
+            holes++;
+            holeSize += current->size;
+        }
+		current = current->nextPart;
+    }
+
+
     printf("\nHeap Usage Statistics:\n");
     printf("======================\n");
 
@@ -108,11 +126,11 @@ void printHeapStatistic()
 
    //Remember to preserve the message format!
 
-    printf("Total Occupied Partitions: %d\n", 0);
-    printf("\tTotal Occupied Size: %d bytes\n", 0);
+    printf("Total Occupied Partitions: %d\n", occupied);
+    printf("\tTotal Occupied Size: %d bytes\n", occupiedSize);
 
-    printf("Total Number of Holes: %d\n", 0);
-    printf("\tTotal Hole Size: %d bytes\n", 0);
+    printf("Total Number of Holes: %d\n", holes);
+    printf("\tTotal Hole Size: %d bytes\n", holeSize);
 }
 
 int setupHeap(int initialSize)
