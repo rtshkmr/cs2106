@@ -163,6 +163,18 @@ void printHeapStatistic()
  *********************************************************/
 {
     //TODO: Task 4. Calculate and report the various statistics
+    
+    int numParts = 0;
+    int freeSize = 0;
+
+    for (int i = 0; i <= hmi.maxIdx; i++) {
+        partInfo* current = hmi.A[i];
+        while (current != NULL) {
+            freeSize += powOf2(i);
+            numParts++;
+            current = current->nextPart;
+        }
+    }
 
     printf("\nHeap Usage Statistics:\n");
     printf("======================\n");
@@ -173,10 +185,30 @@ void printHeapStatistic()
 
     printf("Total Space: %d bytes\n", hmi.totalSize);
     
-    printf("Total Free Partitions: %d\n", 0);
-    printf("Total Free Size: %d bytes\n", 0);
+    printf("Total Free Partitions: %d\n", numParts);
+    printf("Total Free Size: %d bytes\n", freeSize);
 
-    printf("Total Internal Fragmentation: %d bytes\n", 0);
+    printf("Total Internal Fragmentation: %d bytes\n", hmi.internalFragTotal);
+}
+
+// Inserts a partition at a specific level
+// Partition is inserted according to offset
+void insertPartition(partInfo* part, unsigned int lvl) {
+        partInfo* current = hmi.A[lvl];
+        partInfo* prev = NULL;
+ 
+        while (current != NULL && current->offset < part->offset) {
+            prev = current;
+            current = current->nextPart;
+        }
+ 
+        if (prev == NULL) {
+            part->nextPart = hmi.A[lvl];
+            hmi.A[lvl] = part;
+        } else {
+            part->nextPart = prev->nextPart;
+            prev->nextPart = part;
+        }
 }
 
 void addPartitionAtLevel( unsigned int lvl, unsigned int offset )
@@ -187,7 +219,29 @@ void addPartitionAtLevel( unsigned int lvl, unsigned int offset )
  *      at higher level
  *********************************************************/
 {
-  
+    int buddyOffset = buddyOf(offset, lvl);
+
+    partInfo* current = hmi.A[lvl];
+    partInfo* prev = NULL;
+    while (current != NULL && current->offset != buddyOffset) {
+        prev = current;
+        current = current->nextPart;
+    }
+
+    if (current == NULL) {
+        insertPartition(buildPartitionInfo(offset), lvl);
+    } else {
+        if (prev == NULL) {
+            hmi.A[lvl] = current->nextPart;
+        } else {
+            prev->nextPart = current->nextPart;
+        }
+        
+        free(current);
+
+        offset = buddyOffset < offset ? buddyOffset : offset;
+        addPartitionAtLevel(lvl + 1, offset);
+    }
 }
 
 partInfo* removePartitionAtLevel(unsigned int lvl)
@@ -201,7 +255,32 @@ partInfo* removePartitionAtLevel(unsigned int lvl)
  * Return the Partition Structure if found.
  *********************************************************/
 {
-    return NULL;
+
+    if (lvl > hmi.maxIdx) {
+        return NULL;
+    }
+
+    if (hmi.A[lvl] != NULL) {
+        // remove partition
+        partInfo* temp = hmi.A[lvl];
+        hmi.A[lvl] = temp->nextPart;
+        return temp;
+    }
+    
+    partInfo* upstreamPart = removePartitionAtLevel(lvl + 1);
+
+    if (upstreamPart == NULL) {
+        return NULL;
+    }
+    
+    int upstreamOffset = upstreamPart->offset;
+    free(upstreamPart);
+    partInfo* part1 = buildPartitionInfo(upstreamOffset);
+    int buddyOffset = buddyOf(upstreamOffset, lvl);
+    partInfo* part2 = buildPartitionInfo(buddyOffset);
+    insertPartition(part2, lvl);
+
+    return part1;
 }
 
 int setupHeap(int initialSize)
@@ -228,8 +307,8 @@ int setupHeap(int initialSize)
     
     int numLevels = log2Ceiling(initialSize) + 1;
     
-    hmi.A = (partInfo**) malloc(sizeof(partInfo*) * numLevels);   //change this!
-    hmi.maxIdx = numLevels - 1; //change this!
+    hmi.A = (partInfo**) malloc(sizeof(partInfo*) * numLevels);
+    hmi.maxIdx = numLevels - 1;
 
     partInfo* initialFreePartition = (partInfo*) malloc(sizeof(partInfo));
     initialFreePartition->offset = 0;
@@ -254,8 +333,18 @@ void* mymalloc(int size)
  *********************************************************/
 {
     //TODO: Task 2. Implement the allocation using buddy allocator
-    return NULL;
+    int partLvl = log2Ceiling(size);
+    partInfo* part = removePartitionAtLevel(partLvl);
+    
+    if (part == NULL) {
+        return NULL;
+    } 
+    
+    int partOffset = part->offset;
+    free(part);
 
+    hmi.internalFragTotal += powOf2(partLvl) - size;
+    return (void*)hmi.base + partOffset;
 }
 
 void myfree(void* address, int size)
@@ -265,4 +354,11 @@ void myfree(void* address, int size)
  *********************************************************/
 {
     //TODO: Task 3. Implement the de allocation using buddy allocator
+
+    int partLvl = log2Ceiling(size);
+    
+    hmi.internalFragTotal -= powOf2(partLvl) - size;
+    int offset = address - hmi.base;
+    printf("OFFSET %d\n", offset); 
+    addPartitionAtLevel(partLvl, offset);
 }
