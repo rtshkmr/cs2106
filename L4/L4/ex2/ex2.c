@@ -100,6 +100,22 @@ void printHeapStatistic()
  *********************************************************/
 {
     //TODO: Copy over your completed function from ex1 here
+	partInfo *current = hmi.pListHead;
+    int occupied = 0;
+    int occupiedSize = 0;
+    int holes = 0;
+    int holeSize = 0;
+
+	while ( current != NULL ) {
+        if (current->status == OCCUPIED) {
+            occupied++;
+            occupiedSize += current->size;
+        } else {
+            holes++;
+            holeSize += current->size;
+        }
+		current = current->nextPart;
+    }
 
 
     printf("\nHeap Usage Statistics:\n");
@@ -107,11 +123,13 @@ void printHeapStatistic()
 
     printf("Total Space: %d bytes\n", hmi.totalSize);
 
-    printf("Total Occupied Partitions: %d\n", 0);
-    printf("\tTotal Occupied Size: %d bytes\n", 0);
+   //Remember to preserve the message format!
 
-    printf("Total Number of Holes: %d\n", 0);
-    printf("\tTotal Hole Size: %d bytes\n", 0);
+    printf("Total Occupied Partitions: %d\n", occupied);
+    printf("\tTotal Occupied Size: %d bytes\n", occupiedSize);
+
+    printf("Total Number of Holes: %d\n", holes);
+    printf("\tTotal Hole Size: %d bytes\n", holeSize);
 }
 
 int setupHeap(int initialSize)
@@ -173,7 +191,7 @@ void* mymalloc(int size)
 {
     //TODO: Modify the allocation algoritm from First-Fit to
     //       Best-Fit
-
+    int INT_MAX = 2147483647; // Not sure if can import, so defining here instead.
 	partInfo *current = hmi.pListHead;
 
     //We need to make sure the size is word
@@ -183,30 +201,38 @@ void* mymalloc(int size)
 
     // Use simple arithmetic to achieve this purpose:
     //  - Divide by 4 then multiply by 4 gives rounded multiples of 4. 
-    //  - Dddition of 4 round up to the next multiple 
+    //  - addition of 4 round up to the next multiple 
     //  - subtraction take care of the case where size is already multiples of 4. 
     //This can be achieved via bitwise operation too.
     size = (size - 1) / 4 * 4 + 4;
  
-    //First-fit algorithm
-	while ( current != NULL && 
-			(current->status == OCCUPIED || current->size < size) ){
+    //best-fit algorithm
+    int leftoverSize = INT_MAX;
+    partInfo *bestFit = NULL;
 
-		current = current->nextPart;
-	}
+    while ( current != NULL) {
+        int currLeftoverSize = current->size - size;
+        
+        if (current->status != OCCUPIED && currLeftoverSize >= 0  && currLeftoverSize < leftoverSize) {
+            bestFit = current;
+            leftoverSize = currLeftoverSize;
+        }
 
-    if (current == NULL){	//heap full
-		return NULL;
-	}
+        current = current->nextPart;
+    }
+
+    if (bestFit == NULL) {
+        return NULL;
+    }
 
 	//Do we need to split the partition?
-	if (current->size > size) {
-		splitPart(current, size);
+	if (bestFit->size > size) {
+		splitPart(bestFit, size);
 	}
 
-	current->status = OCCUPIED;
+	bestFit->status = OCCUPIED;
 	
-	return (void*)hmi.base + current->offset;
+	return (void*)hmi.base + bestFit->offset;
 }
 
 void myfree(void* address)
