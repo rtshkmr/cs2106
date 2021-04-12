@@ -11,7 +11,9 @@ for the 2nd member if  you are on a team
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 #include "mmalloc.h"
+
 
 /**********************************************************
  * This is a "global" structure storing heap information
@@ -31,6 +33,7 @@ unsigned int log2Ceiling( unsigned int N )
  * Find the smallest S, such that 2^S >= N
  * S is returned
  *********************************************************/
+    // TODO: use this for allocation algo
 {
     unsigned int s = 0, pOf2 = 1;
 
@@ -201,7 +204,33 @@ partInfo* removePartitionAtLevel(unsigned int lvl)
  * Return the Partition Structure if found.
  *********************************************************/
 {
-    return NULL;
+    // level is the idx to look at
+    partInfo* candidate = hmi.A[lvl];
+    if(candidate == NULL) { // look above and add 
+        partInfo* largerTarget  = NULL;
+        for(int i = lvl + 1;i <= hmi.maxIdx; i++) {
+            if(hmi.A[i] != NULL) {
+                largerTarget = hmi.A[i];
+                hmi.A[i] = largerTarget->nextPart;
+                // split into two partitions and add it to the front of the linked list:
+                int lvlToInsert = i - 1;
+                unsigned int selfOffset = largerTarget->offset;
+                unsigned int buddyOffset = buddyOf(selfOffset, lvlToInsert);
+                partInfo* self = buildPartitionInfo(selfOffset); 
+                partInfo* buddy = buildPartitionInfo(buddyOffset);
+                self->nextPart = buddy;
+                buddy->nextPart = hmi.A[lvlToInsert];
+                hmi.A[lvlToInsert] = self;
+                break;
+            }
+        }
+        largerTarget == NULL ? NULL :  removePartitionAtLevel(lvl);
+    } else {
+        // found an empty partition:
+        hmi.A[lvl] = candidate->nextPart;
+        return candidate;
+    }
+
 }
 
 int setupHeap(int initialSize)
@@ -211,7 +240,7 @@ int setupHeap(int initialSize)
 {
 	void* base;
 
-	base = sbrk(0);
+	base = sbrk(0); // this helps (set and) find the current location of the program break
 	if(	sbrk(initialSize) == (void*)-1){
 		printf("Cannot set break! Behavior undefined!\n");
 		return 0;
@@ -232,6 +261,7 @@ int setupHeap(int initialSize)
         numLevels++;
         initialSize = initialSize >> 1; // right shift 1 bit
     }
+
     // allocate space for numLevels levels of partInfo arrays
     hmi.A = (partInfo**) malloc(sizeof(partInfo*) * numLevels);   //change this!
     partInfo* initialFreePartition = (partInfo*) malloc(sizeof(partInfo));
@@ -255,8 +285,9 @@ void* mymalloc(int size)
  *********************************************************/
 {
     //TODO: Task 2. Implement the allocation using buddy allocator
-    return NULL;
 
+    partInfo* target = removePartitionAtLevel(log2Ceiling(size));
+    return (target == NULL)? NULL : hmi.base + target->offset;
 }
 
 void myfree(void* address, int size)
