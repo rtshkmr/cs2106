@@ -166,7 +166,16 @@ void printHeapStatistic()
      *********************************************************/
 {
     //TODO: Task 4. Calculate and report the various statistics
-
+    int numParts = 0, freeSize = 0;
+    for(int i = 0; i < hmi.maxIdx; i++) {
+        if(hmi.A[i]) {
+            for(partInfo* current = hmi.A[i]; current; current = current->nextPart) {
+                freeSize += powOf2(i); 
+                numParts++;
+            }
+        }
+    }
+    
     printf("\nHeap Usage Statistics:\n");
     printf("======================\n");
 
@@ -176,10 +185,10 @@ void printHeapStatistic()
 
     printf("Total Space: %d bytes\n", hmi.totalSize);
 
-    printf("Total Free Partitions: %d\n", 0);
-    printf("Total Free Size: %d bytes\n", 0);
+    printf("Total Free Partitions: %d\n", numParts);
+    printf("Total Free Size: %d bytes\n", freeSize);
 
-    printf("Total Internal Fragmentation: %d bytes\n", 0);
+    printf("Total Internal Fragmentation: %d bytes\n", hmi.internalFragTotal);
 }
 
 void addPartitionAtLevel( unsigned int lvl, unsigned int offset )
@@ -193,7 +202,7 @@ void addPartitionAtLevel( unsigned int lvl, unsigned int offset )
     partInfo* prev = NULL;
 
     // look for free buddy and bubble up if possible:
-    for(partInfo* current = hmi.A[lvl]; current != NULL; prev = current, current = current->nextPart) { // linear search for buddy: 
+    for(partInfo* current = hmi.A[lvl]; current ; prev = current, current = current->nextPart) { // linear search for buddy: 
         if(current && current->offset == buddyOffset) { // found the buddy in the free list: 
             // printf(">>> found a free buddy to merge with. Current level is %d and we shall merge tgt and add ourselves to level %d \n",lvl, lvl + 1);
             unsigned int smallerOffsetValue = (current->offset < offset) ? current->offset : offset; // choose the smaller of the two
@@ -204,7 +213,6 @@ void addPartitionAtLevel( unsigned int lvl, unsigned int offset )
             free(current);
             return addPartitionAtLevel(lvl + 1, smallerOffsetValue);
         }
-        // prev = current; 
     }
 
     // buddy is busy, add new partition to this level: 
@@ -226,10 +234,10 @@ partInfo* removePartitionAtLevel(unsigned int lvl)
 {
     // level is the idx to look at
     partInfo* candidate = hmi.A[lvl];
-    if(candidate == NULL) { // look above and add 
+    if(!candidate) { // look above and add 
         partInfo* largerTarget  = NULL;
         for(int i = lvl + 1;i <= hmi.maxIdx; i++) {
-            if(hmi.A[i] != NULL) {
+            if(hmi.A[i]) {
                 largerTarget = hmi.A[i];
                 hmi.A[i] = largerTarget->nextPart;
                 // split larger into two buddy partitions and add it to the front of the linked list:
@@ -244,7 +252,7 @@ partInfo* removePartitionAtLevel(unsigned int lvl)
                 break;
             }
         }
-        if(largerTarget == NULL) {
+        if(!largerTarget) {
             return NULL;
         } else { 
             free(largerTarget); 
@@ -310,13 +318,14 @@ void* mymalloc(int size)
      *********************************************************/
 {
     //TODO: Task 2. Implement the allocation using buddy allocator
-    printf(">>> mymalloc(%d)\n", size);
-    partInfo* target = removePartitionAtLevel(log2Ceiling(size));
+    // printf(">>> mymalloc(%d)\n", size);
+    int lvl = log2Ceiling(size);
+    partInfo* target = removePartitionAtLevel(lvl);
     void* memAddr = hmi.base + target->offset; 
     if(!target) {
-        free(target);
         return NULL;
     } else {
+        hmi.internalFragTotal += powOf2(lvl) - size; // internal hole size
         free(target);
         return memAddr;
     }
@@ -331,7 +340,9 @@ void myfree(void* address, int size)
     //TODO: Task 3. Implement the de allocation using buddy allocator
     // int offset = address - hmi.base;
     // printf(">>> myfree(%d,%d).\n", offset , size );
+    int lvl = log2Ceiling(size);
+    hmi.internalFragTotal -= powOf2(lvl) - size;
 
     // add a partition to the hmi array to indicate it as free: 
-    addPartitionAtLevel(log2Ceiling(size), address - hmi.base);
+    addPartitionAtLevel(lvl, address - hmi.base);
 }
