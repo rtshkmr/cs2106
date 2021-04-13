@@ -1,24 +1,24 @@
 Seed 1234, heap size 4000, MinPartSize 16, MaxPartSize 1024, #Req 100
 S: minIdx[4] maxIdx[10]
 Adding partition[+    0] at Level [10]
-	Buddy [+    0] not found or cant merge!
+	Cant merge due to LS restriction!
 Adding partition[+ 1024] at Level [10]
-	Buddy [+    0] not found or cant merge!
+	Cant merge due to LS restriction!
 Adding partition[+ 2048] at Level [10]
-	Buddy [+    0] not found or cant merge!
+	Cant merge due to LS restriction!
 Adding partition[+ 3072] at Level [9]
-	Buddy [+ 3584] not found or cant merge!
+	Buddy [+ 3584] not found!
 Adding partition[+ 3584] at Level [8]
-	Buddy [+ 3840] not found or cant merge!
+	Buddy [+ 3840] not found!
 Adding partition[+ 3840] at Level [7]
-	Buddy [+ 3968] not found or cant merge!
+	Buddy [+ 3968] not found!
 Adding partition[+ 3968] at Level [5]
-	Buddy [+ 4000] not found or cant merge!
+	Buddy [+ 4000] not found!
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+    0] [+ 1024] [+ 2048] 
 A[9]: [+ 3072] 
 A[8]: [+ 3584] 
@@ -31,12 +31,12 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 64 integers
-   0 | Addr 0x5633bb9bee00 | nInt 64
+   0 | Addr 0x5589bca89e00 | nInt 64
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+    0] [+ 1024] [+ 2048] 
 A[9]: [+ 3072] 
 A[8]: 
@@ -50,14 +50,14 @@ A[1]:
 A[0]: 
 A: 39 integers
 Adding partition[+ 3328] at Level [8]
-	Buddy [+ 3072] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bec00 | nInt 39
+	Buddy [+ 3072] not found!
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89c00 | nInt 39
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+    0] [+ 1024] [+ 2048] 
 A[9]: 
 A[8]: [+ 3328] 
@@ -70,14 +70,14 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 55 integers
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bec00 | nInt 39
-   2 | Addr 0x5633bb9bed00 | nInt 55
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89c00 | nInt 39
+   2 | Addr 0x5589bca89d00 | nInt 55
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+    0] [+ 1024] [+ 2048] 
 A[9]: 
 A[8]: 
@@ -91,16 +91,16 @@ A[1]:
 A[0]: 
 A: 67 integers
 Adding partition[+  512] at Level [9]
-	Buddy [+    0] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bec00 | nInt 39
-   2 | Addr 0x5633bb9bed00 | nInt 55
-   3 | Addr 0x5633bb9be000 | nInt 67
+	Buddy [+    0] not found!
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89c00 | nInt 39
+   2 | Addr 0x5589bca89d00 | nInt 55
+   3 | Addr 0x5589bca89000 | nInt 67
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 1024] [+ 2048] 
 A[9]: [+  512] 
 A[8]: 
@@ -114,17 +114,17 @@ A[1]:
 A[0]: 
 A: 50 integers
 Adding partition[+  768] at Level [8]
-	Buddy [+  512] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bec00 | nInt 39
-   2 | Addr 0x5633bb9bed00 | nInt 55
-   3 | Addr 0x5633bb9be000 | nInt 67
-   4 | Addr 0x5633bb9be200 | nInt 50
+	Buddy [+  512] not found!
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89c00 | nInt 39
+   2 | Addr 0x5589bca89d00 | nInt 55
+   3 | Addr 0x5589bca89000 | nInt 67
+   4 | Addr 0x5589bca89200 | nInt 50
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 1024] [+ 2048] 
 A[9]: 
 A[8]: [+  768] 
@@ -137,17 +137,17 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 31 integers
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bec00 | nInt 39
-   2 | Addr 0x5633bb9bed00 | nInt 55
-   3 | Addr 0x5633bb9be000 | nInt 67
-   4 | Addr 0x5633bb9be200 | nInt 50
-   5 | Addr 0x5633bb9bef00 | nInt 31
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89c00 | nInt 39
+   2 | Addr 0x5589bca89d00 | nInt 55
+   3 | Addr 0x5589bca89000 | nInt 67
+   4 | Addr 0x5589bca89200 | nInt 50
+   5 | Addr 0x5589bca89f00 | nInt 31
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 1024] [+ 2048] 
 A[9]: 
 A[8]: [+  768] 
@@ -160,18 +160,18 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 35 integers
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bec00 | nInt 39
-   2 | Addr 0x5633bb9bed00 | nInt 55
-   3 | Addr 0x5633bb9be000 | nInt 67
-   4 | Addr 0x5633bb9be200 | nInt 50
-   5 | Addr 0x5633bb9bef00 | nInt 31
-   6 | Addr 0x5633bb9be300 | nInt 35
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89c00 | nInt 39
+   2 | Addr 0x5589bca89d00 | nInt 55
+   3 | Addr 0x5589bca89000 | nInt 67
+   4 | Addr 0x5589bca89200 | nInt 50
+   5 | Addr 0x5589bca89f00 | nInt 31
+   6 | Addr 0x5589bca89300 | nInt 35
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 1024] [+ 2048] 
 A[9]: 
 A[8]: 
@@ -185,24 +185,24 @@ A[1]:
 A[0]: 
 A: 18 integers
 Adding partition[+ 1536] at Level [9]
-	Buddy [+ 1024] not found or cant merge!
+	Buddy [+ 1024] not found!
 Adding partition[+ 1280] at Level [8]
-	Buddy [+ 1024] not found or cant merge!
+	Buddy [+ 1024] not found!
 Adding partition[+ 1152] at Level [7]
-	Buddy [+ 1024] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bec00 | nInt 39
-   2 | Addr 0x5633bb9bed00 | nInt 55
-   3 | Addr 0x5633bb9be000 | nInt 67
-   4 | Addr 0x5633bb9be200 | nInt 50
-   5 | Addr 0x5633bb9bef00 | nInt 31
-   6 | Addr 0x5633bb9be300 | nInt 35
-   7 | Addr 0x5633bb9be400 | nInt 18
+	Buddy [+ 1024] not found!
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89c00 | nInt 39
+   2 | Addr 0x5589bca89d00 | nInt 55
+   3 | Addr 0x5589bca89000 | nInt 67
+   4 | Addr 0x5589bca89200 | nInt 50
+   5 | Addr 0x5589bca89f00 | nInt 31
+   6 | Addr 0x5589bca89300 | nInt 35
+   7 | Addr 0x5589bca89400 | nInt 18
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] 
 A[8]: [+ 1280] 
@@ -215,20 +215,20 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 42 integers
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bec00 | nInt 39
-   2 | Addr 0x5633bb9bed00 | nInt 55
-   3 | Addr 0x5633bb9be000 | nInt 67
-   4 | Addr 0x5633bb9be200 | nInt 50
-   5 | Addr 0x5633bb9bef00 | nInt 31
-   6 | Addr 0x5633bb9be300 | nInt 35
-   7 | Addr 0x5633bb9be400 | nInt 18
-   8 | Addr 0x5633bb9be500 | nInt 42
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89c00 | nInt 39
+   2 | Addr 0x5589bca89d00 | nInt 55
+   3 | Addr 0x5589bca89000 | nInt 67
+   4 | Addr 0x5589bca89200 | nInt 50
+   5 | Addr 0x5589bca89f00 | nInt 31
+   6 | Addr 0x5589bca89300 | nInt 35
+   7 | Addr 0x5589bca89400 | nInt 18
+   8 | Addr 0x5589bca89500 | nInt 42
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] 
 A[8]: 
@@ -241,21 +241,21 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 23 integers
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bec00 | nInt 39
-   2 | Addr 0x5633bb9bed00 | nInt 55
-   3 | Addr 0x5633bb9be000 | nInt 67
-   4 | Addr 0x5633bb9be200 | nInt 50
-   5 | Addr 0x5633bb9bef00 | nInt 31
-   6 | Addr 0x5633bb9be300 | nInt 35
-   7 | Addr 0x5633bb9be400 | nInt 18
-   8 | Addr 0x5633bb9be500 | nInt 42
-   9 | Addr 0x5633bb9be480 | nInt 23
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89c00 | nInt 39
+   2 | Addr 0x5589bca89d00 | nInt 55
+   3 | Addr 0x5589bca89000 | nInt 67
+   4 | Addr 0x5589bca89200 | nInt 50
+   5 | Addr 0x5589bca89f00 | nInt 31
+   6 | Addr 0x5589bca89300 | nInt 35
+   7 | Addr 0x5589bca89400 | nInt 18
+   8 | Addr 0x5589bca89500 | nInt 42
+   9 | Addr 0x5589bca89480 | nInt 23
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] 
 A[8]: 
@@ -267,23 +267,23 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9bec00 [S=10, R=1]
+F: 0x5589bca89c00 [S=10, R=1]
 Adding partition[+ 3072] at Level [8]
-	Buddy [+ 3328] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bed00 | nInt 55
-   2 | Addr 0x5633bb9be000 | nInt 67
-   3 | Addr 0x5633bb9be200 | nInt 50
-   4 | Addr 0x5633bb9bef00 | nInt 31
-   5 | Addr 0x5633bb9be300 | nInt 35
-   6 | Addr 0x5633bb9be400 | nInt 18
-   7 | Addr 0x5633bb9be500 | nInt 42
-   8 | Addr 0x5633bb9be480 | nInt 23
+	Buddy [+ 3328] not found!
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89d00 | nInt 55
+   2 | Addr 0x5589bca89000 | nInt 67
+   3 | Addr 0x5589bca89200 | nInt 50
+   4 | Addr 0x5589bca89f00 | nInt 31
+   5 | Addr 0x5589bca89300 | nInt 35
+   6 | Addr 0x5589bca89400 | nInt 18
+   7 | Addr 0x5589bca89500 | nInt 42
+   8 | Addr 0x5589bca89480 | nInt 23
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] 
 A[8]: [+ 3072] 
@@ -295,23 +295,23 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be000 [S=9, R=2]
+F: 0x5589bca89000 [S=9, R=2]
 Adding partition[+    0] at Level [9]
-	Buddy [+  512] not found or cant merge!
+	Buddy [+  512] not found!
 Inserting before [+ 1536]
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bed00 | nInt 55
-   2 | Addr 0x5633bb9be200 | nInt 50
-   3 | Addr 0x5633bb9bef00 | nInt 31
-   4 | Addr 0x5633bb9be300 | nInt 35
-   5 | Addr 0x5633bb9be400 | nInt 18
-   6 | Addr 0x5633bb9be500 | nInt 42
-   7 | Addr 0x5633bb9be480 | nInt 23
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89d00 | nInt 55
+   2 | Addr 0x5589bca89200 | nInt 50
+   3 | Addr 0x5589bca89f00 | nInt 31
+   4 | Addr 0x5589bca89300 | nInt 35
+   5 | Addr 0x5589bca89400 | nInt 18
+   6 | Addr 0x5589bca89500 | nInt 42
+   7 | Addr 0x5589bca89480 | nInt 23
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] [+ 1536] 
 A[8]: [+ 3072] 
@@ -323,21 +323,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9bef00 [S=8, R=3]
+F: 0x5589bca89f00 [S=8, R=3]
 Adding partition[+ 3840] at Level [7]
-	Buddy [+ 3968] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bed00 | nInt 55
-   2 | Addr 0x5633bb9be200 | nInt 50
-   3 | Addr 0x5633bb9be300 | nInt 35
-   4 | Addr 0x5633bb9be400 | nInt 18
-   5 | Addr 0x5633bb9be500 | nInt 42
-   6 | Addr 0x5633bb9be480 | nInt 23
+	Buddy [+ 3968] not found!
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89d00 | nInt 55
+   2 | Addr 0x5589bca89200 | nInt 50
+   3 | Addr 0x5589bca89300 | nInt 35
+   4 | Addr 0x5589bca89400 | nInt 18
+   5 | Addr 0x5589bca89500 | nInt 42
+   6 | Addr 0x5589bca89480 | nInt 23
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] [+ 1536] 
 A[8]: [+ 3072] 
@@ -349,21 +349,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be300 [S=7, R=3]
+F: 0x5589bca89300 [S=7, R=3]
 Adding partition[+  768] at Level [8]
-	Buddy [+  512] not found or cant merge!
+	Buddy [+  512] not found!
 Inserting before [+ 3072]
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bed00 | nInt 55
-   2 | Addr 0x5633bb9be200 | nInt 50
-   3 | Addr 0x5633bb9be400 | nInt 18
-   4 | Addr 0x5633bb9be500 | nInt 42
-   5 | Addr 0x5633bb9be480 | nInt 23
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89d00 | nInt 55
+   2 | Addr 0x5589bca89200 | nInt 50
+   3 | Addr 0x5589bca89400 | nInt 18
+   4 | Addr 0x5589bca89500 | nInt 42
+   5 | Addr 0x5589bca89480 | nInt 23
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] [+ 1536] 
 A[8]: [+  768] [+ 3072] 
@@ -375,20 +375,20 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be400 [S=6, R=3]
+F: 0x5589bca89400 [S=6, R=3]
 Adding partition[+ 1024] at Level [7]
-	Buddy [+ 1152] not found or cant merge!
+	Buddy [+ 1152] not found!
 Inserting before [+ 3840]
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bed00 | nInt 55
-   2 | Addr 0x5633bb9be200 | nInt 50
-   3 | Addr 0x5633bb9be500 | nInt 42
-   4 | Addr 0x5633bb9be480 | nInt 23
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89d00 | nInt 55
+   2 | Addr 0x5589bca89200 | nInt 50
+   3 | Addr 0x5589bca89500 | nInt 42
+   4 | Addr 0x5589bca89480 | nInt 23
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] [+ 1536] 
 A[8]: [+  768] [+ 3072] 
@@ -401,17 +401,17 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 54 integers
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bed00 | nInt 55
-   2 | Addr 0x5633bb9be200 | nInt 50
-   3 | Addr 0x5633bb9be500 | nInt 42
-   4 | Addr 0x5633bb9be480 | nInt 23
-   5 | Addr 0x5633bb9be300 | nInt 54
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89d00 | nInt 55
+   2 | Addr 0x5589bca89200 | nInt 50
+   3 | Addr 0x5589bca89500 | nInt 42
+   4 | Addr 0x5589bca89480 | nInt 23
+   5 | Addr 0x5589bca89300 | nInt 54
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] [+ 1536] 
 A[8]: [+ 3072] 
@@ -424,18 +424,18 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 29 integers
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9bed00 | nInt 55
-   2 | Addr 0x5633bb9be200 | nInt 50
-   3 | Addr 0x5633bb9be500 | nInt 42
-   4 | Addr 0x5633bb9be480 | nInt 23
-   5 | Addr 0x5633bb9be300 | nInt 54
-   6 | Addr 0x5633bb9be400 | nInt 29
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89d00 | nInt 55
+   2 | Addr 0x5589bca89200 | nInt 50
+   3 | Addr 0x5589bca89500 | nInt 42
+   4 | Addr 0x5589bca89480 | nInt 23
+   5 | Addr 0x5589bca89300 | nInt 54
+   6 | Addr 0x5589bca89400 | nInt 29
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] [+ 1536] 
 A[8]: [+ 3072] 
@@ -447,22 +447,22 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9bed00 [S=7, R=1]
+F: 0x5589bca89d00 [S=7, R=1]
 Adding partition[+ 3328] at Level [8]
 	Buddy [+ 3072] found!
 Adding partition[+ 3072] at Level [9]
-	Buddy [+ 3584] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9be200 | nInt 50
-   2 | Addr 0x5633bb9be500 | nInt 42
-   3 | Addr 0x5633bb9be480 | nInt 23
-   4 | Addr 0x5633bb9be300 | nInt 54
-   5 | Addr 0x5633bb9be400 | nInt 29
+	Buddy [+ 3584] not found!
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89200 | nInt 50
+   2 | Addr 0x5589bca89500 | nInt 42
+   3 | Addr 0x5589bca89480 | nInt 23
+   4 | Addr 0x5589bca89300 | nInt 54
+   5 | Addr 0x5589bca89400 | nInt 29
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] [+ 1536] [+ 3072] 
 A[8]: 
@@ -476,19 +476,19 @@ A[1]:
 A[0]: 
 A: 62 integers
 Adding partition[+  256] at Level [8]
-	Buddy [+    0] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9be200 | nInt 50
-   2 | Addr 0x5633bb9be500 | nInt 42
-   3 | Addr 0x5633bb9be480 | nInt 23
-   4 | Addr 0x5633bb9be300 | nInt 54
-   5 | Addr 0x5633bb9be400 | nInt 29
-   6 | Addr 0x5633bb9be000 | nInt 62
+	Buddy [+    0] not found!
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89200 | nInt 50
+   2 | Addr 0x5589bca89500 | nInt 42
+   3 | Addr 0x5589bca89480 | nInt 23
+   4 | Addr 0x5589bca89300 | nInt 54
+   5 | Addr 0x5589bca89400 | nInt 29
+   6 | Addr 0x5589bca89000 | nInt 62
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+  256] 
@@ -501,19 +501,19 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 36 integers
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9be200 | nInt 50
-   2 | Addr 0x5633bb9be500 | nInt 42
-   3 | Addr 0x5633bb9be480 | nInt 23
-   4 | Addr 0x5633bb9be300 | nInt 54
-   5 | Addr 0x5633bb9be400 | nInt 29
-   6 | Addr 0x5633bb9be000 | nInt 62
-   7 | Addr 0x5633bb9be100 | nInt 36
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89200 | nInt 50
+   2 | Addr 0x5589bca89500 | nInt 42
+   3 | Addr 0x5589bca89480 | nInt 23
+   4 | Addr 0x5589bca89300 | nInt 54
+   5 | Addr 0x5589bca89400 | nInt 29
+   6 | Addr 0x5589bca89000 | nInt 62
+   7 | Addr 0x5589bca89100 | nInt 36
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: 
@@ -525,21 +525,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be500 [S=8, R=2]
+F: 0x5589bca89500 [S=8, R=2]
 Adding partition[+ 1280] at Level [8]
-	Buddy [+ 1024] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9be200 | nInt 50
-   2 | Addr 0x5633bb9be480 | nInt 23
-   3 | Addr 0x5633bb9be300 | nInt 54
-   4 | Addr 0x5633bb9be400 | nInt 29
-   5 | Addr 0x5633bb9be000 | nInt 62
-   6 | Addr 0x5633bb9be100 | nInt 36
+	Buddy [+ 1024] not found!
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89200 | nInt 50
+   2 | Addr 0x5589bca89480 | nInt 23
+   3 | Addr 0x5589bca89300 | nInt 54
+   4 | Addr 0x5589bca89400 | nInt 29
+   5 | Addr 0x5589bca89000 | nInt 62
+   6 | Addr 0x5589bca89100 | nInt 36
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+ 1280] 
@@ -551,21 +551,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be400 [S=7, R=4]
+F: 0x5589bca89400 [S=7, R=4]
 Adding partition[+ 1024] at Level [7]
-	Buddy [+ 1152] not found or cant merge!
+	Buddy [+ 1152] not found!
 Inserting before [+ 3840]
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9be200 | nInt 50
-   2 | Addr 0x5633bb9be480 | nInt 23
-   3 | Addr 0x5633bb9be300 | nInt 54
-   4 | Addr 0x5633bb9be000 | nInt 62
-   5 | Addr 0x5633bb9be100 | nInt 36
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89200 | nInt 50
+   2 | Addr 0x5589bca89480 | nInt 23
+   3 | Addr 0x5589bca89300 | nInt 54
+   4 | Addr 0x5589bca89000 | nInt 62
+   5 | Addr 0x5589bca89100 | nInt 36
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+ 1280] 
@@ -577,20 +577,20 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be300 [S=6, R=3]
+F: 0x5589bca89300 [S=6, R=3]
 Adding partition[+  768] at Level [8]
-	Buddy [+  512] not found or cant merge!
+	Buddy [+  512] not found!
 Inserting before [+ 1280]
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9be200 | nInt 50
-   2 | Addr 0x5633bb9be480 | nInt 23
-   3 | Addr 0x5633bb9be000 | nInt 62
-   4 | Addr 0x5633bb9be100 | nInt 36
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89200 | nInt 50
+   2 | Addr 0x5589bca89480 | nInt 23
+   3 | Addr 0x5589bca89000 | nInt 62
+   4 | Addr 0x5589bca89100 | nInt 36
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+  768] [+ 1280] 
@@ -603,17 +603,17 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 25 integers
-   0 | Addr 0x5633bb9bee00 | nInt 64
-   1 | Addr 0x5633bb9be200 | nInt 50
-   2 | Addr 0x5633bb9be480 | nInt 23
-   3 | Addr 0x5633bb9be000 | nInt 62
-   4 | Addr 0x5633bb9be100 | nInt 36
-   5 | Addr 0x5633bb9be400 | nInt 25
+   0 | Addr 0x5589bca89e00 | nInt 64
+   1 | Addr 0x5589bca89200 | nInt 50
+   2 | Addr 0x5589bca89480 | nInt 23
+   3 | Addr 0x5589bca89000 | nInt 62
+   4 | Addr 0x5589bca89100 | nInt 36
+   5 | Addr 0x5589bca89400 | nInt 25
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+  768] [+ 1280] 
@@ -625,19 +625,19 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9bee00 [S=6, R=0]
+F: 0x5589bca89e00 [S=6, R=0]
 Adding partition[+ 3584] at Level [8]
-	Buddy [+ 3840] not found or cant merge!
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be480 | nInt 23
-   2 | Addr 0x5633bb9be000 | nInt 62
-   3 | Addr 0x5633bb9be100 | nInt 36
-   4 | Addr 0x5633bb9be400 | nInt 25
+	Buddy [+ 3840] not found!
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89480 | nInt 23
+   2 | Addr 0x5589bca89000 | nInt 62
+   3 | Addr 0x5589bca89100 | nInt 36
+   4 | Addr 0x5589bca89400 | nInt 25
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+  768] [+ 1280] [+ 3584] 
@@ -650,17 +650,17 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 91 integers
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be480 | nInt 23
-   2 | Addr 0x5633bb9be000 | nInt 62
-   3 | Addr 0x5633bb9be100 | nInt 36
-   4 | Addr 0x5633bb9be400 | nInt 25
-   5 | Addr 0x5633bb9be600 | nInt 91
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89480 | nInt 23
+   2 | Addr 0x5589bca89000 | nInt 62
+   3 | Addr 0x5589bca89100 | nInt 36
+   4 | Addr 0x5589bca89400 | nInt 25
+   5 | Addr 0x5589bca89600 | nInt 91
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 3072] 
 A[8]: [+  768] [+ 1280] [+ 3584] 
@@ -672,20 +672,20 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be400 [S=6, R=4]
+F: 0x5589bca89400 [S=6, R=4]
 Adding partition[+ 1024] at Level [7]
-	Buddy [+ 1152] not found or cant merge!
+	Buddy [+ 1152] not found!
 Inserting before [+ 3840]
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be480 | nInt 23
-   2 | Addr 0x5633bb9be000 | nInt 62
-   3 | Addr 0x5633bb9be100 | nInt 36
-   4 | Addr 0x5633bb9be600 | nInt 91
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89480 | nInt 23
+   2 | Addr 0x5589bca89000 | nInt 62
+   3 | Addr 0x5589bca89100 | nInt 36
+   4 | Addr 0x5589bca89600 | nInt 91
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 3072] 
 A[8]: [+  768] [+ 1280] [+ 3584] 
@@ -697,23 +697,23 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be480 [S=5, R=1]
+F: 0x5589bca89480 [S=5, R=1]
 Adding partition[+ 1152] at Level [7]
 	Buddy [+ 1024] found!
 Adding partition[+ 1024] at Level [8]
 	Buddy [+ 1280] found!
 Adding partition[+ 1024] at Level [9]
-	Buddy [+ 1536] not found or cant merge!
+	Buddy [+ 1536] not found!
 Inserting before [+ 3072]
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be000 | nInt 62
-   2 | Addr 0x5633bb9be100 | nInt 36
-   3 | Addr 0x5633bb9be600 | nInt 91
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89000 | nInt 62
+   2 | Addr 0x5589bca89100 | nInt 36
+   3 | Addr 0x5589bca89600 | nInt 91
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1024] [+ 3072] 
 A[8]: [+  768] [+ 3584] 
@@ -726,16 +726,16 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 62 integers
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be000 | nInt 62
-   2 | Addr 0x5633bb9be100 | nInt 36
-   3 | Addr 0x5633bb9be600 | nInt 91
-   4 | Addr 0x5633bb9be300 | nInt 62
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89000 | nInt 62
+   2 | Addr 0x5589bca89100 | nInt 36
+   3 | Addr 0x5589bca89600 | nInt 91
+   4 | Addr 0x5589bca89300 | nInt 62
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1024] [+ 3072] 
 A[8]: [+ 3584] 
@@ -748,17 +748,17 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 46 integers
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be000 | nInt 62
-   2 | Addr 0x5633bb9be100 | nInt 36
-   3 | Addr 0x5633bb9be600 | nInt 91
-   4 | Addr 0x5633bb9be300 | nInt 62
-   5 | Addr 0x5633bb9bee00 | nInt 46
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89000 | nInt 62
+   2 | Addr 0x5589bca89100 | nInt 36
+   3 | Addr 0x5589bca89600 | nInt 91
+   4 | Addr 0x5589bca89300 | nInt 62
+   5 | Addr 0x5589bca89e00 | nInt 46
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1024] [+ 3072] 
 A[8]: 
@@ -772,19 +772,19 @@ A[1]:
 A[0]: 
 A: 44 integers
 Adding partition[+ 1280] at Level [8]
-	Buddy [+ 1024] not found or cant merge!
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be000 | nInt 62
-   2 | Addr 0x5633bb9be100 | nInt 36
-   3 | Addr 0x5633bb9be600 | nInt 91
-   4 | Addr 0x5633bb9be300 | nInt 62
-   5 | Addr 0x5633bb9bee00 | nInt 46
-   6 | Addr 0x5633bb9be400 | nInt 44
+	Buddy [+ 1024] not found!
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89000 | nInt 62
+   2 | Addr 0x5589bca89100 | nInt 36
+   3 | Addr 0x5589bca89600 | nInt 91
+   4 | Addr 0x5589bca89300 | nInt 62
+   5 | Addr 0x5589bca89e00 | nInt 46
+   6 | Addr 0x5589bca89400 | nInt 44
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 3072] 
 A[8]: [+ 1280] 
@@ -796,21 +796,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be600 [S=7, R=3]
+F: 0x5589bca89600 [S=7, R=3]
 Adding partition[+ 1536] at Level [9]
-	Buddy [+ 1024] not found or cant merge!
+	Buddy [+ 1024] not found!
 Inserting before [+ 3072]
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be000 | nInt 62
-   2 | Addr 0x5633bb9be100 | nInt 36
-   3 | Addr 0x5633bb9be300 | nInt 62
-   4 | Addr 0x5633bb9bee00 | nInt 46
-   5 | Addr 0x5633bb9be400 | nInt 44
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89000 | nInt 62
+   2 | Addr 0x5589bca89100 | nInt 36
+   3 | Addr 0x5589bca89300 | nInt 62
+   4 | Addr 0x5589bca89e00 | nInt 46
+   5 | Addr 0x5589bca89400 | nInt 44
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+ 1280] 
@@ -822,20 +822,20 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be000 [S=6, R=1]
+F: 0x5589bca89000 [S=6, R=1]
 Adding partition[+    0] at Level [8]
-	Buddy [+  256] not found or cant merge!
+	Buddy [+  256] not found!
 Inserting before [+ 1280]
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be100 | nInt 36
-   2 | Addr 0x5633bb9be300 | nInt 62
-   3 | Addr 0x5633bb9bee00 | nInt 46
-   4 | Addr 0x5633bb9be400 | nInt 44
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89100 | nInt 36
+   2 | Addr 0x5589bca89300 | nInt 62
+   3 | Addr 0x5589bca89e00 | nInt 46
+   4 | Addr 0x5589bca89400 | nInt 44
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+    0] [+ 1280] 
@@ -848,17 +848,17 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 51 integers
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be100 | nInt 36
-   2 | Addr 0x5633bb9be300 | nInt 62
-   3 | Addr 0x5633bb9bee00 | nInt 46
-   4 | Addr 0x5633bb9be400 | nInt 44
-   5 | Addr 0x5633bb9be000 | nInt 51
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89100 | nInt 36
+   2 | Addr 0x5589bca89300 | nInt 62
+   3 | Addr 0x5589bca89e00 | nInt 46
+   4 | Addr 0x5589bca89400 | nInt 44
+   5 | Addr 0x5589bca89000 | nInt 51
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+ 1280] 
@@ -871,18 +871,18 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 53 integers
-   0 | Addr 0x5633bb9be200 | nInt 50
-   1 | Addr 0x5633bb9be100 | nInt 36
-   2 | Addr 0x5633bb9be300 | nInt 62
-   3 | Addr 0x5633bb9bee00 | nInt 46
-   4 | Addr 0x5633bb9be400 | nInt 44
-   5 | Addr 0x5633bb9be000 | nInt 51
-   6 | Addr 0x5633bb9be500 | nInt 53
+   0 | Addr 0x5589bca89200 | nInt 50
+   1 | Addr 0x5589bca89100 | nInt 36
+   2 | Addr 0x5589bca89300 | nInt 62
+   3 | Addr 0x5589bca89e00 | nInt 46
+   4 | Addr 0x5589bca89400 | nInt 44
+   5 | Addr 0x5589bca89000 | nInt 51
+   6 | Addr 0x5589bca89500 | nInt 53
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: 
@@ -894,20 +894,20 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be200 [S=7, R=0]
+F: 0x5589bca89200 [S=7, R=0]
 Adding partition[+  512] at Level [8]
-	Buddy [+  768] not found or cant merge!
-   0 | Addr 0x5633bb9be100 | nInt 36
-   1 | Addr 0x5633bb9be300 | nInt 62
-   2 | Addr 0x5633bb9bee00 | nInt 46
-   3 | Addr 0x5633bb9be400 | nInt 44
-   4 | Addr 0x5633bb9be000 | nInt 51
-   5 | Addr 0x5633bb9be500 | nInt 53
+	Buddy [+  768] not found!
+   0 | Addr 0x5589bca89100 | nInt 36
+   1 | Addr 0x5589bca89300 | nInt 62
+   2 | Addr 0x5589bca89e00 | nInt 46
+   3 | Addr 0x5589bca89400 | nInt 44
+   4 | Addr 0x5589bca89000 | nInt 51
+   5 | Addr 0x5589bca89500 | nInt 53
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+  512] 
@@ -919,20 +919,20 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be100 [S=6, R=0]
+F: 0x5589bca89100 [S=6, R=0]
 Adding partition[+  256] at Level [8]
-	Buddy [+    0] not found or cant merge!
+	Buddy [+    0] not found!
 Inserting before [+  512]
-   0 | Addr 0x5633bb9be300 | nInt 62
-   1 | Addr 0x5633bb9bee00 | nInt 46
-   2 | Addr 0x5633bb9be400 | nInt 44
-   3 | Addr 0x5633bb9be000 | nInt 51
-   4 | Addr 0x5633bb9be500 | nInt 53
+   0 | Addr 0x5589bca89300 | nInt 62
+   1 | Addr 0x5589bca89e00 | nInt 46
+   2 | Addr 0x5589bca89400 | nInt 44
+   3 | Addr 0x5589bca89000 | nInt 51
+   4 | Addr 0x5589bca89500 | nInt 53
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+  256] [+  512] 
@@ -945,17 +945,17 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 27 integers
-   0 | Addr 0x5633bb9be300 | nInt 62
-   1 | Addr 0x5633bb9bee00 | nInt 46
-   2 | Addr 0x5633bb9be400 | nInt 44
-   3 | Addr 0x5633bb9be000 | nInt 51
-   4 | Addr 0x5633bb9be500 | nInt 53
-   5 | Addr 0x5633bb9bef00 | nInt 27
+   0 | Addr 0x5589bca89300 | nInt 62
+   1 | Addr 0x5589bca89e00 | nInt 46
+   2 | Addr 0x5589bca89400 | nInt 44
+   3 | Addr 0x5589bca89000 | nInt 51
+   4 | Addr 0x5589bca89500 | nInt 53
+   5 | Addr 0x5589bca89f00 | nInt 27
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+  256] [+  512] 
@@ -967,19 +967,19 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be400 [S=6, R=2]
+F: 0x5589bca89400 [S=6, R=2]
 Adding partition[+ 1024] at Level [8]
-	Buddy [+ 1280] not found or cant merge!
-   0 | Addr 0x5633bb9be300 | nInt 62
-   1 | Addr 0x5633bb9bee00 | nInt 46
-   2 | Addr 0x5633bb9be000 | nInt 51
-   3 | Addr 0x5633bb9be500 | nInt 53
-   4 | Addr 0x5633bb9bef00 | nInt 27
+	Buddy [+ 1280] not found!
+   0 | Addr 0x5589bca89300 | nInt 62
+   1 | Addr 0x5589bca89e00 | nInt 46
+   2 | Addr 0x5589bca89000 | nInt 51
+   3 | Addr 0x5589bca89500 | nInt 53
+   4 | Addr 0x5589bca89f00 | nInt 27
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+  256] [+  512] [+ 1024] 
@@ -991,21 +991,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be000 [S=5, R=2]
+F: 0x5589bca89000 [S=5, R=2]
 Adding partition[+    0] at Level [8]
 	Buddy [+  256] found!
 Adding partition[+    0] at Level [9]
-	Buddy [+  512] not found or cant merge!
+	Buddy [+  512] not found!
 Inserting before [+ 1536]
-   0 | Addr 0x5633bb9be300 | nInt 62
-   1 | Addr 0x5633bb9bee00 | nInt 46
-   2 | Addr 0x5633bb9be500 | nInt 53
-   3 | Addr 0x5633bb9bef00 | nInt 27
+   0 | Addr 0x5589bca89300 | nInt 62
+   1 | Addr 0x5589bca89e00 | nInt 46
+   2 | Addr 0x5589bca89500 | nInt 53
+   3 | Addr 0x5589bca89f00 | nInt 27
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] [+ 1536] [+ 3072] 
 A[8]: [+  512] [+ 1024] 
@@ -1018,16 +1018,16 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 47 integers
-   0 | Addr 0x5633bb9be300 | nInt 62
-   1 | Addr 0x5633bb9bee00 | nInt 46
-   2 | Addr 0x5633bb9be500 | nInt 53
-   3 | Addr 0x5633bb9bef00 | nInt 27
-   4 | Addr 0x5633bb9be200 | nInt 47
+   0 | Addr 0x5589bca89300 | nInt 62
+   1 | Addr 0x5589bca89e00 | nInt 46
+   2 | Addr 0x5589bca89500 | nInt 53
+   3 | Addr 0x5589bca89f00 | nInt 27
+   4 | Addr 0x5589bca89200 | nInt 47
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] [+ 1536] [+ 3072] 
 A[8]: [+ 1024] 
@@ -1041,18 +1041,18 @@ A[1]:
 A[0]: 
 A: 30 integers
 Adding partition[+ 1152] at Level [7]
-	Buddy [+ 1024] not found or cant merge!
-   0 | Addr 0x5633bb9be300 | nInt 62
-   1 | Addr 0x5633bb9bee00 | nInt 46
-   2 | Addr 0x5633bb9be500 | nInt 53
-   3 | Addr 0x5633bb9bef00 | nInt 27
-   4 | Addr 0x5633bb9be200 | nInt 47
-   5 | Addr 0x5633bb9be400 | nInt 30
+	Buddy [+ 1024] not found!
+   0 | Addr 0x5589bca89300 | nInt 62
+   1 | Addr 0x5589bca89e00 | nInt 46
+   2 | Addr 0x5589bca89500 | nInt 53
+   3 | Addr 0x5589bca89f00 | nInt 27
+   4 | Addr 0x5589bca89200 | nInt 47
+   5 | Addr 0x5589bca89400 | nInt 30
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] [+ 1536] [+ 3072] 
 A[8]: 
@@ -1065,18 +1065,18 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 65 integers
-   0 | Addr 0x5633bb9be300 | nInt 62
-   1 | Addr 0x5633bb9bee00 | nInt 46
-   2 | Addr 0x5633bb9be500 | nInt 53
-   3 | Addr 0x5633bb9bef00 | nInt 27
-   4 | Addr 0x5633bb9be200 | nInt 47
-   5 | Addr 0x5633bb9be400 | nInt 30
-   6 | Addr 0x5633bb9be000 | nInt 65
+   0 | Addr 0x5589bca89300 | nInt 62
+   1 | Addr 0x5589bca89e00 | nInt 46
+   2 | Addr 0x5589bca89500 | nInt 53
+   3 | Addr 0x5589bca89f00 | nInt 27
+   4 | Addr 0x5589bca89200 | nInt 47
+   5 | Addr 0x5589bca89400 | nInt 30
+   6 | Addr 0x5589bca89000 | nInt 65
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: 
@@ -1089,19 +1089,19 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 85 integers
-   0 | Addr 0x5633bb9be300 | nInt 62
-   1 | Addr 0x5633bb9bee00 | nInt 46
-   2 | Addr 0x5633bb9be500 | nInt 53
-   3 | Addr 0x5633bb9bef00 | nInt 27
-   4 | Addr 0x5633bb9be200 | nInt 47
-   5 | Addr 0x5633bb9be400 | nInt 30
-   6 | Addr 0x5633bb9be000 | nInt 65
-   7 | Addr 0x5633bb9be600 | nInt 85
+   0 | Addr 0x5589bca89300 | nInt 62
+   1 | Addr 0x5589bca89e00 | nInt 46
+   2 | Addr 0x5589bca89500 | nInt 53
+   3 | Addr 0x5589bca89f00 | nInt 27
+   4 | Addr 0x5589bca89200 | nInt 47
+   5 | Addr 0x5589bca89400 | nInt 30
+   6 | Addr 0x5589bca89000 | nInt 65
+   7 | Addr 0x5589bca89600 | nInt 85
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 3072] 
 A[8]: 
@@ -1113,21 +1113,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be300 [S=8, R=0]
+F: 0x5589bca89300 [S=8, R=0]
 Adding partition[+  768] at Level [8]
-	Buddy [+  512] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be200 | nInt 47
-   4 | Addr 0x5633bb9be400 | nInt 30
-   5 | Addr 0x5633bb9be000 | nInt 65
-   6 | Addr 0x5633bb9be600 | nInt 85
+	Buddy [+  512] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89200 | nInt 47
+   4 | Addr 0x5589bca89400 | nInt 30
+   5 | Addr 0x5589bca89000 | nInt 65
+   6 | Addr 0x5589bca89600 | nInt 85
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 3072] 
 A[8]: [+  768] 
@@ -1139,22 +1139,22 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be400 [S=7, R=4]
+F: 0x5589bca89400 [S=7, R=4]
 Adding partition[+ 1024] at Level [7]
 	Buddy [+ 1152] found!
 Adding partition[+ 1024] at Level [8]
-	Buddy [+ 1280] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be200 | nInt 47
-   4 | Addr 0x5633bb9be000 | nInt 65
-   5 | Addr 0x5633bb9be600 | nInt 85
+	Buddy [+ 1280] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89200 | nInt 47
+   4 | Addr 0x5589bca89000 | nInt 65
+   5 | Addr 0x5589bca89600 | nInt 85
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 3072] 
 A[8]: [+  768] [+ 1024] 
@@ -1166,22 +1166,22 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be200 [S=6, R=3]
+F: 0x5589bca89200 [S=6, R=3]
 Adding partition[+  512] at Level [8]
 	Buddy [+  768] found!
 Adding partition[+  512] at Level [9]
-	Buddy [+    0] not found or cant merge!
+	Buddy [+    0] not found!
 Inserting before [+ 3072]
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be000 | nInt 65
-   4 | Addr 0x5633bb9be600 | nInt 85
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89000 | nInt 65
+   4 | Addr 0x5589bca89600 | nInt 85
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+  512] [+ 3072] 
 A[8]: [+ 1024] 
@@ -1194,17 +1194,17 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 35 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be000 | nInt 65
-   4 | Addr 0x5633bb9be600 | nInt 85
-   5 | Addr 0x5633bb9be400 | nInt 35
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89000 | nInt 65
+   4 | Addr 0x5589bca89600 | nInt 85
+   5 | Addr 0x5589bca89400 | nInt 35
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+  512] [+ 3072] 
 A[8]: 
@@ -1218,23 +1218,23 @@ A[1]:
 A[0]: 
 A: 16 integers
 Adding partition[+  768] at Level [8]
-	Buddy [+  512] not found or cant merge!
+	Buddy [+  512] not found!
 Adding partition[+  640] at Level [7]
-	Buddy [+  512] not found or cant merge!
+	Buddy [+  512] not found!
 Adding partition[+  576] at Level [6]
-	Buddy [+  512] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be000 | nInt 65
-   4 | Addr 0x5633bb9be600 | nInt 85
-   5 | Addr 0x5633bb9be400 | nInt 35
-   6 | Addr 0x5633bb9be200 | nInt 16
+	Buddy [+  512] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89000 | nInt 65
+   4 | Addr 0x5589bca89600 | nInt 85
+   5 | Addr 0x5589bca89400 | nInt 35
+   6 | Addr 0x5589bca89200 | nInt 16
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 3072] 
 A[8]: [+  768] 
@@ -1247,19 +1247,19 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 41 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be000 | nInt 65
-   4 | Addr 0x5633bb9be600 | nInt 85
-   5 | Addr 0x5633bb9be400 | nInt 35
-   6 | Addr 0x5633bb9be200 | nInt 16
-   7 | Addr 0x5633bb9be300 | nInt 41
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89000 | nInt 65
+   4 | Addr 0x5589bca89600 | nInt 85
+   5 | Addr 0x5589bca89400 | nInt 35
+   6 | Addr 0x5589bca89200 | nInt 16
+   7 | Addr 0x5589bca89300 | nInt 41
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+ 3072] 
 A[8]: 
@@ -1272,20 +1272,20 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 67 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be000 | nInt 65
-   4 | Addr 0x5633bb9be600 | nInt 85
-   5 | Addr 0x5633bb9be400 | nInt 35
-   6 | Addr 0x5633bb9be200 | nInt 16
-   7 | Addr 0x5633bb9be300 | nInt 41
-   8 | Addr 0x5633bb9bec00 | nInt 67
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89000 | nInt 65
+   4 | Addr 0x5589bca89600 | nInt 85
+   5 | Addr 0x5589bca89400 | nInt 35
+   6 | Addr 0x5589bca89200 | nInt 16
+   7 | Addr 0x5589bca89300 | nInt 41
+   8 | Addr 0x5589bca89c00 | nInt 67
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: 
 A[8]: 
@@ -1297,22 +1297,22 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be000 [S=9, R=3]
+F: 0x5589bca89000 [S=9, R=3]
 Adding partition[+    0] at Level [9]
-	Buddy [+  512] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
+	Buddy [+  512] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: [+    0] 
 A[8]: 
@@ -1326,21 +1326,21 @@ A[1]:
 A[0]: 
 A: 53 integers
 Adding partition[+  256] at Level [8]
-	Buddy [+    0] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
+	Buddy [+    0] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: 
 A[8]: [+  256] 
@@ -1353,21 +1353,21 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 23 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: 
 A[8]: [+  256] 
@@ -1381,23 +1381,23 @@ A[1]:
 A[0]: 
 A: 23 integers
 Adding partition[+  384] at Level [7]
-	Buddy [+  256] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
+	Buddy [+  256] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: [+ 2048] 
 A[9]: 
 A[8]: 
@@ -1411,26 +1411,26 @@ A[1]:
 A[0]: 
 A: 45 integers
 Adding partition[+ 2560] at Level [9]
-	Buddy [+ 2048] not found or cant merge!
+	Buddy [+ 2048] not found!
 Adding partition[+ 2304] at Level [8]
-	Buddy [+ 2048] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
+	Buddy [+ 2048] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] 
 A[8]: [+ 2304] 
@@ -1443,24 +1443,24 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 83 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
-  12 | Addr 0x5633bb9bea00 | nInt 83
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
+  12 | Addr 0x5589bca89a00 | nInt 83
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: 
 A[8]: [+ 2304] 
@@ -1473,24 +1473,24 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 95 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
-  12 | Addr 0x5633bb9bea00 | nInt 83
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
+  12 | Addr 0x5589bca89a00 | nInt 83
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: 
 A[8]: [+ 2304] 
@@ -1502,26 +1502,26 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9bea00 [S=13, R=12]
+F: 0x5589bca89a00 [S=13, R=12]
 Adding partition[+ 2560] at Level [9]
-	Buddy [+ 2048] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
+	Buddy [+ 2048] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] 
 A[8]: [+ 2304] 
@@ -1534,24 +1534,24 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 28 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
-  12 | Addr 0x5633bb9be180 | nInt 28
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
+  12 | Addr 0x5589bca89180 | nInt 28
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] 
 A[8]: [+ 2304] 
@@ -1564,25 +1564,25 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 63 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
-  12 | Addr 0x5633bb9be180 | nInt 28
-  13 | Addr 0x5633bb9be900 | nInt 63
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
+  12 | Addr 0x5589bca89180 | nInt 28
+  13 | Addr 0x5589bca89900 | nInt 63
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] 
 A[8]: 
@@ -1595,26 +1595,26 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 76 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
-  12 | Addr 0x5633bb9be180 | nInt 28
-  13 | Addr 0x5633bb9be900 | nInt 63
-  14 | Addr 0x5633bb9bea00 | nInt 76
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
+  12 | Addr 0x5589bca89180 | nInt 28
+  13 | Addr 0x5589bca89900 | nInt 63
+  14 | Addr 0x5589bca89a00 | nInt 76
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: 
 A[8]: 
@@ -1627,26 +1627,26 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 65 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
-  12 | Addr 0x5633bb9be180 | nInt 28
-  13 | Addr 0x5633bb9be900 | nInt 63
-  14 | Addr 0x5633bb9bea00 | nInt 76
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
+  12 | Addr 0x5589bca89180 | nInt 28
+  13 | Addr 0x5589bca89900 | nInt 63
+  14 | Addr 0x5589bca89a00 | nInt 76
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: 
 A[8]: 
@@ -1658,28 +1658,28 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be900 [S=15, R=13]
+F: 0x5589bca89900 [S=15, R=13]
 Adding partition[+ 2304] at Level [8]
-	Buddy [+ 2048] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
-  12 | Addr 0x5633bb9be180 | nInt 28
-  13 | Addr 0x5633bb9bea00 | nInt 76
+	Buddy [+ 2048] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
+  12 | Addr 0x5589bca89180 | nInt 28
+  13 | Addr 0x5589bca89a00 | nInt 76
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: 
 A[8]: [+ 2304] 
@@ -1691,27 +1691,27 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9bea00 [S=14, R=13]
+F: 0x5589bca89a00 [S=14, R=13]
 Adding partition[+ 2560] at Level [9]
-	Buddy [+ 2048] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
-  12 | Addr 0x5633bb9be180 | nInt 28
+	Buddy [+ 2048] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
+  12 | Addr 0x5589bca89180 | nInt 28
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] 
 A[8]: [+ 2304] 
@@ -1724,25 +1724,25 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 45 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
-  12 | Addr 0x5633bb9be180 | nInt 28
-  13 | Addr 0x5633bb9be900 | nInt 45
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
+  12 | Addr 0x5589bca89180 | nInt 28
+  13 | Addr 0x5589bca89900 | nInt 45
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] 
 A[8]: 
@@ -1756,29 +1756,29 @@ A[1]:
 A[0]: 
 A: 19 integers
 Adding partition[+ 2816] at Level [8]
-	Buddy [+ 2560] not found or cant merge!
+	Buddy [+ 2560] not found!
 Adding partition[+ 2688] at Level [7]
-	Buddy [+ 2560] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be100 | nInt 23
-  11 | Addr 0x5633bb9be800 | nInt 45
-  12 | Addr 0x5633bb9be180 | nInt 28
-  13 | Addr 0x5633bb9be900 | nInt 45
-  14 | Addr 0x5633bb9bea00 | nInt 19
+	Buddy [+ 2560] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89100 | nInt 23
+  11 | Addr 0x5589bca89800 | nInt 45
+  12 | Addr 0x5589bca89180 | nInt 28
+  13 | Addr 0x5589bca89900 | nInt 45
+  14 | Addr 0x5589bca89a00 | nInt 19
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: 
 A[8]: [+ 2816] 
@@ -1790,29 +1790,29 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be100 [S=15, R=10]
+F: 0x5589bca89100 [S=15, R=10]
 Adding partition[+  256] at Level [7]
-	Buddy [+  384] not found or cant merge!
+	Buddy [+  384] not found!
 Inserting before [+ 2688]
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be800 | nInt 45
-  11 | Addr 0x5633bb9be180 | nInt 28
-  12 | Addr 0x5633bb9be900 | nInt 45
-  13 | Addr 0x5633bb9bea00 | nInt 19
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89800 | nInt 45
+  11 | Addr 0x5589bca89180 | nInt 28
+  12 | Addr 0x5589bca89900 | nInt 45
+  13 | Addr 0x5589bca89a00 | nInt 19
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: 
 A[8]: [+ 2816] 
@@ -1825,26 +1825,26 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 13 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be800 | nInt 45
-  11 | Addr 0x5633bb9be180 | nInt 28
-  12 | Addr 0x5633bb9be900 | nInt 45
-  13 | Addr 0x5633bb9bea00 | nInt 19
-  14 | Addr 0x5633bb9be240 | nInt 13
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89800 | nInt 45
+  11 | Addr 0x5589bca89180 | nInt 28
+  12 | Addr 0x5589bca89900 | nInt 45
+  13 | Addr 0x5589bca89a00 | nInt 19
+  14 | Addr 0x5589bca89240 | nInt 13
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: 
 A[8]: [+ 2816] 
@@ -1857,27 +1857,27 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 25 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be400 | nInt 35
-   5 | Addr 0x5633bb9be200 | nInt 16
-   6 | Addr 0x5633bb9be300 | nInt 41
-   7 | Addr 0x5633bb9bec00 | nInt 67
-   8 | Addr 0x5633bb9be000 | nInt 53
-   9 | Addr 0x5633bb9be280 | nInt 23
-  10 | Addr 0x5633bb9be800 | nInt 45
-  11 | Addr 0x5633bb9be180 | nInt 28
-  12 | Addr 0x5633bb9be900 | nInt 45
-  13 | Addr 0x5633bb9bea00 | nInt 19
-  14 | Addr 0x5633bb9be240 | nInt 13
-  15 | Addr 0x5633bb9be100 | nInt 25
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89400 | nInt 35
+   5 | Addr 0x5589bca89200 | nInt 16
+   6 | Addr 0x5589bca89300 | nInt 41
+   7 | Addr 0x5589bca89c00 | nInt 67
+   8 | Addr 0x5589bca89000 | nInt 53
+   9 | Addr 0x5589bca89280 | nInt 23
+  10 | Addr 0x5589bca89800 | nInt 45
+  11 | Addr 0x5589bca89180 | nInt 28
+  12 | Addr 0x5589bca89900 | nInt 45
+  13 | Addr 0x5589bca89a00 | nInt 19
+  14 | Addr 0x5589bca89240 | nInt 13
+  15 | Addr 0x5589bca89100 | nInt 25
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: 
 A[8]: [+ 2816] 
@@ -1889,30 +1889,30 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be400 [S=16, R=4]
+F: 0x5589bca89400 [S=16, R=4]
 Adding partition[+ 1024] at Level [8]
-	Buddy [+ 1280] not found or cant merge!
+	Buddy [+ 1280] not found!
 Inserting before [+ 2816]
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be200 | nInt 16
-   5 | Addr 0x5633bb9be300 | nInt 41
-   6 | Addr 0x5633bb9bec00 | nInt 67
-   7 | Addr 0x5633bb9be000 | nInt 53
-   8 | Addr 0x5633bb9be280 | nInt 23
-   9 | Addr 0x5633bb9be800 | nInt 45
-  10 | Addr 0x5633bb9be180 | nInt 28
-  11 | Addr 0x5633bb9be900 | nInt 45
-  12 | Addr 0x5633bb9bea00 | nInt 19
-  13 | Addr 0x5633bb9be240 | nInt 13
-  14 | Addr 0x5633bb9be100 | nInt 25
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89200 | nInt 16
+   5 | Addr 0x5589bca89300 | nInt 41
+   6 | Addr 0x5589bca89c00 | nInt 67
+   7 | Addr 0x5589bca89000 | nInt 53
+   8 | Addr 0x5589bca89280 | nInt 23
+   9 | Addr 0x5589bca89800 | nInt 45
+  10 | Addr 0x5589bca89180 | nInt 28
+  11 | Addr 0x5589bca89900 | nInt 45
+  12 | Addr 0x5589bca89a00 | nInt 19
+  13 | Addr 0x5589bca89240 | nInt 13
+  14 | Addr 0x5589bca89100 | nInt 25
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: 
 A[8]: [+ 1024] [+ 2816] 
@@ -1924,28 +1924,28 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9bec00 [S=15, R=6]
+F: 0x5589bca89c00 [S=15, R=6]
 Adding partition[+ 3072] at Level [9]
-	Buddy [+ 3584] not found or cant merge!
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9be500 | nInt 53
-   2 | Addr 0x5633bb9bef00 | nInt 27
-   3 | Addr 0x5633bb9be600 | nInt 85
-   4 | Addr 0x5633bb9be200 | nInt 16
-   5 | Addr 0x5633bb9be300 | nInt 41
-   6 | Addr 0x5633bb9be000 | nInt 53
-   7 | Addr 0x5633bb9be280 | nInt 23
-   8 | Addr 0x5633bb9be800 | nInt 45
-   9 | Addr 0x5633bb9be180 | nInt 28
-  10 | Addr 0x5633bb9be900 | nInt 45
-  11 | Addr 0x5633bb9bea00 | nInt 19
-  12 | Addr 0x5633bb9be240 | nInt 13
-  13 | Addr 0x5633bb9be100 | nInt 25
+	Buddy [+ 3584] not found!
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89500 | nInt 53
+   2 | Addr 0x5589bca89f00 | nInt 27
+   3 | Addr 0x5589bca89600 | nInt 85
+   4 | Addr 0x5589bca89200 | nInt 16
+   5 | Addr 0x5589bca89300 | nInt 41
+   6 | Addr 0x5589bca89000 | nInt 53
+   7 | Addr 0x5589bca89280 | nInt 23
+   8 | Addr 0x5589bca89800 | nInt 45
+   9 | Addr 0x5589bca89180 | nInt 28
+  10 | Addr 0x5589bca89900 | nInt 45
+  11 | Addr 0x5589bca89a00 | nInt 19
+  12 | Addr 0x5589bca89240 | nInt 13
+  13 | Addr 0x5589bca89100 | nInt 25
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 3072] 
 A[8]: [+ 1024] [+ 2816] 
@@ -1957,30 +1957,30 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be500 [S=14, R=1]
+F: 0x5589bca89500 [S=14, R=1]
 Adding partition[+ 1280] at Level [8]
 	Buddy [+ 1024] found!
 Adding partition[+ 1024] at Level [9]
-	Buddy [+ 1536] not found or cant merge!
+	Buddy [+ 1536] not found!
 Inserting before [+ 3072]
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9bef00 | nInt 27
-   2 | Addr 0x5633bb9be600 | nInt 85
-   3 | Addr 0x5633bb9be200 | nInt 16
-   4 | Addr 0x5633bb9be300 | nInt 41
-   5 | Addr 0x5633bb9be000 | nInt 53
-   6 | Addr 0x5633bb9be280 | nInt 23
-   7 | Addr 0x5633bb9be800 | nInt 45
-   8 | Addr 0x5633bb9be180 | nInt 28
-   9 | Addr 0x5633bb9be900 | nInt 45
-  10 | Addr 0x5633bb9bea00 | nInt 19
-  11 | Addr 0x5633bb9be240 | nInt 13
-  12 | Addr 0x5633bb9be100 | nInt 25
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89f00 | nInt 27
+   2 | Addr 0x5589bca89600 | nInt 85
+   3 | Addr 0x5589bca89200 | nInt 16
+   4 | Addr 0x5589bca89300 | nInt 41
+   5 | Addr 0x5589bca89000 | nInt 53
+   6 | Addr 0x5589bca89280 | nInt 23
+   7 | Addr 0x5589bca89800 | nInt 45
+   8 | Addr 0x5589bca89180 | nInt 28
+   9 | Addr 0x5589bca89900 | nInt 45
+  10 | Addr 0x5589bca89a00 | nInt 19
+  11 | Addr 0x5589bca89240 | nInt 13
+  12 | Addr 0x5589bca89100 | nInt 25
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 1024] [+ 3072] 
 A[8]: [+ 2816] 
@@ -1993,25 +1993,25 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 72 integers
-   0 | Addr 0x5633bb9bee00 | nInt 46
-   1 | Addr 0x5633bb9bef00 | nInt 27
-   2 | Addr 0x5633bb9be600 | nInt 85
-   3 | Addr 0x5633bb9be200 | nInt 16
-   4 | Addr 0x5633bb9be300 | nInt 41
-   5 | Addr 0x5633bb9be000 | nInt 53
-   6 | Addr 0x5633bb9be280 | nInt 23
-   7 | Addr 0x5633bb9be800 | nInt 45
-   8 | Addr 0x5633bb9be180 | nInt 28
-   9 | Addr 0x5633bb9be900 | nInt 45
-  10 | Addr 0x5633bb9bea00 | nInt 19
-  11 | Addr 0x5633bb9be240 | nInt 13
-  12 | Addr 0x5633bb9be100 | nInt 25
-  13 | Addr 0x5633bb9be400 | nInt 72
+   0 | Addr 0x5589bca89e00 | nInt 46
+   1 | Addr 0x5589bca89f00 | nInt 27
+   2 | Addr 0x5589bca89600 | nInt 85
+   3 | Addr 0x5589bca89200 | nInt 16
+   4 | Addr 0x5589bca89300 | nInt 41
+   5 | Addr 0x5589bca89000 | nInt 53
+   6 | Addr 0x5589bca89280 | nInt 23
+   7 | Addr 0x5589bca89800 | nInt 45
+   8 | Addr 0x5589bca89180 | nInt 28
+   9 | Addr 0x5589bca89900 | nInt 45
+  10 | Addr 0x5589bca89a00 | nInt 19
+  11 | Addr 0x5589bca89240 | nInt 13
+  12 | Addr 0x5589bca89100 | nInt 25
+  13 | Addr 0x5589bca89400 | nInt 72
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 3072] 
 A[8]: [+ 2816] 
@@ -2023,27 +2023,27 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9bee00 [S=14, R=0]
+F: 0x5589bca89e00 [S=14, R=0]
 Adding partition[+ 3584] at Level [8]
-	Buddy [+ 3840] not found or cant merge!
-   0 | Addr 0x5633bb9bef00 | nInt 27
-   1 | Addr 0x5633bb9be600 | nInt 85
-   2 | Addr 0x5633bb9be200 | nInt 16
-   3 | Addr 0x5633bb9be300 | nInt 41
-   4 | Addr 0x5633bb9be000 | nInt 53
-   5 | Addr 0x5633bb9be280 | nInt 23
-   6 | Addr 0x5633bb9be800 | nInt 45
-   7 | Addr 0x5633bb9be180 | nInt 28
-   8 | Addr 0x5633bb9be900 | nInt 45
-   9 | Addr 0x5633bb9bea00 | nInt 19
-  10 | Addr 0x5633bb9be240 | nInt 13
-  11 | Addr 0x5633bb9be100 | nInt 25
-  12 | Addr 0x5633bb9be400 | nInt 72
+	Buddy [+ 3840] not found!
+   0 | Addr 0x5589bca89f00 | nInt 27
+   1 | Addr 0x5589bca89600 | nInt 85
+   2 | Addr 0x5589bca89200 | nInt 16
+   3 | Addr 0x5589bca89300 | nInt 41
+   4 | Addr 0x5589bca89000 | nInt 53
+   5 | Addr 0x5589bca89280 | nInt 23
+   6 | Addr 0x5589bca89800 | nInt 45
+   7 | Addr 0x5589bca89180 | nInt 28
+   8 | Addr 0x5589bca89900 | nInt 45
+   9 | Addr 0x5589bca89a00 | nInt 19
+  10 | Addr 0x5589bca89240 | nInt 13
+  11 | Addr 0x5589bca89100 | nInt 25
+  12 | Addr 0x5589bca89400 | nInt 72
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 3072] 
 A[8]: [+ 2816] [+ 3584] 
@@ -2055,26 +2055,26 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be200 [S=13, R=2]
+F: 0x5589bca89200 [S=13, R=2]
 Adding partition[+  512] at Level [6]
-	Buddy [+  576] not found or cant merge!
-   0 | Addr 0x5633bb9bef00 | nInt 27
-   1 | Addr 0x5633bb9be600 | nInt 85
-   2 | Addr 0x5633bb9be300 | nInt 41
-   3 | Addr 0x5633bb9be000 | nInt 53
-   4 | Addr 0x5633bb9be280 | nInt 23
-   5 | Addr 0x5633bb9be800 | nInt 45
-   6 | Addr 0x5633bb9be180 | nInt 28
-   7 | Addr 0x5633bb9be900 | nInt 45
-   8 | Addr 0x5633bb9bea00 | nInt 19
-   9 | Addr 0x5633bb9be240 | nInt 13
-  10 | Addr 0x5633bb9be100 | nInt 25
-  11 | Addr 0x5633bb9be400 | nInt 72
+	Buddy [+  576] not found!
+   0 | Addr 0x5589bca89f00 | nInt 27
+   1 | Addr 0x5589bca89600 | nInt 85
+   2 | Addr 0x5589bca89300 | nInt 41
+   3 | Addr 0x5589bca89000 | nInt 53
+   4 | Addr 0x5589bca89280 | nInt 23
+   5 | Addr 0x5589bca89800 | nInt 45
+   6 | Addr 0x5589bca89180 | nInt 28
+   7 | Addr 0x5589bca89900 | nInt 45
+   8 | Addr 0x5589bca89a00 | nInt 19
+   9 | Addr 0x5589bca89240 | nInt 13
+  10 | Addr 0x5589bca89100 | nInt 25
+  11 | Addr 0x5589bca89400 | nInt 72
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 3072] 
 A[8]: [+ 2816] [+ 3584] 
@@ -2086,30 +2086,30 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9bea00 [S=12, R=8]
+F: 0x5589bca89a00 [S=12, R=8]
 Adding partition[+ 2560] at Level [7]
 	Buddy [+ 2688] found!
 Adding partition[+ 2560] at Level [8]
 	Buddy [+ 2816] found!
 Adding partition[+ 2560] at Level [9]
-	Buddy [+ 2048] not found or cant merge!
+	Buddy [+ 2048] not found!
 Inserting before [+ 3072]
-   0 | Addr 0x5633bb9bef00 | nInt 27
-   1 | Addr 0x5633bb9be600 | nInt 85
-   2 | Addr 0x5633bb9be300 | nInt 41
-   3 | Addr 0x5633bb9be000 | nInt 53
-   4 | Addr 0x5633bb9be280 | nInt 23
-   5 | Addr 0x5633bb9be800 | nInt 45
-   6 | Addr 0x5633bb9be180 | nInt 28
-   7 | Addr 0x5633bb9be900 | nInt 45
-   8 | Addr 0x5633bb9be240 | nInt 13
-   9 | Addr 0x5633bb9be100 | nInt 25
-  10 | Addr 0x5633bb9be400 | nInt 72
+   0 | Addr 0x5589bca89f00 | nInt 27
+   1 | Addr 0x5589bca89600 | nInt 85
+   2 | Addr 0x5589bca89300 | nInt 41
+   3 | Addr 0x5589bca89000 | nInt 53
+   4 | Addr 0x5589bca89280 | nInt 23
+   5 | Addr 0x5589bca89800 | nInt 45
+   6 | Addr 0x5589bca89180 | nInt 28
+   7 | Addr 0x5589bca89900 | nInt 45
+   8 | Addr 0x5589bca89240 | nInt 13
+   9 | Addr 0x5589bca89100 | nInt 25
+  10 | Addr 0x5589bca89400 | nInt 72
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+ 3584] 
@@ -2121,25 +2121,25 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be900 [S=11, R=7]
+F: 0x5589bca89900 [S=11, R=7]
 Adding partition[+ 2304] at Level [8]
-	Buddy [+ 2048] not found or cant merge!
+	Buddy [+ 2048] not found!
 Inserting before [+ 3584]
-   0 | Addr 0x5633bb9bef00 | nInt 27
-   1 | Addr 0x5633bb9be600 | nInt 85
-   2 | Addr 0x5633bb9be300 | nInt 41
-   3 | Addr 0x5633bb9be000 | nInt 53
-   4 | Addr 0x5633bb9be280 | nInt 23
-   5 | Addr 0x5633bb9be800 | nInt 45
-   6 | Addr 0x5633bb9be180 | nInt 28
-   7 | Addr 0x5633bb9be240 | nInt 13
-   8 | Addr 0x5633bb9be100 | nInt 25
-   9 | Addr 0x5633bb9be400 | nInt 72
+   0 | Addr 0x5589bca89f00 | nInt 27
+   1 | Addr 0x5589bca89600 | nInt 85
+   2 | Addr 0x5589bca89300 | nInt 41
+   3 | Addr 0x5589bca89000 | nInt 53
+   4 | Addr 0x5589bca89280 | nInt 23
+   5 | Addr 0x5589bca89800 | nInt 45
+   6 | Addr 0x5589bca89180 | nInt 28
+   7 | Addr 0x5589bca89240 | nInt 13
+   8 | Addr 0x5589bca89100 | nInt 25
+   9 | Addr 0x5589bca89400 | nInt 72
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+ 2304] [+ 3584] 
@@ -2151,23 +2151,23 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be180 [S=10, R=6]
+F: 0x5589bca89180 [S=10, R=6]
 Adding partition[+  384] at Level [7]
-	Buddy [+  256] not found or cant merge!
-   0 | Addr 0x5633bb9bef00 | nInt 27
-   1 | Addr 0x5633bb9be600 | nInt 85
-   2 | Addr 0x5633bb9be300 | nInt 41
-   3 | Addr 0x5633bb9be000 | nInt 53
-   4 | Addr 0x5633bb9be280 | nInt 23
-   5 | Addr 0x5633bb9be800 | nInt 45
-   6 | Addr 0x5633bb9be240 | nInt 13
-   7 | Addr 0x5633bb9be100 | nInt 25
-   8 | Addr 0x5633bb9be400 | nInt 72
+	Buddy [+  256] not found!
+   0 | Addr 0x5589bca89f00 | nInt 27
+   1 | Addr 0x5589bca89600 | nInt 85
+   2 | Addr 0x5589bca89300 | nInt 41
+   3 | Addr 0x5589bca89000 | nInt 53
+   4 | Addr 0x5589bca89280 | nInt 23
+   5 | Addr 0x5589bca89800 | nInt 45
+   6 | Addr 0x5589bca89240 | nInt 13
+   7 | Addr 0x5589bca89100 | nInt 25
+   8 | Addr 0x5589bca89400 | nInt 72
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+ 2304] [+ 3584] 
@@ -2179,23 +2179,23 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be300 [S=9, R=2]
+F: 0x5589bca89300 [S=9, R=2]
 Adding partition[+  768] at Level [8]
-	Buddy [+  512] not found or cant merge!
+	Buddy [+  512] not found!
 Inserting before [+ 2304]
-   0 | Addr 0x5633bb9bef00 | nInt 27
-   1 | Addr 0x5633bb9be600 | nInt 85
-   2 | Addr 0x5633bb9be000 | nInt 53
-   3 | Addr 0x5633bb9be280 | nInt 23
-   4 | Addr 0x5633bb9be800 | nInt 45
-   5 | Addr 0x5633bb9be240 | nInt 13
-   6 | Addr 0x5633bb9be100 | nInt 25
-   7 | Addr 0x5633bb9be400 | nInt 72
+   0 | Addr 0x5589bca89f00 | nInt 27
+   1 | Addr 0x5589bca89600 | nInt 85
+   2 | Addr 0x5589bca89000 | nInt 53
+   3 | Addr 0x5589bca89280 | nInt 23
+   4 | Addr 0x5589bca89800 | nInt 45
+   5 | Addr 0x5589bca89240 | nInt 13
+   6 | Addr 0x5589bca89100 | nInt 25
+   7 | Addr 0x5589bca89400 | nInt 72
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  768] [+ 2304] [+ 3584] 
@@ -2207,21 +2207,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9bef00 [S=8, R=0]
+F: 0x5589bca89f00 [S=8, R=0]
 Adding partition[+ 3840] at Level [7]
-	Buddy [+ 3968] not found or cant merge!
-   0 | Addr 0x5633bb9be600 | nInt 85
-   1 | Addr 0x5633bb9be000 | nInt 53
-   2 | Addr 0x5633bb9be280 | nInt 23
-   3 | Addr 0x5633bb9be800 | nInt 45
-   4 | Addr 0x5633bb9be240 | nInt 13
-   5 | Addr 0x5633bb9be100 | nInt 25
-   6 | Addr 0x5633bb9be400 | nInt 72
+	Buddy [+ 3968] not found!
+   0 | Addr 0x5589bca89600 | nInt 85
+   1 | Addr 0x5589bca89000 | nInt 53
+   2 | Addr 0x5589bca89280 | nInt 23
+   3 | Addr 0x5589bca89800 | nInt 45
+   4 | Addr 0x5589bca89240 | nInt 13
+   5 | Addr 0x5589bca89100 | nInt 25
+   6 | Addr 0x5589bca89400 | nInt 72
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  768] [+ 2304] [+ 3584] 
@@ -2234,19 +2234,19 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 58 integers
-   0 | Addr 0x5633bb9be600 | nInt 85
-   1 | Addr 0x5633bb9be000 | nInt 53
-   2 | Addr 0x5633bb9be280 | nInt 23
-   3 | Addr 0x5633bb9be800 | nInt 45
-   4 | Addr 0x5633bb9be240 | nInt 13
-   5 | Addr 0x5633bb9be100 | nInt 25
-   6 | Addr 0x5633bb9be400 | nInt 72
-   7 | Addr 0x5633bb9be300 | nInt 58
+   0 | Addr 0x5589bca89600 | nInt 85
+   1 | Addr 0x5589bca89000 | nInt 53
+   2 | Addr 0x5589bca89280 | nInt 23
+   3 | Addr 0x5589bca89800 | nInt 45
+   4 | Addr 0x5589bca89240 | nInt 13
+   5 | Addr 0x5589bca89100 | nInt 25
+   6 | Addr 0x5589bca89400 | nInt 72
+   7 | Addr 0x5589bca89300 | nInt 58
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+ 2304] [+ 3584] 
@@ -2258,22 +2258,22 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be300 [S=8, R=7]
+F: 0x5589bca89300 [S=8, R=7]
 Adding partition[+  768] at Level [8]
-	Buddy [+  512] not found or cant merge!
+	Buddy [+  512] not found!
 Inserting before [+ 2304]
-   0 | Addr 0x5633bb9be600 | nInt 85
-   1 | Addr 0x5633bb9be000 | nInt 53
-   2 | Addr 0x5633bb9be280 | nInt 23
-   3 | Addr 0x5633bb9be800 | nInt 45
-   4 | Addr 0x5633bb9be240 | nInt 13
-   5 | Addr 0x5633bb9be100 | nInt 25
-   6 | Addr 0x5633bb9be400 | nInt 72
+   0 | Addr 0x5589bca89600 | nInt 85
+   1 | Addr 0x5589bca89000 | nInt 53
+   2 | Addr 0x5589bca89280 | nInt 23
+   3 | Addr 0x5589bca89800 | nInt 45
+   4 | Addr 0x5589bca89240 | nInt 13
+   5 | Addr 0x5589bca89100 | nInt 25
+   6 | Addr 0x5589bca89400 | nInt 72
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  768] [+ 2304] [+ 3584] 
@@ -2285,23 +2285,23 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be100 [S=7, R=5]
+F: 0x5589bca89100 [S=7, R=5]
 Adding partition[+  256] at Level [7]
 	Buddy [+  384] found!
 Adding partition[+  256] at Level [8]
-	Buddy [+    0] not found or cant merge!
+	Buddy [+    0] not found!
 Inserting before [+  768]
-   0 | Addr 0x5633bb9be600 | nInt 85
-   1 | Addr 0x5633bb9be000 | nInt 53
-   2 | Addr 0x5633bb9be280 | nInt 23
-   3 | Addr 0x5633bb9be800 | nInt 45
-   4 | Addr 0x5633bb9be240 | nInt 13
-   5 | Addr 0x5633bb9be400 | nInt 72
+   0 | Addr 0x5589bca89600 | nInt 85
+   1 | Addr 0x5589bca89000 | nInt 53
+   2 | Addr 0x5589bca89280 | nInt 23
+   3 | Addr 0x5589bca89800 | nInt 45
+   4 | Addr 0x5589bca89240 | nInt 13
+   5 | Addr 0x5589bca89400 | nInt 72
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 
@@ -2314,18 +2314,18 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 15 integers
-   0 | Addr 0x5633bb9be600 | nInt 85
-   1 | Addr 0x5633bb9be000 | nInt 53
-   2 | Addr 0x5633bb9be280 | nInt 23
-   3 | Addr 0x5633bb9be800 | nInt 45
-   4 | Addr 0x5633bb9be240 | nInt 13
-   5 | Addr 0x5633bb9be400 | nInt 72
-   6 | Addr 0x5633bb9be200 | nInt 15
+   0 | Addr 0x5589bca89600 | nInt 85
+   1 | Addr 0x5589bca89000 | nInt 53
+   2 | Addr 0x5589bca89280 | nInt 23
+   3 | Addr 0x5589bca89800 | nInt 45
+   4 | Addr 0x5589bca89240 | nInt 13
+   5 | Addr 0x5589bca89400 | nInt 72
+   6 | Addr 0x5589bca89200 | nInt 15
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 
@@ -2337,21 +2337,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be280 [S=7, R=2]
+F: 0x5589bca89280 [S=7, R=2]
 Adding partition[+  640] at Level [7]
-	Buddy [+  512] not found or cant merge!
+	Buddy [+  512] not found!
 Inserting before [+ 3840]
-   0 | Addr 0x5633bb9be600 | nInt 85
-   1 | Addr 0x5633bb9be000 | nInt 53
-   2 | Addr 0x5633bb9be800 | nInt 45
-   3 | Addr 0x5633bb9be240 | nInt 13
-   4 | Addr 0x5633bb9be400 | nInt 72
-   5 | Addr 0x5633bb9be200 | nInt 15
+   0 | Addr 0x5589bca89600 | nInt 85
+   1 | Addr 0x5589bca89000 | nInt 53
+   2 | Addr 0x5589bca89800 | nInt 45
+   3 | Addr 0x5589bca89240 | nInt 13
+   4 | Addr 0x5589bca89400 | nInt 72
+   5 | Addr 0x5589bca89200 | nInt 15
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 
@@ -2364,18 +2364,18 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 31 integers
-   0 | Addr 0x5633bb9be600 | nInt 85
-   1 | Addr 0x5633bb9be000 | nInt 53
-   2 | Addr 0x5633bb9be800 | nInt 45
-   3 | Addr 0x5633bb9be240 | nInt 13
-   4 | Addr 0x5633bb9be400 | nInt 72
-   5 | Addr 0x5633bb9be200 | nInt 15
-   6 | Addr 0x5633bb9be280 | nInt 31
+   0 | Addr 0x5589bca89600 | nInt 85
+   1 | Addr 0x5589bca89000 | nInt 53
+   2 | Addr 0x5589bca89800 | nInt 45
+   3 | Addr 0x5589bca89240 | nInt 13
+   4 | Addr 0x5589bca89400 | nInt 72
+   5 | Addr 0x5589bca89200 | nInt 15
+   6 | Addr 0x5589bca89280 | nInt 31
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 
@@ -2387,21 +2387,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be600 [S=7, R=0]
+F: 0x5589bca89600 [S=7, R=0]
 Adding partition[+ 1536] at Level [9]
-	Buddy [+ 1024] not found or cant merge!
+	Buddy [+ 1024] not found!
 Inserting before [+ 2560]
-   0 | Addr 0x5633bb9be000 | nInt 53
-   1 | Addr 0x5633bb9be800 | nInt 45
-   2 | Addr 0x5633bb9be240 | nInt 13
-   3 | Addr 0x5633bb9be400 | nInt 72
-   4 | Addr 0x5633bb9be200 | nInt 15
-   5 | Addr 0x5633bb9be280 | nInt 31
+   0 | Addr 0x5589bca89000 | nInt 53
+   1 | Addr 0x5589bca89800 | nInt 45
+   2 | Addr 0x5589bca89240 | nInt 13
+   3 | Addr 0x5589bca89400 | nInt 72
+   4 | Addr 0x5589bca89200 | nInt 15
+   5 | Addr 0x5589bca89280 | nInt 31
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 1536] [+ 2560] [+ 3072] 
 A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 
@@ -2414,18 +2414,18 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 52 integers
-   0 | Addr 0x5633bb9be000 | nInt 53
-   1 | Addr 0x5633bb9be800 | nInt 45
-   2 | Addr 0x5633bb9be240 | nInt 13
-   3 | Addr 0x5633bb9be400 | nInt 72
-   4 | Addr 0x5633bb9be200 | nInt 15
-   5 | Addr 0x5633bb9be280 | nInt 31
-   6 | Addr 0x5633bb9be100 | nInt 52
+   0 | Addr 0x5589bca89000 | nInt 53
+   1 | Addr 0x5589bca89800 | nInt 45
+   2 | Addr 0x5589bca89240 | nInt 13
+   3 | Addr 0x5589bca89400 | nInt 72
+   4 | Addr 0x5589bca89200 | nInt 15
+   5 | Addr 0x5589bca89280 | nInt 31
+   6 | Addr 0x5589bca89100 | nInt 52
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 1536] [+ 2560] [+ 3072] 
 A[8]: [+  768] [+ 2304] [+ 3584] 
@@ -2438,19 +2438,19 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 97 integers
-   0 | Addr 0x5633bb9be000 | nInt 53
-   1 | Addr 0x5633bb9be800 | nInt 45
-   2 | Addr 0x5633bb9be240 | nInt 13
-   3 | Addr 0x5633bb9be400 | nInt 72
-   4 | Addr 0x5633bb9be200 | nInt 15
-   5 | Addr 0x5633bb9be280 | nInt 31
-   6 | Addr 0x5633bb9be100 | nInt 52
-   7 | Addr 0x5633bb9be600 | nInt 97
+   0 | Addr 0x5589bca89000 | nInt 53
+   1 | Addr 0x5589bca89800 | nInt 45
+   2 | Addr 0x5589bca89240 | nInt 13
+   3 | Addr 0x5589bca89400 | nInt 72
+   4 | Addr 0x5589bca89200 | nInt 15
+   5 | Addr 0x5589bca89280 | nInt 31
+   6 | Addr 0x5589bca89100 | nInt 52
+   7 | Addr 0x5589bca89600 | nInt 97
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  768] [+ 2304] [+ 3584] 
@@ -2463,20 +2463,20 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 19 integers
-   0 | Addr 0x5633bb9be000 | nInt 53
-   1 | Addr 0x5633bb9be800 | nInt 45
-   2 | Addr 0x5633bb9be240 | nInt 13
-   3 | Addr 0x5633bb9be400 | nInt 72
-   4 | Addr 0x5633bb9be200 | nInt 15
-   5 | Addr 0x5633bb9be280 | nInt 31
-   6 | Addr 0x5633bb9be100 | nInt 52
-   7 | Addr 0x5633bb9be600 | nInt 97
-   8 | Addr 0x5633bb9bef00 | nInt 19
+   0 | Addr 0x5589bca89000 | nInt 53
+   1 | Addr 0x5589bca89800 | nInt 45
+   2 | Addr 0x5589bca89240 | nInt 13
+   3 | Addr 0x5589bca89400 | nInt 72
+   4 | Addr 0x5589bca89200 | nInt 15
+   5 | Addr 0x5589bca89280 | nInt 31
+   6 | Addr 0x5589bca89100 | nInt 52
+   7 | Addr 0x5589bca89600 | nInt 97
+   8 | Addr 0x5589bca89f00 | nInt 19
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  768] [+ 2304] [+ 3584] 
@@ -2488,23 +2488,23 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be000 [S=9, R=0]
+F: 0x5589bca89000 [S=9, R=0]
 Adding partition[+    0] at Level [8]
-	Buddy [+  256] not found or cant merge!
+	Buddy [+  256] not found!
 Inserting before [+  768]
-   0 | Addr 0x5633bb9be800 | nInt 45
-   1 | Addr 0x5633bb9be240 | nInt 13
-   2 | Addr 0x5633bb9be400 | nInt 72
-   3 | Addr 0x5633bb9be200 | nInt 15
-   4 | Addr 0x5633bb9be280 | nInt 31
-   5 | Addr 0x5633bb9be100 | nInt 52
-   6 | Addr 0x5633bb9be600 | nInt 97
-   7 | Addr 0x5633bb9bef00 | nInt 19
+   0 | Addr 0x5589bca89800 | nInt 45
+   1 | Addr 0x5589bca89240 | nInt 13
+   2 | Addr 0x5589bca89400 | nInt 72
+   3 | Addr 0x5589bca89200 | nInt 15
+   4 | Addr 0x5589bca89280 | nInt 31
+   5 | Addr 0x5589bca89100 | nInt 52
+   6 | Addr 0x5589bca89600 | nInt 97
+   7 | Addr 0x5589bca89f00 | nInt 19
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+    0] [+  768] [+ 2304] [+ 3584] 
@@ -2518,23 +2518,23 @@ A[1]:
 A[0]: 
 A: 16 integers
 Adding partition[+  128] at Level [7]
-	Buddy [+    0] not found or cant merge!
+	Buddy [+    0] not found!
 Adding partition[+   64] at Level [6]
-	Buddy [+    0] not found or cant merge!
-   0 | Addr 0x5633bb9be800 | nInt 45
-   1 | Addr 0x5633bb9be240 | nInt 13
-   2 | Addr 0x5633bb9be400 | nInt 72
-   3 | Addr 0x5633bb9be200 | nInt 15
-   4 | Addr 0x5633bb9be280 | nInt 31
-   5 | Addr 0x5633bb9be100 | nInt 52
-   6 | Addr 0x5633bb9be600 | nInt 97
-   7 | Addr 0x5633bb9bef00 | nInt 19
-   8 | Addr 0x5633bb9be000 | nInt 16
+	Buddy [+    0] not found!
+   0 | Addr 0x5589bca89800 | nInt 45
+   1 | Addr 0x5589bca89240 | nInt 13
+   2 | Addr 0x5589bca89400 | nInt 72
+   3 | Addr 0x5589bca89200 | nInt 15
+   4 | Addr 0x5589bca89280 | nInt 31
+   5 | Addr 0x5589bca89100 | nInt 52
+   6 | Addr 0x5589bca89600 | nInt 97
+   7 | Addr 0x5589bca89f00 | nInt 19
+   8 | Addr 0x5589bca89000 | nInt 16
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  768] [+ 2304] [+ 3584] 
@@ -2547,21 +2547,21 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 60 integers
-   0 | Addr 0x5633bb9be800 | nInt 45
-   1 | Addr 0x5633bb9be240 | nInt 13
-   2 | Addr 0x5633bb9be400 | nInt 72
-   3 | Addr 0x5633bb9be200 | nInt 15
-   4 | Addr 0x5633bb9be280 | nInt 31
-   5 | Addr 0x5633bb9be100 | nInt 52
-   6 | Addr 0x5633bb9be600 | nInt 97
-   7 | Addr 0x5633bb9bef00 | nInt 19
-   8 | Addr 0x5633bb9be000 | nInt 16
-   9 | Addr 0x5633bb9be300 | nInt 60
+   0 | Addr 0x5589bca89800 | nInt 45
+   1 | Addr 0x5589bca89240 | nInt 13
+   2 | Addr 0x5589bca89400 | nInt 72
+   3 | Addr 0x5589bca89200 | nInt 15
+   4 | Addr 0x5589bca89280 | nInt 31
+   5 | Addr 0x5589bca89100 | nInt 52
+   6 | Addr 0x5589bca89600 | nInt 97
+   7 | Addr 0x5589bca89f00 | nInt 19
+   8 | Addr 0x5589bca89000 | nInt 16
+   9 | Addr 0x5589bca89300 | nInt 60
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+ 2304] [+ 3584] 
@@ -2573,23 +2573,23 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be280 [S=10, R=4]
+F: 0x5589bca89280 [S=10, R=4]
 Adding partition[+  640] at Level [7]
-	Buddy [+  512] not found or cant merge!
-   0 | Addr 0x5633bb9be800 | nInt 45
-   1 | Addr 0x5633bb9be240 | nInt 13
-   2 | Addr 0x5633bb9be400 | nInt 72
-   3 | Addr 0x5633bb9be200 | nInt 15
-   4 | Addr 0x5633bb9be100 | nInt 52
-   5 | Addr 0x5633bb9be600 | nInt 97
-   6 | Addr 0x5633bb9bef00 | nInt 19
-   7 | Addr 0x5633bb9be000 | nInt 16
-   8 | Addr 0x5633bb9be300 | nInt 60
+	Buddy [+  512] not found!
+   0 | Addr 0x5589bca89800 | nInt 45
+   1 | Addr 0x5589bca89240 | nInt 13
+   2 | Addr 0x5589bca89400 | nInt 72
+   3 | Addr 0x5589bca89200 | nInt 15
+   4 | Addr 0x5589bca89100 | nInt 52
+   5 | Addr 0x5589bca89600 | nInt 97
+   6 | Addr 0x5589bca89f00 | nInt 19
+   7 | Addr 0x5589bca89000 | nInt 16
+   8 | Addr 0x5589bca89300 | nInt 60
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+ 2304] [+ 3584] 
@@ -2601,23 +2601,23 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be100 [S=9, R=4]
+F: 0x5589bca89100 [S=9, R=4]
 Adding partition[+  256] at Level [8]
-	Buddy [+    0] not found or cant merge!
+	Buddy [+    0] not found!
 Inserting before [+ 2304]
-   0 | Addr 0x5633bb9be800 | nInt 45
-   1 | Addr 0x5633bb9be240 | nInt 13
-   2 | Addr 0x5633bb9be400 | nInt 72
-   3 | Addr 0x5633bb9be200 | nInt 15
-   4 | Addr 0x5633bb9be600 | nInt 97
-   5 | Addr 0x5633bb9bef00 | nInt 19
-   6 | Addr 0x5633bb9be000 | nInt 16
-   7 | Addr 0x5633bb9be300 | nInt 60
+   0 | Addr 0x5589bca89800 | nInt 45
+   1 | Addr 0x5589bca89240 | nInt 13
+   2 | Addr 0x5589bca89400 | nInt 72
+   3 | Addr 0x5589bca89200 | nInt 15
+   4 | Addr 0x5589bca89600 | nInt 97
+   5 | Addr 0x5589bca89f00 | nInt 19
+   6 | Addr 0x5589bca89000 | nInt 16
+   7 | Addr 0x5589bca89300 | nInt 60
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  256] [+ 2304] [+ 3584] 
@@ -2629,22 +2629,22 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be300 [S=8, R=7]
+F: 0x5589bca89300 [S=8, R=7]
 Adding partition[+  768] at Level [8]
-	Buddy [+  512] not found or cant merge!
+	Buddy [+  512] not found!
 Inserting before [+ 2304]
-   0 | Addr 0x5633bb9be800 | nInt 45
-   1 | Addr 0x5633bb9be240 | nInt 13
-   2 | Addr 0x5633bb9be400 | nInt 72
-   3 | Addr 0x5633bb9be200 | nInt 15
-   4 | Addr 0x5633bb9be600 | nInt 97
-   5 | Addr 0x5633bb9bef00 | nInt 19
-   6 | Addr 0x5633bb9be000 | nInt 16
+   0 | Addr 0x5589bca89800 | nInt 45
+   1 | Addr 0x5589bca89240 | nInt 13
+   2 | Addr 0x5589bca89400 | nInt 72
+   3 | Addr 0x5589bca89200 | nInt 15
+   4 | Addr 0x5589bca89600 | nInt 97
+   5 | Addr 0x5589bca89f00 | nInt 19
+   6 | Addr 0x5589bca89000 | nInt 16
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 2560] [+ 3072] 
 A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 
@@ -2657,19 +2657,19 @@ A[2]:
 A[1]: 
 A[0]: 
 A: 94 integers
-   0 | Addr 0x5633bb9be800 | nInt 45
-   1 | Addr 0x5633bb9be240 | nInt 13
-   2 | Addr 0x5633bb9be400 | nInt 72
-   3 | Addr 0x5633bb9be200 | nInt 15
-   4 | Addr 0x5633bb9be600 | nInt 97
-   5 | Addr 0x5633bb9bef00 | nInt 19
-   6 | Addr 0x5633bb9be000 | nInt 16
-   7 | Addr 0x5633bb9bea00 | nInt 94
+   0 | Addr 0x5589bca89800 | nInt 45
+   1 | Addr 0x5589bca89240 | nInt 13
+   2 | Addr 0x5589bca89400 | nInt 72
+   3 | Addr 0x5589bca89200 | nInt 15
+   4 | Addr 0x5589bca89600 | nInt 97
+   5 | Addr 0x5589bca89f00 | nInt 19
+   6 | Addr 0x5589bca89000 | nInt 16
+   7 | Addr 0x5589bca89a00 | nInt 94
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 3072] 
 A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 
@@ -2681,21 +2681,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be200 [S=8, R=3]
+F: 0x5589bca89200 [S=8, R=3]
 Adding partition[+  512] at Level [6]
-	Buddy [+  576] not found or cant merge!
-   0 | Addr 0x5633bb9be800 | nInt 45
-   1 | Addr 0x5633bb9be240 | nInt 13
-   2 | Addr 0x5633bb9be400 | nInt 72
-   3 | Addr 0x5633bb9be600 | nInt 97
-   4 | Addr 0x5633bb9bef00 | nInt 19
-   5 | Addr 0x5633bb9be000 | nInt 16
-   6 | Addr 0x5633bb9bea00 | nInt 94
+	Buddy [+  576] not found!
+   0 | Addr 0x5589bca89800 | nInt 45
+   1 | Addr 0x5589bca89240 | nInt 13
+   2 | Addr 0x5589bca89400 | nInt 72
+   3 | Addr 0x5589bca89600 | nInt 97
+   4 | Addr 0x5589bca89f00 | nInt 19
+   5 | Addr 0x5589bca89000 | nInt 16
+   6 | Addr 0x5589bca89a00 | nInt 94
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 3072] 
 A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 
@@ -2707,21 +2707,21 @@ A[3]:
 A[2]: 
 A[1]: 
 A[0]: 
-F: 0x5633bb9be600 [S=7, R=3]
+F: 0x5589bca89600 [S=7, R=3]
 Adding partition[+ 1536] at Level [9]
-	Buddy [+ 1024] not found or cant merge!
+	Buddy [+ 1024] not found!
 Inserting before [+ 3072]
-   0 | Addr 0x5633bb9be800 | nInt 45
-   1 | Addr 0x5633bb9be240 | nInt 13
-   2 | Addr 0x5633bb9be400 | nInt 72
-   3 | Addr 0x5633bb9bef00 | nInt 19
-   4 | Addr 0x5633bb9be000 | nInt 16
-   5 | Addr 0x5633bb9bea00 | nInt 94
+   0 | Addr 0x5589bca89800 | nInt 45
+   1 | Addr 0x5589bca89240 | nInt 13
+   2 | Addr 0x5589bca89400 | nInt 72
+   3 | Addr 0x5589bca89f00 | nInt 19
+   4 | Addr 0x5589bca89000 | nInt 16
+   5 | Addr 0x5589bca89a00 | nInt 94
 
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 
@@ -2988,7 +2988,7 @@ A[0]:
 Heap Meta Info:
 ===============
 Total Size = 4000 bytes
-Start Address = 0x5633bb9be000
+Start Address = 0x5589bca89000
 A[10]: 
 A[9]: [+ 1536] [+ 3072] 
 A[8]: [+  256] [+  768] [+ 2304] [+ 3584] 

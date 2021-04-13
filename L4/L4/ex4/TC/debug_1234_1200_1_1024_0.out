@@ -1,18 +1,18 @@
 Seed 1234, heap size 1200, MinPartSize 1, MaxPartSize 1024, #Req 0
 S: minIdx[0] maxIdx[10]
 Adding partition[+    0] at Level [10]
-	Buddy [+    0] not found or cant merge!
+	Cant merge due to LS restriction!
 Adding partition[+ 1024] at Level [7]
-	Buddy [+ 1152] not found or cant merge!
+	Buddy [+ 1152] not found!
 Adding partition[+ 1152] at Level [5]
-	Buddy [+ 1184] not found or cant merge!
+	Buddy [+ 1184] not found!
 Adding partition[+ 1184] at Level [4]
-	Buddy [+ 1200] not found or cant merge!
+	Buddy [+ 1200] not found!
 
 Heap Meta Info:
 ===============
 Total Size = 1200 bytes
-Start Address = 0x56278c075000
+Start Address = 0x558635be3000
 A[10]: [+    0] 
 A[9]: 
 A[8]: 
@@ -104,7 +104,7 @@ A[0]:
 Heap Meta Info:
 ===============
 Total Size = 1200 bytes
-Start Address = 0x56278c075000
+Start Address = 0x558635be3000
 A[10]: [+    0] 
 A[9]: 
 A[8]: 
