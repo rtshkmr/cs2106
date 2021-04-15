@@ -19,7 +19,8 @@ for the 2nd member if  you are on a team
  *  visible only to functions in this file
  *********************************************************/
 static heapMetaInfo hmi;
-
+static int minLvl;
+static int maxLvl;
 
 /**********************************************************
  * Quality of life helper functions / macros
@@ -228,7 +229,7 @@ void addPartitionAtLevel( unsigned int lvl, unsigned int offset )
         current = current->nextPart;
     }
 
-    if (current == NULL) {
+    if (current == NULL || lvl == maxLvl) {
         insertPartition(buildPartitionInfo(offset), lvl);
     } else {
         if (prev == NULL) {
@@ -256,8 +257,12 @@ partInfo* removePartitionAtLevel(unsigned int lvl)
  *********************************************************/
 {
 
-    if (lvl > hmi.maxIdx) {
+    if (lvl > maxLvl) {
         return NULL;
+    }
+
+    if (lvl < minLvl) {
+        return removePartitionAtLevel(lvl + 1);
     }
 
     if (hmi.A[lvl] != NULL) {
@@ -283,7 +288,7 @@ partInfo* removePartitionAtLevel(unsigned int lvl)
     return part1;
 }
 
-int setupHeap(int initialSize)
+int setupHeap(int initialSize, int minPartSize, int maxPartSize)
 /**********************************************************
  * Setup a heap with "initialSize" bytes
  *********************************************************/
@@ -307,15 +312,32 @@ int setupHeap(int initialSize)
     
     int numLevels = log2Floor(initialSize) + 1;
     
+    int size =initialSize;
+    minLvl = log2Ceiling(minPartSize);
+    maxLvl = log2Floor(maxPartSize);
+
     hmi.A = (partInfo**) malloc(sizeof(partInfo*) * numLevels);
     hmi.maxIdx = numLevels - 1;
-    
-    for (int i = 0; i < numLevels - 1; i++) {
+    hmi.maxIdx = hmi.maxIdx > maxLvl ? maxLvl : hmi.maxIdx;
+
+    for (int i = 0; i <= hmi.maxIdx; i++) {
         hmi.A[i] = (partInfo*) NULL;
     }
 
-    partInfo* part = buildPartitionInfo(0);
-    insertPartition(part, hmi.maxIdx);
+    while (size > 0) {
+        int nextLvl = log2Floor(size);
+
+        if (nextLvl < minLvl) {
+            break;
+        }
+        
+        printf("next: %d\n", nextLvl);
+        nextLvl = nextLvl > maxLvl ? maxLvl : nextLvl;
+        printf("nextA: %d\n", nextLvl);
+        partInfo* part = buildPartitionInfo(initialSize - size);
+        insertPartition(part, nextLvl);
+        size -= powOf2(nextLvl);
+    }
 
     return 1;
 }
