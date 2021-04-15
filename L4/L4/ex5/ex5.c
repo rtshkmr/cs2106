@@ -26,6 +26,7 @@ static int concurrentMemOp = 0;
 
 int memOpIntegrity = 1;
 
+static sem_t lock;
 
 partInfo* buildPartitionInfo(unsigned int offset, int size)
 /**********************************************************
@@ -131,6 +132,7 @@ int setupHeap(int initialSize)
 	
     //Setup Mutex for internal checking
     sem_init( &mutex, 0, 1 );
+    sem_init( &lock, 0, 1);
 	return 1;
 }
 
@@ -196,9 +198,11 @@ void* mymalloc(int size)
  *********************************************************/
 {
 
-    //Checking for race condition
-    //memOpStart();
+    sem_wait( &lock );
 
+    //Checking for race condition
+    memOpStart();
+    
     partInfo *current = hmi.pListHead;
 
     //We need to make sure the size is word
@@ -223,6 +227,9 @@ void* mymalloc(int size)
     if (current == NULL){	//heap full
         //Check for race condition
         memOpEnd();
+
+        sem_post( &lock );
+
 	    return NULL;
 	}
 
@@ -237,6 +244,8 @@ void* mymalloc(int size)
     //Check for race condition
     memOpEnd();
 
+    sem_post( &lock );
+
 	return hmi.base + current->offset;
 }
 
@@ -248,6 +257,8 @@ void myfree(void* address)
 {
 	partInfo *toBeFreed;
     int partID;
+
+    sem_wait( &lock );
 
     //Checking for race condition
     memOpStart();
@@ -267,12 +278,17 @@ void myfree(void* address)
     if (toBeFreed == NULL) {
         printf("MyFree(%p) failed! Exiting.\n", address);
         memOpEnd();
+
+        sem_post( &lock );
+
         exit(1);
     }
 
     //Very simple handling, just set the partition to FREE
     toBeFreed->status = FREE;
-
+    
     //Check for race condition
     memOpEnd();
+
+    sem_post( &lock );
 }
