@@ -21,6 +21,7 @@ for the 2nd member if  you are on a team
  *  visible only to functions in this file
  *********************************************************/
 static heapMetaInfo hmi;
+static int smallestIdx, largestIdx;  // keep these as static vars
 
 
 /**********************************************************
@@ -175,19 +176,15 @@ void printHeapStatistic()
             }
         }
     }
-    
+
     printf("\nHeap Usage Statistics:\n");
     printf("======================\n");
-
-    printf("Total Space: %d bytes\n", hmi.totalSize);
 
     //Remember to preserve the message format!
 
     printf("Total Space: %d bytes\n", hmi.totalSize);
-
     printf("Total Free Partitions: %d\n", numParts);
     printf("Total Free Size: %d bytes\n", freeSize);
-
     printf("Total Internal Fragmentation: %d bytes\n", hmi.internalFragTotal);
 }
 
@@ -198,6 +195,7 @@ void addPartitionAtLevel( unsigned int lvl, unsigned int offset )
      *      at higher level
      *********************************************************/
 {
+    printf(">>> addPartitionAtLevel(%d, %d)\n", lvl, offset);
     unsigned int buddyOffset = buddyOf(offset, lvl); 
     partInfo* prev = NULL;
 
@@ -232,6 +230,7 @@ partInfo* removePartitionAtLevel(unsigned int lvl)
      * Return the Partition Structure if found.
      *********************************************************/
 {
+    printf(">>> removePartitionAtLevel(%d)\n", lvl);
     // level is the idx to look at
     partInfo* candidate = hmi.A[lvl];
     if(!candidate) { // look above and add 
@@ -265,53 +264,117 @@ partInfo* removePartitionAtLevel(unsigned int lvl)
     }
 }
 
+
+
+int findIdxToFill(int remainingSize, int currentIdx) {
+    int idxToFill = log2Floor(remainingSize); 
+    if (idxToFill > largestIdx) {
+        idxToFill = largestIdx; 
+    } else if (idxToFill < smallestIdx) { 
+        idxToFill = smallestIdx;
+    }
+    printf(">>> \t after adjustment: currentIdx:%d, idxToFill: %d, remainingSize:%d\n", currentIdx, idxToFill, remainingSize);
+    return idxToFill;
+}
+
+/*
+// creates and assigns blocks to its correct levels
+void initBlocks(int initialSize) {
+int remainingSize = initialSize, currentIdx = hmi.maxIdx;
+unsigned int runningOffset = 0;
+while(remainingSize > 0 && currentIdx >= 0)  {
+int idxToFill = findIdxToFill(remainingSize, currentIdx); 
+
+// actually assign things:
+if(remainingSize > 0 && currentIdx == idxToFill && (currentIdx >= smallestIdx && currentIdx <= largestIdx)) {
+int allocatedBlockSize = powOf2(idxToFill);
+printf(">>> \t\t assigning! block allocated to level: %d , with offset:%d, allocatedBlockSize: %d\n", idxToFill,runningOffset,  allocatedBlockSize);
+// add newblock to front of list:
+partInfo* newBlock = buildPartitionInfo(runningOffset);
+newBlock->nextPart = hmi.A[currentIdx]; 
+hmi.A[currentIdx] = newBlock; 
+//--------------------------------------
+runningOffset += allocatedBlockSize;
+remainingSize -= allocatedBlockSize;
+idxToFill = log2Floor(remainingSize);
+if(log2Floor(remainingSize) < currentIdx) {
+currentIdx--;
+}
+} else { 
+hmi.A[currentIdx] = NULL; // it's a must to set null, or valgrind will complain about uninit values
+currentIdx--;
+}
+
+return;
+}
+*/
+
+
 int setupHeap(int initialSize, int minPartSize, int maxPartSize) // need to changethis part too TODO 
     /**********************************************************
      * Setup a heap with "initialSize" bytes
      *********************************************************/
 {
     void* base;
-
     base = sbrk(0); // this helps (set and) find the current location of the program break
     if(	sbrk(initialSize) == (void*)-1){
         printf("Cannot set break! Behavior undefined!\n");
         return 0;
     }
 
-    hmi.base = base;
-    hmi.totalSize = initialSize;
-    hmi.internalFragTotal = 0;
 
     //TODO: Task 1. Setup the rest of the bookkeeping info:
     //       hmi.A <= an array of partition linked list
     //       hmi.maxIdx <= the largest index for hmi.A[]
-
-    // Figure out the num of levels via continuous Log2:
     int numLevels = log2Ceiling(initialSize);
-    hmi.maxIdx = numLevels - 1; //change this!
-    printf("Initial Size: %d\n", initialSize);
+    hmi.maxIdx = numLevels - 1; 
+    printf(">>> setupHeap(): Initial Size: %d, (minPartSize, smallestIdx) = (%d, %d), (largestPartSize, largestIdx)= (%d, %d)\n", initialSize, minPartSize, smallestIdx, maxPartSize, largestIdx);
 
 
     // allocate space for numLevels levels of partInfo arrays
     hmi.A = (partInfo**) malloc(sizeof(partInfo*) * numLevels);
-    // int remainingSize = initialSize;
-    // int runningOffset = 0;
+    int remainingSize = initialSize;
+    int runningOffset = 0;
+    int currentIdx = hmi.maxIdx;
 
-    for(int i = hmi.maxIdx, remainingSize = initialSize, runningOffset = 0; i >= 0; i--) {
-        int idxToFill = log2Floor(remainingSize);
-        int blockSize = powOf2(idxToFill);
-        // printf("i:%d, idxToFill: %d , blockSize: %d\n", i, idxToFill, blockSize);
-        if(remainingSize > 0 && i == idxToFill) { 
-            hmi.A[i] = buildPartitionInfo(runningOffset); 
-            runningOffset += blockSize;
-            remainingSize -= blockSize;
+
+
+
+    while(remainingSize > 0 && currentIdx >= 0)  {
+        int idxToFill = findIdxToFill(remainingSize, currentIdx);
+        int allocatedBlockSize = powOf2(idxToFill);
+        printf(">>> \t after adjustment: currentIdx:%d, idxToFill: %d, remainingSize:%d\n", currentIdx, idxToFill, remainingSize);
+
+        // actually assign things:
+        if(remainingSize >= minPartSize && currentIdx == idxToFill && (currentIdx >= smallestIdx && currentIdx <= largestIdx)) {
+            printf(">>> \t\t assigning! block allocated to level: %d , with offset:%d, allocatedBlockSize: %d\n", idxToFill,runningOffset,  allocatedBlockSize);
+
+            // add newblock to front of list:
+            partInfo* newBlock = buildPartitionInfo(runningOffset);
+            newBlock->nextPart = hmi.A[currentIdx]; 
+            hmi.A[currentIdx] = newBlock; 
+            //--------------------------------------
+            runningOffset += allocatedBlockSize;
+            remainingSize -= allocatedBlockSize;
+            idxToFill = log2Floor(remainingSize);
+            if(log2Floor(remainingSize) < currentIdx) {
+                currentIdx--;
+            }
         } else { 
-            hmi.A[i] = NULL; // it's a must to set null, or valgrind will complain about uninit values
+            hmi.A[currentIdx] = NULL; // it's a must to set null, or valgrind will complain about uninit values
+            currentIdx--;
         }
+
+        // variable assignments: 
+        hmi.base = base;
+        hmi.totalSize = initialSize - remainingSize;
+        hmi.internalFragTotal = 0;
+        largestIdx = log2Ceiling(maxPartSize); 
+        smallestIdx = log2Ceiling(minPartSize);
     }
+    printHeapMetaInfo();
     return 1;
 }
-
 
 void* mymalloc(int size)
     /**********************************************************
@@ -322,8 +385,16 @@ void* mymalloc(int size)
      *********************************************************/
 {
     //TODO: Task 2. Implement the allocation using buddy allocator
-    // printf(">>> mymalloc(%d)\n", size);
+    printf(">>> mymalloc(%d)\n", size);
+
+    // size input check, adjust if idx < smallestIdx 
     int lvl = log2Ceiling(size);
+    if(lvl > largestIdx) { 
+        return NULL;
+    } else if (lvl < smallestIdx) { 
+        lvl = smallestIdx;
+    }
+
     partInfo* target = removePartitionAtLevel(lvl);
     void* memAddr = hmi.base + target->offset; 
     if(!target) {
@@ -333,6 +404,7 @@ void* mymalloc(int size)
         free(target);
         return memAddr;
     }
+    printHeapMetaInfo();
 }
 
 void myfree(void* address, int size)
@@ -342,11 +414,18 @@ void myfree(void* address, int size)
      *********************************************************/
 {
     //TODO: Task 3. Implement the de allocation using buddy allocator
-    // int offset = address - hmi.base;
-    // printf(">>> myfree(%d,%d).\n", offset , size );
-    int lvl = log2Ceiling(size);
-    hmi.internalFragTotal -= powOf2(lvl) - size;
+    unsigned int offset = address - hmi.base;
+    printf(">>> myfree(%d,%d).\n", offset , size );
 
-    // add a partition to the hmi array to indicate it as free: 
+    // size input check, adjust if idx < smallestIdx 
+    int lvl = log2Ceiling(size);
+    if(lvl > largestIdx) { 
+        return;
+    } else if (lvl < smallestIdx) { 
+        lvl = smallestIdx;
+    }
+
+    hmi.internalFragTotal -= powOf2(lvl) - size;
     addPartitionAtLevel(lvl, address - hmi.base);
+    printHeapMetaInfo();
 }
