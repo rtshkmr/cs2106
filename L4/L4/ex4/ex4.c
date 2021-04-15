@@ -12,6 +12,7 @@ for the 2nd member if  you are on a team
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
+#include <limits.h> // for INT_MIN
 #include "mmalloc.h"
 
 
@@ -376,6 +377,16 @@ int setupHeap(int initialSize, int minPartSize, int maxPartSize) // need to chan
     return 1;
 }
 
+int getTargetLevel(int size) { 
+    // size input check, adjust if idx < smallestIdx 
+    int lvl = log2Ceiling(size);
+    if(lvl > largestIdx) { 
+        return INT_MIN;
+    } else if (lvl < smallestIdx) { 
+        lvl = smallestIdx;
+    }
+    return lvl;
+}
 void* mymalloc(int size)
     /**********************************************************
      * Mimic the normal "malloc()":
@@ -388,13 +399,8 @@ void* mymalloc(int size)
     printf(">>> mymalloc(%d)\n", size);
 
     // size input check, adjust if idx < smallestIdx 
-    int lvl = log2Ceiling(size);
-    if(lvl > largestIdx) { 
-        return NULL;
-    } else if (lvl < smallestIdx) { 
-        lvl = smallestIdx;
-    }
-
+    int lvl = getTargetLevel(size);
+    if(lvl == INT_MIN) return NULL;
     partInfo* target = removePartitionAtLevel(lvl);
     void* memAddr = hmi.base + target->offset; 
     if(!target) {
@@ -418,13 +424,8 @@ void myfree(void* address, int size)
     printf(">>> myfree(%d,%d).\n", offset , size );
 
     // size input check, adjust if idx < smallestIdx 
-    int lvl = log2Ceiling(size);
-    if(lvl > largestIdx) { 
-        return;
-    } else if (lvl < smallestIdx) { 
-        lvl = smallestIdx;
-    }
-
+    int lvl = getTargetLevel(size);
+    if(lvl == INT_MIN) return;
     hmi.internalFragTotal -= powOf2(lvl) - size;
     addPartitionAtLevel(lvl, address - hmi.base);
     printHeapMetaInfo();
