@@ -22,6 +22,7 @@ for the 2nd member if  you are on a team
 static heapMetaInfo hmi;
 
 static sem_t mutex;
+static sem_t lock;
 static int concurrentMemOp = 0;
 
 int memOpIntegrity = 1;
@@ -131,6 +132,7 @@ int setupHeap(int initialSize)
 	
     //Setup Mutex for internal checking
     sem_init( &mutex, 0, 1 );
+    sem_init( &lock, 0, 1);
 	return 1;
 }
 
@@ -195,6 +197,7 @@ void* mymalloc(int size)
  *    Return NULL otherwise 
  *********************************************************/
 {
+    sem_wait(&lock);
 
     //Checking for race condition
     //memOpStart();
@@ -223,6 +226,7 @@ void* mymalloc(int size)
     if (current == NULL){	//heap full
         //Check for race condition
         memOpEnd();
+        sem_post(&lock); // reached the end of linked list, can signal already.
 	    return NULL;
 	}
 
@@ -236,6 +240,7 @@ void* mymalloc(int size)
 
     //Check for race condition
     memOpEnd();
+    sem_post(&lock);
 
 	return hmi.base + current->offset;
 }
@@ -249,6 +254,7 @@ void myfree(void* address)
 	partInfo *toBeFreed;
     int partID;
 
+    sem_wait(&lock);
     //Checking for race condition
     memOpStart();
     
@@ -267,6 +273,7 @@ void myfree(void* address)
     if (toBeFreed == NULL) {
         printf("MyFree(%p) failed! Exiting.\n", address);
         memOpEnd();
+        sem_post(&lock);
         exit(1);
     }
 
@@ -275,4 +282,5 @@ void myfree(void* address)
 
     //Check for race condition
     memOpEnd();
+    sem_post(&lock);
 }
