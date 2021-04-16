@@ -1,0 +1,224 @@
+>>> setupHeap(): Initial Size: 1200, (minPartSize, smallestIdx) = (32, 0), (largestPartSize, largestIdx)= (512, 0)
+>>> currentIdx:10 runningOffset: 0, remaining size: 1200
+>>> 	after adjustment: currentIdx:10, idxToFill: 0, remainingSize:1200
+>>> currentIdx:9 runningOffset: 0, remaining size: 1200
+>>> 	after adjustment: currentIdx:9, idxToFill: 9, remainingSize:1200
+>>> 		 assigning! block allocated to level: 9 , with offset:0, allocatedBlockSize: 512
+>>> currentIdx:9 runningOffset: 512, remaining size: 688
+>>> 	after adjustment: currentIdx:9, idxToFill: 9, remainingSize:688
+>>> 		 assigning! block allocated to level: 9 , with offset:512, allocatedBlockSize: 512
+>>> currentIdx:8 runningOffset: 1024, remaining size: 176
+>>> 	after adjustment: currentIdx:8, idxToFill: 7, remainingSize:176
+>>> currentIdx:7 runningOffset: 1024, remaining size: 176
+>>> 	after adjustment: currentIdx:7, idxToFill: 7, remainingSize:176
+>>> 		 assigning! block allocated to level: 7 , with offset:1024, allocatedBlockSize: 128
+>>> currentIdx:6 runningOffset: 1152, remaining size: 48
+>>> 	after adjustment: currentIdx:6, idxToFill: 5, remainingSize:48
+>>> currentIdx:5 runningOffset: 1152, remaining size: 48
+>>> 	after adjustment: currentIdx:5, idxToFill: 5, remainingSize:48
+>>> 		 assigning! block allocated to level: 5 , with offset:1152, allocatedBlockSize: 32
+>>> currentIdx:4 runningOffset: 1184, remaining size: 16
+>>> 	after adjustment: currentIdx:4, idxToFill: 5, remainingSize:16
+>>> currentIdx:3 runningOffset: 1184, remaining size: 16
+>>> 	after adjustment: currentIdx:3, idxToFill: 5, remainingSize:16
+>>> currentIdx:2 runningOffset: 1184, remaining size: 16
+>>> 	after adjustment: currentIdx:2, idxToFill: 5, remainingSize:16
+>>> currentIdx:1 runningOffset: 1184, remaining size: 16
+>>> 	after adjustment: currentIdx:1, idxToFill: 5, remainingSize:16
+>>> currentIdx:0 runningOffset: 1184, remaining size: 16
+>>> 	after adjustment: currentIdx:0, idxToFill: 5, remainingSize:16
+
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x560b18f61000
+A[10]: 
+A[9]: [+  512] [+    0] 
+A[8]: 
+A[7]: [+ 1024] 
+A[6]: 
+A[5]: [+ 1152] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+>>> mymalloc(256)
+>>> removePartitionAtLevel(8)
+>>> removePartitionAtLevel(8)
+>>> mymalloc(156)
+>>> removePartitionAtLevel(8)
+>>> myfree(768,156).
+>>> addPartitionAtLevel(8, 768)
+
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x560b18f61000
+A[10]: 
+A[9]: [+    0] 
+A[8]: [+  768] 
+A[7]: [+ 1024] 
+A[6]: 
+A[5]: [+ 1152] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+>>> myfree(512,256).
+>>> addPartitionAtLevel(8, 512)
+>>> addPartitionAtLevel(9, 512)
+>>> addPartitionAtLevel(10, 0)
+
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x560b18f61000
+A[10]: [+    0] 
+A[9]: 
+A[8]: 
+A[7]: [+ 1024] 
+A[6]: 
+A[5]: [+ 1152] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+>>> mymalloc(100)
+>>> removePartitionAtLevel(7)
+>>> mymalloc(224)
+>>> removePartitionAtLevel(8)
+>>> removePartitionAtLevel(8)
+>>> removePartitionAtLevel(8)
+>>> mymalloc(112)
+>>> removePartitionAtLevel(7)
+>>> removePartitionAtLevel(7)
+>>> myfree(256,112).
+>>> addPartitionAtLevel(7, 256)
+>>> addPartitionAtLevel(8, 256)
+
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x560b18f61000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: 
+A[6]: 
+A[5]: [+ 1152] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+>>> myfree(1024,100).
+>>> addPartitionAtLevel(7, 1024)
+
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x560b18f61000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+ 1024] 
+A[6]: 
+A[5]: [+ 1152] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+>>> mymalloc(120)
+>>> removePartitionAtLevel(7)
+>>> mymalloc(72)
+>>> removePartitionAtLevel(7)
+>>> removePartitionAtLevel(7)
+>>> myfree(1024,120).
+>>> addPartitionAtLevel(7, 1024)
+
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x560b18f61000
+A[10]: 
+A[9]: [+  512] 
+A[8]: 
+A[7]: [+ 1024] [+  384] 
+A[6]: 
+A[5]: [+ 1152] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+>>> myfree(0,224).
+>>> addPartitionAtLevel(8, 0)
+
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x560b18f61000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+    0] 
+A[7]: [+ 1024] [+  384] 
+A[6]: 
+A[5]: [+ 1152] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+>>> mymalloc(64)
+>>> removePartitionAtLevel(6)
+>>> removePartitionAtLevel(6)
+>>> mymalloc(48)
+>>> removePartitionAtLevel(6)
+>>> mymalloc(260)
+>>> removePartitionAtLevel(9)
+>>> myfree(1088,48).
+>>> addPartitionAtLevel(6, 1088)
+
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x560b18f61000
+A[10]: 
+A[9]: 
+A[8]: [+    0] 
+A[7]: [+  384] 
+A[6]: [+ 1088] 
+A[5]: [+ 1152] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+Heap Meta Info:
+===============
+Total Size = 1184 bytes
+Start Address = 0x560b18f61000
+A[10]: 
+A[9]: 
+A[8]: [+    0] 
+A[7]: [+  384] 
+A[6]: [+ 1088] 
+A[5]: [+ 1152] 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+Heap Usage Statistics:
+======================
+Total Space: 1184 bytes
+Total Space: 1184 bytes
+Total Free Partitions: 4
+Total Free Size: 480 bytes
+Total Internal Fragmentation: 308 bytes

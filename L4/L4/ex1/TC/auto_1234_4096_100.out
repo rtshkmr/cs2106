@@ -1,0 +1,63 @@
+
+Heap Meta Info:
+===============
+Total Size = 4096 bytes
+Start Address = 0x55dc6eef8000
+Partition list:
+[+    0 |    60 bytes | 0]
+[+   60 |    76 bytes | 0]
+[+  136 |     4 bytes | 0]
+[+  140 |    64 bytes | 1]
+[+  204 |    44 bytes | 0]
+[+  248 |     8 bytes | 0]
+[+  256 |    92 bytes | 0]
+[+  348 |     8 bytes | 0]
+[+  356 |    16 bytes | 0]
+[+  372 |    40 bytes | 0]
+[+  412 |   108 bytes | 0]
+[+  520 |    36 bytes | 0]
+[+  556 |    76 bytes | 1]
+[+  632 |   184 bytes | 1]
+[+  816 |    32 bytes | 0]
+[+  848 |    52 bytes | 0]
+[+  900 |   124 bytes | 1]
+[+ 1024 |    40 bytes | 0]
+[+ 1064 |    24 bytes | 0]
+[+ 1088 |    12 bytes | 0]
+[+ 1100 |    92 bytes | 0]
+[+ 1192 |    28 bytes | 0]
+[+ 1220 |     4 bytes | 0]
+[+ 1224 |   100 bytes | 0]
+[+ 1324 |    12 bytes | 0]
+[+ 1336 |    28 bytes | 0]
+[+ 1364 |    72 bytes | 0]
+[+ 1436 |   168 bytes | 0]
+[+ 1604 |    92 bytes | 0]
+[+ 1696 |   180 bytes | 0]
+[+ 1876 |    24 bytes | 0]
+[+ 1900 |    44 bytes | 0]
+[+ 1944 |   208 bytes | 0]
+[+ 2152 |     4 bytes | 0]
+[+ 2156 |   152 bytes | 0]
+[+ 2308 |   176 bytes | 0]
+[+ 2484 |   212 bytes | 0]
+[+ 2696 |    48 bytes | 0]
+[+ 2744 |   232 bytes | 0]
+[+ 2976 |   108 bytes | 0]
+[+ 3084 |   240 bytes | 0]
+[+ 3324 |    28 bytes | 0]
+[+ 3352 |   180 bytes | 0]
+[+ 3532 |    72 bytes | 0]
+[+ 3604 |    80 bytes | 0]
+[+ 3684 |   376 bytes | 0]
+[+ 4060 |     4 bytes | 0]
+[+ 4064 |    32 bytes | 0]
+
+
+Heap Usage Statistics:
+======================
+Total Space: 4096 bytes
+Total Occupied Partitions: 4
+	Total Occupied Size: 448 bytes
+Total Number of Holes: 44
+	Total Hole Size: 3648 bytes

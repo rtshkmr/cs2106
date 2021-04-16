@@ -1,0 +1,103 @@
+diff --git a/L4/L4/ex4/ex4.c b/L4/L4/ex4/ex4.c
+index 844b595..05d779c 100644
+--- a/L4/L4/ex4/ex4.c
++++ b/L4/L4/ex4/ex4.c
+@@ -21,7 +21,7 @@ for the 2nd member if  you are on a team
+  *  visible only to functions in this file
+  *********************************************************/
+ static heapMetaInfo hmi;
+-
++static int smallestIdx = -1, largestIdx =  -1;
+ 
+ /**********************************************************
+  * Quality of life helper functions / macros
+@@ -286,19 +286,39 @@ int setupHeap(int initialSize, int minPartSize, int maxPartSize) // need to chan
+     //       hmi.A <= an array of partition linked list
+     //       hmi.maxIdx <= the largest index for hmi.A[]
+ 
+-    // Figure out the num of levels via continuous Log2:
+-    int numLevels = log2Ceiling(initialSize);
+-    hmi.maxIdx = numLevels - 1; //change this!
+-    printf("Initial Size: %d\n", initialSize);
++    largestIdx = log2Ceiling(maxPartSize); 
++    smallestIdx = log2Ceiling(minPartSize); 
++    // int numLevels = largestIdx - smallestIdx + 1; 
++
++    int numLevels = log2Ceiling(initialSize); // TODO: not sure what this is used for, seems like still need to init the rest though
++    // hmi.maxIdx = numLevels - 1; //change this!
++    hmi.maxIdx = largestIdx;
++    // printf("Initial Size: %d\n", initialSize);
++    printf("Initial Size: %d, smallestIdx: %d, largestIdx: %d, numLevels: %d\n", initialSize, smallestIdx, largestIdx, numLevels);
+ 
+ 
+     // allocate space for numLevels levels of partInfo arrays
+     hmi.A = (partInfo**) malloc(sizeof(partInfo*) * numLevels);
+-    // int remainingSize = initialSize;
+-    // int runningOffset = 0;
++    int remainingSize = initialSize; 
++    int idxToFill = log2Floor(remainingSize);
++    printf("remainingSize:%d, idxToFill: %d\n", remainingSize, idxToFill); 
++    if (idxToFill > largestIdx) return -1 ;
++    assert(idxToFill <= largestIdx); // temp assertion TODO 
++    for(int i = hmi.maxIdx, runningOffset = 0; i >= 0; i--) {
++        // adjust the idx values if it falls outside allowed range
++        idxToFill = idxToFill < smallestIdx ? smallestIdx : idxToFill;
++        assert(idxToFill >= smallestIdx && idxToFill <= largestIdx); 
++        // now, assign values to array elements: 
++        if(i < smallestIdx || i > largestIdx || remainingSize < 0 || i != idxToFill) { 
++            hmi.A[i] = NULL;
++        } else { // worth filling something in
++            int blockSize = powOf2(idxToFill);
++            hmi.A[i] = buildPartitionInfo(runningOffset); 
++            runningOffset += blockSize;
++            remainingSize -= blockSize;
++        }
+ 
+-    for(int i = hmi.maxIdx, remainingSize = initialSize, runningOffset = 0; i >= 0; i--) {
+-        int idxToFill = log2Floor(remainingSize);
++    /*
+         int blockSize = powOf2(idxToFill);
+         // printf("i:%d, idxToFill: %d , blockSize: %d\n", i, idxToFill, blockSize);
+         if(remainingSize > 0 && i == idxToFill) { 
+@@ -308,6 +328,7 @@ int setupHeap(int initialSize, int minPartSize, int maxPartSize) // need to chan
+         } else { 
+             hmi.A[i] = NULL; // it's a must to set null, or valgrind will complain about uninit values
+         }
++        */
+     }
+     return 1;
+ }
+@@ -323,7 +344,12 @@ void* mymalloc(int size)
+ {
+     //TODO: Task 2. Implement the allocation using buddy allocator
+     // printf(">>> mymalloc(%d)\n", size);
++
++    // adjusting parameter sizes: 
+     int lvl = log2Ceiling(size);
++    if(lvl > largestIdx) return (void*) NULL;
++    if(lvl < smallestIdx) smallestIdx = smallestIdx;
++    
+     partInfo* target = removePartitionAtLevel(lvl);
+     void* memAddr = hmi.base + target->offset; 
+     if(!target) {
+@@ -344,7 +370,11 @@ void myfree(void* address, int size)
+     //TODO: Task 3. Implement the de allocation using buddy allocator
+     // int offset = address - hmi.base;
+     // printf(">>> myfree(%d,%d).\n", offset , size );
++
++    // adjusting parameter sizes: 
+     int lvl = log2Ceiling(size);
++    if(lvl > largestIdx) return; 
++    if(lvl < smallestIdx) smallestIdx = smallestIdx;
+     hmi.internalFragTotal -= powOf2(lvl) - size;
+ 
+     // add a partition to the hmi array to indicate it as free: 
+diff --git a/L4/L4/ex4/ex4.exe b/L4/L4/ex4/ex4.exe
+index 4a7d450..fd8f755 100755
+Binary files a/L4/L4/ex4/ex4.exe and b/L4/L4/ex4/ex4.exe differ
+diff --git a/L4/L4/ex4/ex4D.exe b/L4/L4/ex4/ex4D.exe
+index 8901fae..990693e 100755
+Binary files a/L4/L4/ex4/ex4D.exe and b/L4/L4/ex4/ex4D.exe differ
+diff --git a/L4/L4/ex4/ex4M.exe b/L4/L4/ex4/ex4M.exe
+index 98d573c..8aa7de1 100755
+Binary files a/L4/L4/ex4/ex4M.exe and b/L4/L4/ex4/ex4M.exe differ

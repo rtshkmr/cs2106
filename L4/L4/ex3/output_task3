@@ -1,0 +1,292 @@
+Heap size 1024, #Req 15
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x4030000
+A[10]: [+    0] 
+A[9]: 
+A[8]: 
+A[7]: 
+A[6]: 
+A[5]: 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 1 integers = 4 bytes
+>>> mymalloc(4)
+A: Allocated at [0x4030000], request idx [0]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x4030000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: [+   16] 
+A[3]: [+    8] 
+A[2]: [+    4] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 4 integers = 16 bytes
+>>> mymalloc(16)
+A: Allocated at [0x4030010], request idx [1]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x4030000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: 
+A[3]: [+    8] 
+A[2]: [+    4] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 1 integers = 4 bytes
+>>> mymalloc(4)
+A: Allocated at [0x4030004], request idx [2]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x4030000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: 
+A[3]: [+    8] 
+A[2]: 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 1 integers = 4 bytes
+>>> mymalloc(4)
+A: Allocated at [0x4030008], request idx [3]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x4030000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: 
+A[3]: 
+A[2]: [+   12] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x4030000 | nInt 1
+   1 | Addr 0x4030010 | nInt 4
+   2 | Addr 0x4030004 | nInt 1
+   3 | Addr 0x4030008 | nInt 1
+Free partition <idx> = F: 0x4030000 [S=4]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x4030000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: 
+A[3]: 
+A[2]: [+    0] [+   12] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x4030010 | nInt 4
+   1 | Addr 0x4030004 | nInt 1
+   2 | Addr 0x4030008 | nInt 1
+Free partition <idx> = F: 0x4030004 [S=4]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x4030000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: 
+A[3]: [+    0] 
+A[2]: [+   12] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x4030010 | nInt 4
+   1 | Addr 0x4030008 | nInt 1
+Free partition <idx> = F: 0x4030010 [S=16]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x4030000
+A[10]: 
+A[9]: [+  512] 
+A[8]: [+  256] 
+A[7]: [+  128] 
+A[6]: [+   64] 
+A[5]: [+   32] 
+A[4]: [+   16] 
+A[3]: [+    0] 
+A[2]: [+   12] 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x4030008 | nInt 1
+Free partition <idx> = F: 0x4030008 [S=4]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x4030000
+A[10]: [+    0] 
+A[9]: 
+A[8]: 
+A[7]: 
+A[6]: 
+A[5]: 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => *Testing Done. Cleaning up!
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x4030000
+A[10]: [+    0] 
+A[9]: 
+A[8]: 
+A[7]: 
+A[6]: 
+A[5]: 
+A[4]: 
+A[3]: 
+A[2]: 
+A[1]: 
+A[0]: 
+>>> i: 0
+>>> i: 1
+>>> i: 2
+>>> i: 3
+>>> i: 4
+>>> i: 5
+>>> i: 6
+>>> i: 7
+>>> i: 8
+>>> i: 9
