@@ -1,0 +1,63 @@
+1a2,3
+> Adding partition[+    0] at Level [10]
+> 	Buddy [+ 1024] not found!
+11c13
+< Start Address = 0x55bfbc3bd000
+---
+> Start Address = 0x55b1beeec000
+29c31,47
+< A: Allocated at [0x55bfbc3bd000], request idx [0]
+---
+> Adding partition[+  512] at Level [9]
+> 	Buddy [+    0] not found!
+> Adding partition[+  256] at Level [8]
+> 	Buddy [+    0] not found!
+> Adding partition[+  128] at Level [7]
+> 	Buddy [+    0] not found!
+> Adding partition[+   64] at Level [6]
+> 	Buddy [+    0] not found!
+> Adding partition[+   32] at Level [5]
+> 	Buddy [+    0] not found!
+> Adding partition[+   16] at Level [4]
+> 	Buddy [+    0] not found!
+> Adding partition[+    8] at Level [3]
+> 	Buddy [+    0] not found!
+> Adding partition[+    4] at Level [2]
+> 	Buddy [+    0] not found!
+> A: Allocated at [0x55b1beeec000], request idx [0]
+39c57
+< Start Address = 0x55bfbc3bd000
+---
+> Start Address = 0x55b1beeec000
+57c75
+< A: Allocated at [0x55bfbc3bd010], request idx [1]
+---
+> A: Allocated at [0x55b1beeec010], request idx [1]
+67c85
+< Start Address = 0x55bfbc3bd000
+---
+> Start Address = 0x55b1beeec000
+85c103
+< A: Allocated at [0x55bfbc3bd004], request idx [2]
+---
+> A: Allocated at [0x55b1beeec004], request idx [2]
+95c113
+< Start Address = 0x55bfbc3bd000
+---
+> Start Address = 0x55b1beeec000
+113c131,133
+< A: Allocated at [0x55bfbc3bd008], request idx [3]
+---
+> Adding partition[+   12] at Level [2]
+> 	Buddy [+    8] not found!
+> A: Allocated at [0x55b1beeec008], request idx [3]
+123c143
+< Start Address = 0x55bfbc3bd000
+---
+> Start Address = 0x55b1beeec000
+145c165
+< Start Address = 0x55bfbc3bd000
+---
+> Start Address = 0x55b1beeec000
+160d179
+< Total Space: 1024 bytes

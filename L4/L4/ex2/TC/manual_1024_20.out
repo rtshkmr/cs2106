@@ -1,0 +1,310 @@
+Heap size 1024, #Req 20
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a446510000], request idx [0]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a446510050], request idx [1]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a4465100a0], request idx [2]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a4465100f0], request idx [3]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a446510140], request idx [4]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a446510190], request idx [5]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a4465101e0], request idx [6]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a446510230], request idx [7]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a446510280], request idx [8]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a4465102d0], request idx [9]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a446510320], request idx [10]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: Allocated at [0x55a446510370], request idx [11]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: FAILED
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: FAILED
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 20 integers = 80 bytes
+A: FAILED
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x55a446510000 | nInt 20
+   1 | Addr 0x55a446510050 | nInt 20
+   2 | Addr 0x55a4465100a0 | nInt 20
+   3 | Addr 0x55a4465100f0 | nInt 20
+   4 | Addr 0x55a446510140 | nInt 20
+   5 | Addr 0x55a446510190 | nInt 20
+   6 | Addr 0x55a4465101e0 | nInt 20
+   7 | Addr 0x55a446510230 | nInt 20
+   8 | Addr 0x55a446510280 | nInt 20
+   9 | Addr 0x55a4465102d0 | nInt 20
+  10 | Addr 0x55a446510320 | nInt 20
+  11 | Addr 0x55a446510370 | nInt 20
+Free partition <idx> = F: (nil) [S=0]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x55a446510000 | nInt 20
+   1 | Addr 0x55a446510050 | nInt 20
+   2 | Addr 0x55a4465100a0 | nInt 20
+   3 | Addr 0x55a4465100f0 | nInt 20
+   4 | Addr 0x55a446510140 | nInt 20
+   5 | Addr 0x55a446510190 | nInt 20
+   6 | Addr 0x55a4465101e0 | nInt 20
+   7 | Addr 0x55a446510230 | nInt 20
+   8 | Addr 0x55a446510280 | nInt 20
+   9 | Addr 0x55a4465102d0 | nInt 20
+  10 | Addr 0x55a446510320 | nInt 20
+  11 | Addr 0x55a446510370 | nInt 20
+Free partition <idx> = F: (nil) [S=0]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x55a446510000 | nInt 20
+   1 | Addr 0x55a446510050 | nInt 20
+   2 | Addr 0x55a4465100a0 | nInt 20
+   3 | Addr 0x55a4465100f0 | nInt 20
+   4 | Addr 0x55a446510140 | nInt 20
+   5 | Addr 0x55a446510190 | nInt 20
+   6 | Addr 0x55a4465101e0 | nInt 20
+   7 | Addr 0x55a446510230 | nInt 20
+   8 | Addr 0x55a446510280 | nInt 20
+   9 | Addr 0x55a4465102d0 | nInt 20
+  10 | Addr 0x55a446510320 | nInt 20
+  11 | Addr 0x55a446510370 | nInt 20
+Free partition <idx> = F: 0x55a446510320 [S=80]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x55a446510000 | nInt 20
+   1 | Addr 0x55a446510050 | nInt 20
+   2 | Addr 0x55a4465100a0 | nInt 20
+   3 | Addr 0x55a4465100f0 | nInt 20
+   4 | Addr 0x55a446510140 | nInt 20
+   5 | Addr 0x55a446510190 | nInt 20
+   6 | Addr 0x55a4465101e0 | nInt 20
+   7 | Addr 0x55a446510230 | nInt 20
+   8 | Addr 0x55a446510280 | nInt 20
+   9 | Addr 0x55a4465102d0 | nInt 20
+  10 | Addr 0x55a446510370 | nInt 20
+Free partition <idx> = F: 0x55a446510280 [S=80]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x55a446510000 | nInt 20
+   1 | Addr 0x55a446510050 | nInt 20
+   2 | Addr 0x55a4465100a0 | nInt 20
+   3 | Addr 0x55a4465100f0 | nInt 20
+   4 | Addr 0x55a446510140 | nInt 20
+   5 | Addr 0x55a446510190 | nInt 20
+   6 | Addr 0x55a4465101e0 | nInt 20
+   7 | Addr 0x55a446510230 | nInt 20
+   8 | Addr 0x55a4465102d0 | nInt 20
+   9 | Addr 0x55a446510370 | nInt 20
+Free partition <idx> = F: 0x55a4465101e0 [S=80]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x55a446510000 | nInt 20
+   1 | Addr 0x55a446510050 | nInt 20
+   2 | Addr 0x55a4465100a0 | nInt 20
+   3 | Addr 0x55a4465100f0 | nInt 20
+   4 | Addr 0x55a446510140 | nInt 20
+   5 | Addr 0x55a446510190 | nInt 20
+   6 | Addr 0x55a446510230 | nInt 20
+   7 | Addr 0x55a4465102d0 | nInt 20
+   8 | Addr 0x55a446510370 | nInt 20
+Free partition <idx> = F: 0x55a446510140 [S=80]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x55a446510000 | nInt 20
+   1 | Addr 0x55a446510050 | nInt 20
+   2 | Addr 0x55a4465100a0 | nInt 20
+   3 | Addr 0x55a4465100f0 | nInt 20
+   4 | Addr 0x55a446510190 | nInt 20
+   5 | Addr 0x55a446510230 | nInt 20
+   6 | Addr 0x55a4465102d0 | nInt 20
+   7 | Addr 0x55a446510370 | nInt 20
+Free partition <idx> = F: 0x55a4465100a0 [S=80]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => Existing partitions:
+   0 | Addr 0x55a446510000 | nInt 20
+   1 | Addr 0x55a446510050 | nInt 20
+   2 | Addr 0x55a4465100f0 | nInt 20
+   3 | Addr 0x55a446510190 | nInt 20
+   4 | Addr 0x55a446510230 | nInt 20
+   5 | Addr 0x55a4465102d0 | nInt 20
+   6 | Addr 0x55a446510370 | nInt 20
+Free partition <idx> = F: 0x55a446510000 [S=80]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => 
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x55a446510000
+Partition list:
+[+    0 |    80 bytes | 0]
+[+   80 |    80 bytes | 1]
+[+  160 |    80 bytes | 0]
+[+  240 |    80 bytes | 1]
+[+  320 |    80 bytes | 0]
+[+  400 |    80 bytes | 1]
+[+  480 |    80 bytes | 0]
+[+  560 |    80 bytes | 1]
+[+  640 |    80 bytes | 0]
+[+  720 |    80 bytes | 1]
+[+  800 |    80 bytes | 0]
+[+  880 |    80 bytes | 1]
+[+  960 |    64 bytes | 0]
+
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => A: 7 integers = 28 bytes
+A: Allocated at [0x55a4465103c0], request idx [6]
+
+********* Menu *********
+Allocate= 1 <nInt>  | Deallocate = 2        |
+Print Heap Meta = 3 | Print Heap Stat = 4 |
+Print Entire Heap = 5 | Exit = 0
+Your Choice => *Testing Done. Cleaning up!
+
+Heap Meta Info:
+===============
+Total Size = 1024 bytes
+Start Address = 0x55a446510000
+Partition list:
+[+    0 |    80 bytes | 0]
+[+   80 |    80 bytes | 1]
+[+  160 |    80 bytes | 0]
+[+  240 |    80 bytes | 1]
+[+  320 |    80 bytes | 0]
+[+  400 |    80 bytes | 1]
+[+  480 |    80 bytes | 0]
+[+  560 |    80 bytes | 1]
+[+  640 |    80 bytes | 0]
+[+  720 |    80 bytes | 1]
+[+  800 |    80 bytes | 0]
+[+  880 |    80 bytes | 1]
+[+  960 |    28 bytes | 1]
+[+  988 |    36 bytes | 0]
+
+
+Heap Usage Statistics:
+======================
+Total Space: 1024 bytes
+Total Occupied Partitions: 7
+	Total Occupied Size: 508 bytes
+Total Number of Holes: 7
+	Total Hole Size: 516 bytes
