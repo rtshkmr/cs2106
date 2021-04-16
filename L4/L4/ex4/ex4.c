@@ -220,6 +220,10 @@ void addPartitionAtLevel( unsigned int lvl, unsigned int offset )
  *      at higher level
  *********************************************************/
 {
+    if(lvl < minLvl) {
+        addPartitionAtLevel(minLvl, offset); 
+    }
+
     int buddyOffset = buddyOf(offset, lvl);
 
     partInfo* current = hmi.A[lvl];
@@ -331,9 +335,7 @@ int setupHeap(int initialSize, int minPartSize, int maxPartSize)
             break;
         }
         
-        printf("next: %d\n", nextLvl);
         nextLvl = nextLvl > maxLvl ? maxLvl : nextLvl;
-        printf("nextA: %d\n", nextLvl);
         partInfo* part = buildPartitionInfo(initialSize - size);
         insertPartition(part, nextLvl);
         size -= powOf2(nextLvl);
@@ -374,10 +376,10 @@ void myfree(void* address, int size)
 {
     //TODO: Task 3. Implement the de allocation using buddy allocator
 
+    // assumption: size can't be greater than max allocatable partition
     int partLvl = log2Ceiling(size);
     
     hmi.internalFragTotal -= powOf2(partLvl) - size;
     int offset = address - hmi.base;
-    printf("OFFSET %d\n", offset); 
     addPartitionAtLevel(partLvl, offset);
 }
