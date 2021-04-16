@@ -1,8 +1,13 @@
 /*************************************
-* Lab 4 Exercise 3
-* Name:
-* Student Id: A????????
-* Lab Group: B??
+* Lab 4 Exercise 4
+* Name: Fang Junwei, Samuel
+* Student Id: A0199163U
+* Lab Group: B01
+*************************************
+* Lab 4 Exercise 4
+* Name: Ritesh Kumar
+* Student Id: A0201829H
+* Lab Group: B12
 *************************************
 Note: Duplicate the above and fill in 
 for the 2nd member if  you are on a team
