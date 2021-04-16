@@ -201,7 +201,7 @@ void insertPartition(partInfo* part, unsigned int lvl) {
         partInfo* current = hmi.A[lvl];
         partInfo* prev = NULL;
         
-        printf("Adding partition[+  %d] at Level [%d]\n", part->offset, lvl);
+        //printf("Adding partition[+  %d] at Level [%d]\n", part->offset, lvl);
 
         while (current != NULL && current->offset < part->offset) {
             prev = current;
@@ -225,8 +225,8 @@ void addPartitionAtLevel( unsigned int lvl, unsigned int offset )
  *      at higher level
  *********************************************************/
 {
-    if(lvl < minLvl) {
-        addPartitionAtLevel(minLvl, offset); 
+    if (lvl < minLvl) {
+        return addPartitionAtLevel(minLvl, offset);
     }
 
     int buddyOffset = buddyOf(offset, lvl);
